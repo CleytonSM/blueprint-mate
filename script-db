@@ -1,0 +1,54 @@
+BEGIN TRANSACTION;
+
+CREATE TABLE tb_authority(
+  id_auth int PRIMARY KEY,
+  nm_auth int,
+  create_at timestamp,
+  updated_at timestamp
+);
+
+CREATE TABLE tb_user(
+  id_user int PRIMARY KEY,
+  id_auth int REFERENCES tb_authority(id_auth),
+  email_user varchar(80),
+  pwd_user varchar(80),
+  created_at timestamp,
+  updated_at timestamp,
+  deleted_at timestamp
+);
+
+CREATE TABLE tb_client(
+  id_client int PRIMARY KEY,
+  id_user int UNIQUE NOT NULL REFERENCES tb_user(id_user),
+  nm_client varchar(60) NOT NULL,
+  nicknm_client varchar(40),
+  birthday_client date NOT NULL,
+  marital_status_client varchar(12) NOT NULL,
+  religion_client varchar(45),
+  veg_vege_client bool,
+  individual_needs_client varchar(150),
+  created_at timestamp,
+  updated_at timestamp,
+  deleted_at timestamp
+);
+
+CREATE TABLE tb_social_media(
+  id_social_media int PRIMARY KEY,
+  id_client int NOT NULL REFERENCES tb_client(id_client),
+  nm_social_media varchar(60),
+  create_at timestamp,
+  updated_at timestamp,
+  deleted_at timestamp
+);
+
+CREATE TABLE tb_descendants(
+  id_descendant int PRIMARY KEY,
+  id_client int NOT NULL REFERENCES tb_client(id_client),
+  nm_descendant varchar(60),
+  age_descendant int,
+  created_at timestamp,
+  updated_at timestamp,
+  deleted_at timestamp
+);
+
+COMMIT;
