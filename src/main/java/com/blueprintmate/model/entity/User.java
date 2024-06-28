@@ -10,20 +10,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private int idUser;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_auth")
     private Authority authority;
 
     @Column(name = "email_user", length = 80)
-    private String emailUser;
+    private String email;
 
     @Column(name = "pwd_user", length = 60)
-    private String pwdUser;
+    private String password;
 
     @Column(name = "active_user")
-    private boolean activeUser;
+    private boolean active;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -34,8 +34,8 @@ public class User {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public int getIdUser() {
-        return idUser;
+    public int getId() {
+        return id;
     }
 
     public Authority getAuthority() {
@@ -46,28 +46,28 @@ public class User {
         this.authority = authority;
     }
 
-    public String getEmailUser() {
-        return emailUser;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailUser(String emailUser) {
-        this.emailUser = emailUser;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPwdUser() {
-        return pwdUser;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwdUser(String pwdUser) {
-        this.pwdUser = pwdUser;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public boolean isActiveUser() {
-        return activeUser;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setActiveUser(boolean activeUser) {
-        this.activeUser = activeUser;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public Timestamp getCreatedAt() {

@@ -10,10 +10,10 @@ public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_auth")
-    private int idAuth;
+    private int id;
 
     @Column(name = "nm_auth", length = 10)
-    private String nmAuth;
+    private String name;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -21,16 +21,16 @@ public class Authority {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    public int getIdAuth() {
-        return idAuth;
+    public int getId() {
+        return id;
     }
 
-    public String getNmAuth() {
-        return nmAuth;
+    public String getName() {
+        return name;
     }
 
-    public void setNmAuth(String nmAuth) {
-        this.nmAuth = nmAuth;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Timestamp getCreatedAt() {
