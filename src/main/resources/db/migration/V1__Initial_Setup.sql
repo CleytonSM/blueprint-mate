@@ -1,5 +1,3 @@
-BEGIN TRANSACTION;
-
 CREATE TABLE tb_authority(
   id_auth int PRIMARY KEY,
   nm_auth int,
@@ -341,5 +339,3 @@ CREATE TABLE tb_necessary_appliances(
   updated_at TIMESTAMP,
   deleted_at TIMESTAMP
 );
-
-COMMIT;
