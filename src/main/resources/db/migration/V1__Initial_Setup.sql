@@ -151,9 +151,9 @@ CREATE TABLE tb_master_suite(
 
 CREATE TABLE tb_descendants_suite(
   id_descendants_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
-  bool_tv_in_master_suite boolean,
-  bool_son_study_in_descendants_suite boolean,
-  bool_son_receives_friends_to_sleep_descendants_suite boolean,
+  bool_tv_in_descendants_suite boolean,
+  bool_child_study_in_descendants_suite boolean,
+  bool_child_receives_friends_to_sleep_descendants_suite boolean,
   theme_descendants_suite varchar(30),
   created_at timestamp,
   updated_at timestamp,
