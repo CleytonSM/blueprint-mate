@@ -5,25 +5,23 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tb_user")
-public class User {
+@Table(name = "tb_style_and_moods")
+public class StyleAndMoods {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
+    @Column(name = "id_style_and_moods")
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_auth")
-    private Authority authority;
+    @ManyToOne
+    @JoinColumn(name = "id_client", nullable = false)
+    private Client client;
 
-    @Column(name = "email_user", length = 80)
-    private String email;
+    @Column(name = "ambient_style_style_and_moods", length = 20)
+    private String ambientStyle;
 
-    @Column(name = "pwd_user", length = 60)
-    private String password;
-
-    @Column(name = "active_user")
-    private boolean active;
+    @Column(name = "ambient_style_description_style_and_moods", length = 180)
+    private String ambientStyleDescription;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -38,36 +36,28 @@ public class User {
         return id;
     }
 
-    public Authority getAuthority() {
-        return authority;
+    public Client getClient() {
+        return client;
     }
 
-    public void setAuthority(Authority authority) {
-        this.authority = authority;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAmbientStyle() {
+        return ambientStyle;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAmbientStyle(String ambientStyle) {
+        this.ambientStyle = ambientStyle;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAmbientStyleDescription() {
+        return ambientStyleDescription;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setAmbientStyleDescription(String ambientStyleDescription) {
+        this.ambientStyleDescription = ambientStyleDescription;
     }
 
     public Timestamp getCreatedAt() {

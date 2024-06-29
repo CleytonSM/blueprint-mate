@@ -5,25 +5,23 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tb_user")
-public class User {
+@Table(name = "tb_descendants")
+public class Descendants {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
+    @Column(name = "id_descendant")
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_auth")
-    private Authority authority;
+    @ManyToOne
+    @JoinColumn(name = "id_client", nullable = false)
+    private Client client;
 
-    @Column(name = "email_user", length = 80)
-    private String email;
+    @Column(name = "nm_descendant", length = 60)
+    private String name;
 
-    @Column(name = "pwd_user", length = 60)
-    private String password;
-
-    @Column(name = "active_user")
-    private boolean active;
+    @Column(name = "age_descendant")
+    private int age;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -38,36 +36,28 @@ public class User {
         return id;
     }
 
-    public Authority getAuthority() {
-        return authority;
+    public Client getClient() {
+        return client;
     }
 
-    public void setAuthority(Authority authority) {
-        this.authority = authority;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public int getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public Timestamp getCreatedAt() {
