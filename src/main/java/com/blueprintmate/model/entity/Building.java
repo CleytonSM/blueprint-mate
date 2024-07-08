@@ -18,19 +18,19 @@ public class Building {
     private Client client;
 
     @Column(name = "neighborhood_relationship_building", length = 180)
-    private String neighborhoodRelationshipBuilding;
+    private String neighborhoodRelationship;
 
     @Column(name = "determining_factor_building", length = 180)
-    private String determiningFactorBuilding;
+    private String determiningFactor;
 
     @Column(name = "architectural_language_building", length = 180)
-    private String architecturalLanguageBuilding;
+    private String architecturalLanguage;
 
     @Column(name = "balcony_integration_building", length = 180)
-    private String balconyIntegrationBuilding;
+    private String balconyIntegration;
 
     @Column(name = "building_manager_contact_building", length = 180)
-    private String buildingManagerContactBuilding;
+    private String buildingManagerContact;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -57,44 +57,44 @@ public class Building {
         this.client = client;
     }
 
-    public String getNeighborhoodRelationshipBuilding() {
-        return neighborhoodRelationshipBuilding;
+    public String getNeighborhoodRelationship() {
+        return neighborhoodRelationship;
     }
 
-    public void setNeighborhoodRelationshipBuilding(String neighborhoodRelationshipBuilding) {
-        this.neighborhoodRelationshipBuilding = neighborhoodRelationshipBuilding;
+    public void setNeighborhoodRelationship(String neighborhoodRelationship) {
+        this.neighborhoodRelationship = neighborhoodRelationship;
     }
 
-    public String getDeterminingFactorBuilding() {
-        return determiningFactorBuilding;
+    public String getDeterminingFactor() {
+        return determiningFactor;
     }
 
-    public void setDeterminingFactorBuilding(String determiningFactorBuilding) {
-        this.determiningFactorBuilding = determiningFactorBuilding;
+    public void setDeterminingFactor(String determiningFactor) {
+        this.determiningFactor = determiningFactor;
     }
 
-    public String getArchitecturalLanguageBuilding() {
-        return architecturalLanguageBuilding;
+    public String getArchitecturalLanguage() {
+        return architecturalLanguage;
     }
 
-    public void setArchitecturalLanguageBuilding(String architecturalLanguageBuilding) {
-        this.architecturalLanguageBuilding = architecturalLanguageBuilding;
+    public void setArchitecturalLanguage(String architecturalLanguage) {
+        this.architecturalLanguage = architecturalLanguage;
     }
 
-    public String getBalconyIntegrationBuilding() {
-        return balconyIntegrationBuilding;
+    public String getBalconyIntegration() {
+        return balconyIntegration;
     }
 
-    public void setBalconyIntegrationBuilding(String balconyIntegrationBuilding) {
-        this.balconyIntegrationBuilding = balconyIntegrationBuilding;
+    public void setBalconyIntegration(String balconyIntegration) {
+        this.balconyIntegration = balconyIntegration;
     }
 
-    public String getBuildingManagerContactBuilding() {
-        return buildingManagerContactBuilding;
+    public String getBuildingManagerContact() {
+        return buildingManagerContact;
     }
 
-    public void setBuildingManagerContactBuilding(String buildingManagerContactBuilding) {
-        this.buildingManagerContactBuilding = buildingManagerContactBuilding;
+    public void setBuildingManagerContact(String buildingManagerContact) {
+        this.buildingManagerContact = buildingManagerContact;
     }
 
     public Timestamp getCreatedAt() {

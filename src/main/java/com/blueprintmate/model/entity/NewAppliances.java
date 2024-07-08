@@ -5,20 +5,17 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tb_toilet")
-@PrimaryKeyJoinColumn(name = "id_toilet")
-public class Toilet extends Project {
+@Table(name = "tb_new_appliances")
+@PrimaryKeyJoinColumn(name = "id_new_appliances")
+public class NewAppliances {
 
     @ManyToOne
-    @JoinColumn(name = "id_toilet", referencedColumnName = "id_project",
+    @JoinColumn(name = "id_new_appliances", referencedColumnName = "id_appliances",
             nullable = false, insertable = false, updatable = false)
-    private Project project;
+    private Appliances appliances;
 
-    @Column(name = "apartment_pattern_toilet", length = 180)
-    private String apartmentPattern;
-
-    @Column(name = "design_toilet", length = 50)
-    private String designToilet;
+    @Column(name = "link_new_appliances", length = Integer.MAX_VALUE)
+    private String link;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -29,28 +26,20 @@ public class Toilet extends Project {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Project getProject() {
-        return project;
+    public Appliances getAppliances() {
+        return appliances;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setAppliances(Appliances appliances) {
+        this.appliances = appliances;
     }
 
-    public String getApartmentPattern() {
-        return apartmentPattern;
+    public String getLink() {
+        return link;
     }
 
-    public void setApartmentPattern(String apartmentPattern) {
-        this.apartmentPattern = apartmentPattern;
-    }
-
-    public String getDesignToilet() {
-        return designToilet;
-    }
-
-    public void setDesignToilet(String designToilet) {
-        this.designToilet = designToilet;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public Timestamp getCreatedAt() {

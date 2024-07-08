@@ -15,19 +15,19 @@ public class EntranceHall extends Project {
     private Project project;
 
     @Column(name = "bool_shoes_house_walking_entrance_hall")
-    private Boolean hasShoesHouseWalkingEntranceHall;
+    private Boolean hasShoesHouseWalking;
 
     @Column(name = "bool_has_entrance_console_table_entrance_hall")
-    private Boolean hasEntranceConsoleTableEntranceHall;
+    private Boolean hasEntranceConsoleTable;
 
     @Column(name = "bool_want_entrance_console_table_entrance_hall")
-    private Boolean hasWantEntranceConsoleTableEntranceHall;
+    private Boolean hasWantEntranceConsoleTable;
 
     @Column(name = "bool_full_length_mirror_entrance_hall")
-    private Boolean hasFullLengthMirrorEntranceHall;
+    private Boolean hasFullLengthMirror;
 
     @Column(name = "bool_familiar_with_electronic_locks_entrance_hall")
-    private Boolean hasFamiliarWithElectronicLocksEntranceHall;
+    private Boolean hasFamiliarWithElectronicLocks;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -46,44 +46,44 @@ public class EntranceHall extends Project {
         this.project = project;
     }
 
-    public Boolean getHasShoesHouseWalkingEntranceHall() {
-        return hasShoesHouseWalkingEntranceHall;
+    public Boolean getHasShoesHouseWalking() {
+        return hasShoesHouseWalking;
     }
 
-    public void setHasShoesHouseWalkingEntranceHall(Boolean hasShoesHouseWalkingEntranceHall) {
-        this.hasShoesHouseWalkingEntranceHall = hasShoesHouseWalkingEntranceHall;
+    public void setHasShoesHouseWalking(Boolean hasShoesHouseWalking) {
+        this.hasShoesHouseWalking = hasShoesHouseWalking;
     }
 
-    public Boolean getHasEntranceConsoleTableEntranceHall() {
-        return hasEntranceConsoleTableEntranceHall;
+    public Boolean getHasEntranceConsoleTable() {
+        return hasEntranceConsoleTable;
     }
 
-    public void setHasEntranceConsoleTableEntranceHall(Boolean hasEntranceConsoleTableEntranceHall) {
-        this.hasEntranceConsoleTableEntranceHall = hasEntranceConsoleTableEntranceHall;
+    public void setHasEntranceConsoleTable(Boolean hasEntranceConsoleTable) {
+        this.hasEntranceConsoleTable = hasEntranceConsoleTable;
     }
 
-    public Boolean getHasWantEntranceConsoleTableEntranceHall() {
-        return hasWantEntranceConsoleTableEntranceHall;
+    public Boolean getHasWantEntranceConsoleTable() {
+        return hasWantEntranceConsoleTable;
     }
 
-    public void setHasWantEntranceConsoleTableEntranceHall(Boolean hasWantEntranceConsoleTableEntranceHall) {
-        this.hasWantEntranceConsoleTableEntranceHall = hasWantEntranceConsoleTableEntranceHall;
+    public void setHasWantEntranceConsoleTable(Boolean hasWantEntranceConsoleTable) {
+        this.hasWantEntranceConsoleTable = hasWantEntranceConsoleTable;
     }
 
-    public Boolean getHasFullLengthMirrorEntranceHall() {
-        return hasFullLengthMirrorEntranceHall;
+    public Boolean getHasFullLengthMirror() {
+        return hasFullLengthMirror;
     }
 
-    public void setHasFullLengthMirrorEntranceHall(Boolean hasFullLengthMirrorEntranceHall) {
-        this.hasFullLengthMirrorEntranceHall = hasFullLengthMirrorEntranceHall;
+    public void setHasFullLengthMirror(Boolean hasFullLengthMirror) {
+        this.hasFullLengthMirror = hasFullLengthMirror;
     }
 
-    public Boolean getHasFamiliarWithElectronicLocksEntranceHall() {
-        return hasFamiliarWithElectronicLocksEntranceHall;
+    public Boolean getHasFamiliarWithElectronicLocks() {
+        return hasFamiliarWithElectronicLocks;
     }
 
-    public void setHasFamiliarWithElectronicLocksEntranceHall(Boolean hasFamiliarWithElectronicLocksEntranceHall) {
-        this.hasFamiliarWithElectronicLocksEntranceHall = hasFamiliarWithElectronicLocksEntranceHall;
+    public void setHasFamiliarWithElectronicLocks(Boolean hasFamiliarWithElectronicLocks) {
+        this.hasFamiliarWithElectronicLocks = hasFamiliarWithElectronicLocks;
     }
 
     public Timestamp getCreatedAt() {

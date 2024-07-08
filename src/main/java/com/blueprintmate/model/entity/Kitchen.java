@@ -15,58 +15,58 @@ public class Kitchen extends Project {
     private Project project;
 
     @Column(name = "color_type_kitchen", length = 30)
-    private String colorTypeKitchen;
+    private String colorType;
 
     @Column(name = "shape_type_kitchen", length = 30)
-    private String shapeTypeKitchen;
+    private String shapeType;
 
     @Column(name = "counter_top_material_kitchen", length = 30)
-    private String counterTopMaterialKitchen;
+    private String counterTopMaterial;
 
     @Column(name = "material_preference_kitchen", length = 30)
-    private String materialPreferenceKitchen;
+    private String materialPreference;
 
     @Column(name = "bool_wet_gutter_kitchen")
-    private Boolean hasWetGutterKitchen;
+    private Boolean hasWetGutter;
 
     @Column(name = "bool_built_in_trash_can_kitchen")
-    private Boolean hasBuiltInTrashCanKitchen;
+    private Boolean hasBuiltInTrashCan;
 
     @Column(name = "bool_choose_appliances_kitchen")
-    private Boolean hasChooseAppliancesKitchen;
+    private Boolean hasChooseAppliances;
 
     @Column(name = "bool_stove_kitchen")
-    private Boolean hasStoveKitchen;
+    private Boolean hasStove;
 
     @Column(name = "bool_cooktop_kitchen")
-    private Boolean hasCooktopKitchen;
+    private Boolean hasCooktop;
 
     @Column(name = "bool_induction_kitchen")
-    private Boolean hasInductionKitchen;
+    private Boolean hasInduction;
 
     @Column(name = "bool_burners_kitchen")
-    private Boolean hasBurnersKitchen;
+    private Boolean hasBurners;
 
     @Column(name = "bool_stove_on_counter_top_kitchen")
-    private Boolean hasStoveOnCounterTopKitchen;
+    private Boolean hasStoveOnCounterTop;
 
     @Column(name = "bool_stove_on_tower_kitchen")
-    private Boolean hasStoveOnTowerKitchen;
+    private Boolean hasStoveOnTower;
 
     @Column(name = "fridge_type_kitchen", length = 60)
-    private String fridgeTypeKitchen;
+    private String fridgeType;
 
     @Column(name = "bool_separate_freezer_kitchen")
-    private Boolean hasSeparateFreezerKitchen;
+    private Boolean hasSeparateFreezer;
 
     @Column(name = "fridge_capacity_liters_kitchen", length = 140)
-    private Integer fridgeCapacityLitersKitchen;
+    private Integer fridgeCapacityLiters;
 
     @Column(name = "current_storage_satisfaction_kitchen")
-    private String currentStorageSatisfactionKitchen;
+    private String currentStorageSatisfaction;
 
     @Column(name = "dinner_capacity_kitchen")
-    private Integer dinnerCapacityKitchen;
+    private Integer dinnerCapacity;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -85,148 +85,148 @@ public class Kitchen extends Project {
         this.project = project;
     }
 
-    public String getColorTypeKitchen() {
-        return colorTypeKitchen;
+    public String getColorType() {
+        return colorType;
     }
 
-    public void setColorTypeKitchen(String colorTypeKitchen) {
-        this.colorTypeKitchen = colorTypeKitchen;
+    public void setColorType(String colorType) {
+        this.colorType = colorType;
     }
 
-    public String getShapeTypeKitchen() {
-        return shapeTypeKitchen;
+    public String getShapeType() {
+        return shapeType;
     }
 
-    public void setShapeTypeKitchen(String shapeTypeKitchen) {
-        this.shapeTypeKitchen = shapeTypeKitchen;
+    public void setShapeType(String shapeType) {
+        this.shapeType = shapeType;
     }
 
-    public String getCounterTopMaterialKitchen() {
-        return counterTopMaterialKitchen;
+    public String getCounterTopMaterial() {
+        return counterTopMaterial;
     }
 
-    public void setCounterTopMaterialKitchen(String counterTopMaterialKitchen) {
-        this.counterTopMaterialKitchen = counterTopMaterialKitchen;
+    public void setCounterTopMaterial(String counterTopMaterial) {
+        this.counterTopMaterial = counterTopMaterial;
     }
 
-    public String getMaterialPreferenceKitchen() {
-        return materialPreferenceKitchen;
+    public String getMaterialPreference() {
+        return materialPreference;
     }
 
-    public void setMaterialPreferenceKitchen(String materialPreferenceKitchen) {
-        this.materialPreferenceKitchen = materialPreferenceKitchen;
+    public void setMaterialPreference(String materialPreference) {
+        this.materialPreference = materialPreference;
     }
 
-    public Boolean getHasWetGutterKitchen() {
-        return hasWetGutterKitchen;
+    public Boolean getHasWetGutter() {
+        return hasWetGutter;
     }
 
-    public void setHasWetGutterKitchen(Boolean hasWetGutterKitchen) {
-        this.hasWetGutterKitchen = hasWetGutterKitchen;
+    public void setHasWetGutter(Boolean hasWetGutter) {
+        this.hasWetGutter = hasWetGutter;
     }
 
-    public Boolean getHasBuiltInTrashCanKitchen() {
-        return hasBuiltInTrashCanKitchen;
+    public Boolean getHasBuiltInTrashCan() {
+        return hasBuiltInTrashCan;
     }
 
-    public void setHasBuiltInTrashCanKitchen(Boolean hasBuiltInTrashCanKitchen) {
-        this.hasBuiltInTrashCanKitchen = hasBuiltInTrashCanKitchen;
+    public void setHasBuiltInTrashCan(Boolean hasBuiltInTrashCan) {
+        this.hasBuiltInTrashCan = hasBuiltInTrashCan;
     }
 
-    public Boolean getHasChooseAppliancesKitchen() {
-        return hasChooseAppliancesKitchen;
+    public Boolean getHasChooseAppliances() {
+        return hasChooseAppliances;
     }
 
-    public void setHasChooseAppliancesKitchen(Boolean hasChooseAppliancesKitchen) {
-        this.hasChooseAppliancesKitchen = hasChooseAppliancesKitchen;
+    public void setHasChooseAppliances(Boolean hasChooseAppliances) {
+        this.hasChooseAppliances = hasChooseAppliances;
     }
 
-    public Boolean getHasStoveKitchen() {
-        return hasStoveKitchen;
+    public Boolean getHasStove() {
+        return hasStove;
     }
 
-    public void setHasStoveKitchen(Boolean hasStoveKitchen) {
-        this.hasStoveKitchen = hasStoveKitchen;
+    public void setHasStove(Boolean hasStove) {
+        this.hasStove = hasStove;
     }
 
-    public Boolean getHasCooktopKitchen() {
-        return hasCooktopKitchen;
+    public Boolean getHasCooktop() {
+        return hasCooktop;
     }
 
-    public void setHasCooktopKitchen(Boolean hasCooktopKitchen) {
-        this.hasCooktopKitchen = hasCooktopKitchen;
+    public void setHasCooktop(Boolean hasCooktop) {
+        this.hasCooktop = hasCooktop;
     }
 
-    public Boolean getHasInductionKitchen() {
-        return hasInductionKitchen;
+    public Boolean getHasInduction() {
+        return hasInduction;
     }
 
-    public void setHasInductionKitchen(Boolean hasInductionKitchen) {
-        this.hasInductionKitchen = hasInductionKitchen;
+    public void setHasInduction(Boolean hasInduction) {
+        this.hasInduction = hasInduction;
     }
 
-    public Boolean getHasBurnersKitchen() {
-        return hasBurnersKitchen;
+    public Boolean getHasBurners() {
+        return hasBurners;
     }
 
-    public void setHasBurnersKitchen(Boolean hasBurnersKitchen) {
-        this.hasBurnersKitchen = hasBurnersKitchen;
+    public void setHasBurners(Boolean hasBurners) {
+        this.hasBurners = hasBurners;
     }
 
-    public Boolean getHasStoveOnCounterTopKitchen() {
-        return hasStoveOnCounterTopKitchen;
+    public Boolean getHasStoveOnCounterTop() {
+        return hasStoveOnCounterTop;
     }
 
-    public void setHasStoveOnCounterTopKitchen(Boolean hasStoveOnCounterTopKitchen) {
-        this.hasStoveOnCounterTopKitchen = hasStoveOnCounterTopKitchen;
+    public void setHasStoveOnCounterTop(Boolean hasStoveOnCounterTop) {
+        this.hasStoveOnCounterTop = hasStoveOnCounterTop;
     }
 
-    public Boolean getHasStoveOnTowerKitchen() {
-        return hasStoveOnTowerKitchen;
+    public Boolean getHasStoveOnTower() {
+        return hasStoveOnTower;
     }
 
-    public void setHasStoveOnTowerKitchen(Boolean hasStoveOnTowerKitchen) {
-        this.hasStoveOnTowerKitchen = hasStoveOnTowerKitchen;
+    public void setHasStoveOnTower(Boolean hasStoveOnTower) {
+        this.hasStoveOnTower = hasStoveOnTower;
     }
 
-    public String getFridgeTypeKitchen() {
-        return fridgeTypeKitchen;
+    public String getFridgeType() {
+        return fridgeType;
     }
 
-    public void setFridgeTypeKitchen(String fridgeTypeKitchen) {
-        this.fridgeTypeKitchen = fridgeTypeKitchen;
+    public void setFridgeType(String fridgeType) {
+        this.fridgeType = fridgeType;
     }
 
-    public Boolean getHasSeparateFreezerKitchen() {
-        return hasSeparateFreezerKitchen;
+    public Boolean getHasSeparateFreezer() {
+        return hasSeparateFreezer;
     }
 
-    public void setHasSeparateFreezerKitchen(Boolean hasSeparateFreezerKitchen) {
-        this.hasSeparateFreezerKitchen = hasSeparateFreezerKitchen;
+    public void setHasSeparateFreezer(Boolean hasSeparateFreezer) {
+        this.hasSeparateFreezer = hasSeparateFreezer;
     }
 
-    public Integer getFridgeCapacityLitersKitchen() {
-        return fridgeCapacityLitersKitchen;
+    public Integer getFridgeCapacityLiters() {
+        return fridgeCapacityLiters;
     }
 
-    public void setFridgeCapacityLitersKitchen(Integer fridgeCapacityLitersKitchen) {
-        this.fridgeCapacityLitersKitchen = fridgeCapacityLitersKitchen;
+    public void setFridgeCapacityLiters(Integer fridgeCapacityLiters) {
+        this.fridgeCapacityLiters = fridgeCapacityLiters;
     }
 
-    public String getCurrentStorageSatisfactionKitchen() {
-        return currentStorageSatisfactionKitchen;
+    public String getCurrentStorageSatisfaction() {
+        return currentStorageSatisfaction;
     }
 
-    public void setCurrentStorageSatisfactionKitchen(String currentStorageSatisfactionKitchen) {
-        this.currentStorageSatisfactionKitchen = currentStorageSatisfactionKitchen;
+    public void setCurrentStorageSatisfaction(String currentStorageSatisfaction) {
+        this.currentStorageSatisfaction = currentStorageSatisfaction;
     }
 
-    public Integer getDinnerCapacityKitchen() {
-        return dinnerCapacityKitchen;
+    public Integer getDinnerCapacity() {
+        return dinnerCapacity;
     }
 
-    public void setDinnerCapacityKitchen(Integer dinnerCapacityKitchen) {
-        this.dinnerCapacityKitchen = dinnerCapacityKitchen;
+    public void setDinnerCapacity(Integer dinnerCapacity) {
+        this.dinnerCapacity = dinnerCapacity;
     }
 
     public Timestamp getCreatedAt() {

@@ -16,22 +16,22 @@ public class Laundry extends Project {
     private Project project;
 
     @Column(name = "bool_built_in_sink_laundry")
-    private Boolean hasBuiltInSinkLaundry;
+    private Boolean hasBuiltInSink;
 
     @Column(name = "bool_porcelain_sink_laundry")
-    private Boolean hasPorcelainSinkLaundry;
+    private Boolean hasPorcelainSink;
 
     @Column(name = "bool_pet_food_and_bowls_stored_here_laundry")
-    private Boolean hasPetFoodAndBowlsStoredHereLaundry;
+    private Boolean hasPetFoodAndBowlsStoredHere;
 
     @Column(name = "bool_recycles_trash_laundry")
-    private Boolean hasRecyclesTrashLaundry;
+    private Boolean hasRecyclesTrash;
 
     @Column(name = "current_drying_rack_count_laundry")
-    private Integer currentDryingRackCountLaundry;
+    private Integer currentDryingRackCount;
 
     @Column(name = "drying_rack_sizes_laundry", precision = 5, scale = 2)
-    private BigDecimal dryingRackSizesLaundry;
+    private BigDecimal dryingRackSizes;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -50,52 +50,52 @@ public class Laundry extends Project {
         this.project = project;
     }
 
-    public Boolean getHasBuiltInSinkLaundry() {
-        return hasBuiltInSinkLaundry;
+    public Boolean getHasBuiltInSink() {
+        return hasBuiltInSink;
     }
 
-    public void setHasBuiltInSinkLaundry(Boolean hasBuiltInSinkLaundry) {
-        this.hasBuiltInSinkLaundry = hasBuiltInSinkLaundry;
+    public void setHasBuiltInSink(Boolean hasBuiltInSink) {
+        this.hasBuiltInSink = hasBuiltInSink;
     }
 
-    public Boolean getHasPorcelainSinkLaundry() {
-        return hasPorcelainSinkLaundry;
+    public Boolean getHasPorcelainSink() {
+        return hasPorcelainSink;
     }
 
-    public void setHasPorcelainSinkLaundry(Boolean hasPorcelainSinkLaundry) {
-        this.hasPorcelainSinkLaundry = hasPorcelainSinkLaundry;
+    public void setHasPorcelainSink(Boolean hasPorcelainSink) {
+        this.hasPorcelainSink = hasPorcelainSink;
     }
 
-    public Boolean getHasPetFoodAndBowlsStoredHereLaundry() {
-        return hasPetFoodAndBowlsStoredHereLaundry;
+    public Boolean getHasPetFoodAndBowlsStoredHere() {
+        return hasPetFoodAndBowlsStoredHere;
     }
 
-    public void setHasPetFoodAndBowlsStoredHereLaundry(Boolean hasPetFoodAndBowlsStoredHereLaundry) {
-        this.hasPetFoodAndBowlsStoredHereLaundry = hasPetFoodAndBowlsStoredHereLaundry;
+    public void setHasPetFoodAndBowlsStoredHere(Boolean hasPetFoodAndBowlsStoredHere) {
+        this.hasPetFoodAndBowlsStoredHere = hasPetFoodAndBowlsStoredHere;
     }
 
-    public Boolean getHasRecyclesTrashLaundry() {
-        return hasRecyclesTrashLaundry;
+    public Boolean getHasRecyclesTrash() {
+        return hasRecyclesTrash;
     }
 
-    public void setHasRecyclesTrashLaundry(Boolean hasRecyclesTrashLaundry) {
-        this.hasRecyclesTrashLaundry = hasRecyclesTrashLaundry;
+    public void setHasRecyclesTrash(Boolean hasRecyclesTrash) {
+        this.hasRecyclesTrash = hasRecyclesTrash;
     }
 
-    public Integer getCurrentDryingRackCountLaundry() {
-        return currentDryingRackCountLaundry;
+    public Integer getCurrentDryingRackCount() {
+        return currentDryingRackCount;
     }
 
-    public void setCurrentDryingRackCountLaundry(Integer currentDryingRackCountLaundry) {
-        this.currentDryingRackCountLaundry = currentDryingRackCountLaundry;
+    public void setCurrentDryingRackCount(Integer currentDryingRackCount) {
+        this.currentDryingRackCount = currentDryingRackCount;
     }
 
-    public BigDecimal getDryingRackSizesLaundry() {
-        return dryingRackSizesLaundry;
+    public BigDecimal getDryingRackSizes() {
+        return dryingRackSizes;
     }
 
-    public void setDryingRackSizesLaundry(BigDecimal dryingRackSizesLaundry) {
-        this.dryingRackSizesLaundry = dryingRackSizesLaundry;
+    public void setDryingRackSizes(BigDecimal dryingRackSizes) {
+        this.dryingRackSizes = dryingRackSizes;
     }
 
     public Timestamp getCreatedAt() {
