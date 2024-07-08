@@ -15,58 +15,58 @@ public class Bathroom extends Project {
     private Project project;
 
     @Column(name = "bool_all_renovated_bathroom")
-    private Boolean hasAllRenovatedBathroom;
+    private Boolean hasAllRenovated;
 
     @Column(name = "preferred_sink_shape_bathroom", length = 50)
-    private String preferredSinkShapeNathroom;
+    private String preferredSinkShape;
 
     @Column(name = "preferred_flush_type_bathroom", length = 20)
-    private String preferredFlushTypeBathroom;
+    private String preferredFlushType;
 
     @Column(name = "bool_hygienic_shower_bathroom")
-    private Boolean hasHygienicShowerBathroom;
+    private Boolean hasHygienicShower;
 
     @Column(name = "bool_bidet_bathroom")
-    private Boolean hasBidetBathroom;
+    private Boolean hasBidet;
 
     @Column(name = "bool_prefers_mixer_tap_bathroom")
-    private Boolean hasPrefersMixerTapBathroom;
+    private Boolean hasPrefersMixerTap;
 
     @Column(name = "bool_prefers_single_handle_bathroom")
-    private Boolean hasPrefersSingleHandleBathroom;
+    private Boolean hasPrefersSingleHandle;
 
     @Column(name = "bool_electric_towel_rack_bathroom")
-    private Boolean hasElectricTowelRackBathroom;
+    private Boolean hasElectricTowelRack;
 
     @Column(name = "bool_laundry_hamper_in_cabinet_bathroom")
-    private Boolean hasLaundryHamperInCabinetBathroom;
+    private Boolean hasLaundryHamperInCabinet;
 
     @Column(name = "bool_makeup_in_bathroom_mirror_bathroom")
-    private Boolean hasMakeupInBathroomMirrorBathroom;
+    private Boolean hasMakeupInBathroomMirror;
 
     @Column(name = "bool_many_products_on_counter_bathroom")
-    private Boolean hasManyProductsOnCounterBathroom;
+    private Boolean hasManyProductsOnCounter;
 
     @Column(name = "bool_daily_use_of_hairdryer_bathroom")
-    private Boolean hasDailyUseOfHairdryerBathroom;
+    private Boolean hasDailyUseOfHairdryer;
 
     @Column(name = "bool_shower_niche_for_products_bathroom")
-    private Boolean hasShowerNicheForProductsBathroom;
+    private Boolean hasShowerNicheForProducts;
 
     @Column(name = "bool_current_storage_meets_needs_bathroom")
-    private Boolean hasCurrentStorageMeetsNeedsBathroom;
+    private Boolean hasCurrentStorageMeetsNeeds;
 
     @Column(name = "bool_desire_more_storage_space_bathroom")
-    private Boolean hasDesireMoreStorageSpaceBathroom;
+    private Boolean hasDesireMoreStorageSpace;
 
     @Column(name = "bool_bathtub_bathroom")
-    private Boolean hasBathtubBathroom;
+    private Boolean hasBathtub;
 
     @Column(name = "bool_immersion_bathroom")
-    private Boolean hasImmersionBathroom;
+    private Boolean hasImmersion;
 
     @Column(name = "bool_hydro_bathroom")
-    private Boolean hasHydroBathroom;
+    private Boolean hasHydro;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -85,148 +85,148 @@ public class Bathroom extends Project {
         this.project = project;
     }
 
-    public Boolean getHasAllRenovatedBathroom() {
-        return hasAllRenovatedBathroom;
+    public Boolean getHasAllRenovated() {
+        return hasAllRenovated;
     }
 
-    public void setHasAllRenovatedBathroom(Boolean hasAllRenovatedBathroom) {
-        this.hasAllRenovatedBathroom = hasAllRenovatedBathroom;
+    public void setHasAllRenovated(Boolean hasAllRenovated) {
+        this.hasAllRenovated = hasAllRenovated;
     }
 
-    public String getPreferredSinkShapeNathroom() {
-        return preferredSinkShapeNathroom;
+    public String getPreferredSinkShape() {
+        return preferredSinkShape;
     }
 
-    public void setPreferredSinkShapeNathroom(String preferredSinkShapeNathroom) {
-        this.preferredSinkShapeNathroom = preferredSinkShapeNathroom;
+    public void setPreferredSinkShape(String preferredSinkShape) {
+        this.preferredSinkShape = preferredSinkShape;
     }
 
-    public String getPreferredFlushTypeBathroom() {
-        return preferredFlushTypeBathroom;
+    public String getPreferredFlushType() {
+        return preferredFlushType;
     }
 
-    public void setPreferredFlushTypeBathroom(String preferredFlushTypeBathroom) {
-        this.preferredFlushTypeBathroom = preferredFlushTypeBathroom;
+    public void setPreferredFlushType(String preferredFlushType) {
+        this.preferredFlushType = preferredFlushType;
     }
 
-    public Boolean getHasHygienicShowerBathroom() {
-        return hasHygienicShowerBathroom;
+    public Boolean getHasHygienicShower() {
+        return hasHygienicShower;
     }
 
-    public void setHasHygienicShowerBathroom(Boolean hasHygienicShowerBathroom) {
-        this.hasHygienicShowerBathroom = hasHygienicShowerBathroom;
+    public void setHasHygienicShower(Boolean hasHygienicShower) {
+        this.hasHygienicShower = hasHygienicShower;
     }
 
-    public Boolean getHasBidetBathroom() {
-        return hasBidetBathroom;
+    public Boolean getHasBidet() {
+        return hasBidet;
     }
 
-    public void setHasBidetBathroom(Boolean hasBidetBathroom) {
-        this.hasBidetBathroom = hasBidetBathroom;
+    public void setHasBidet(Boolean hasBidet) {
+        this.hasBidet = hasBidet;
     }
 
-    public Boolean getHasPrefersMixerTapBathroom() {
-        return hasPrefersMixerTapBathroom;
+    public Boolean getHasPrefersMixerTap() {
+        return hasPrefersMixerTap;
     }
 
-    public void setHasPrefersMixerTapBathroom(Boolean hasPrefersMixerTapBathroom) {
-        this.hasPrefersMixerTapBathroom = hasPrefersMixerTapBathroom;
+    public void setHasPrefersMixerTap(Boolean hasPrefersMixerTap) {
+        this.hasPrefersMixerTap = hasPrefersMixerTap;
     }
 
-    public Boolean getHasPrefersSingleHandleBathroom() {
-        return hasPrefersSingleHandleBathroom;
+    public Boolean getHasPrefersSingleHandle() {
+        return hasPrefersSingleHandle;
     }
 
-    public void setHasPrefersSingleHandleBathroom(Boolean hasPrefersSingleHandleBathroom) {
-        this.hasPrefersSingleHandleBathroom = hasPrefersSingleHandleBathroom;
+    public void setHasPrefersSingleHandle(Boolean hasPrefersSingleHandle) {
+        this.hasPrefersSingleHandle = hasPrefersSingleHandle;
     }
 
-    public Boolean getHasElectricTowelRackBathroom() {
-        return hasElectricTowelRackBathroom;
+    public Boolean getHasElectricTowelRack() {
+        return hasElectricTowelRack;
     }
 
-    public void setHasElectricTowelRackBathroom(Boolean hasElectricTowelRackBathroom) {
-        this.hasElectricTowelRackBathroom = hasElectricTowelRackBathroom;
+    public void setHasElectricTowelRack(Boolean hasElectricTowelRack) {
+        this.hasElectricTowelRack = hasElectricTowelRack;
     }
 
-    public Boolean getHasLaundryHamperInCabinetBathroom() {
-        return hasLaundryHamperInCabinetBathroom;
+    public Boolean getHasLaundryHamperInCabinet() {
+        return hasLaundryHamperInCabinet;
     }
 
-    public void setHasLaundryHamperInCabinetBathroom(Boolean hasLaundryHamperInCabinetBathroom) {
-        this.hasLaundryHamperInCabinetBathroom = hasLaundryHamperInCabinetBathroom;
+    public void setHasLaundryHamperInCabinet(Boolean hasLaundryHamperInCabinet) {
+        this.hasLaundryHamperInCabinet = hasLaundryHamperInCabinet;
     }
 
-    public Boolean getHasMakeupInBathroomMirrorBathroom() {
-        return hasMakeupInBathroomMirrorBathroom;
+    public Boolean getHasMakeupInBathroomMirror() {
+        return hasMakeupInBathroomMirror;
     }
 
-    public void setHasMakeupInBathroomMirrorBathroom(Boolean hasMakeupInBathroomMirrorBathroom) {
-        this.hasMakeupInBathroomMirrorBathroom = hasMakeupInBathroomMirrorBathroom;
+    public void setHasMakeupInBathroomMirror(Boolean hasMakeupInBathroomMirror) {
+        this.hasMakeupInBathroomMirror = hasMakeupInBathroomMirror;
     }
 
-    public Boolean getHasManyProductsOnCounterBathroom() {
-        return hasManyProductsOnCounterBathroom;
+    public Boolean getHasManyProductsOnCounter() {
+        return hasManyProductsOnCounter;
     }
 
-    public void setHasManyProductsOnCounterBathroom(Boolean hasManyProductsOnCounterBathroom) {
-        this.hasManyProductsOnCounterBathroom = hasManyProductsOnCounterBathroom;
+    public void setHasManyProductsOnCounter(Boolean hasManyProductsOnCounter) {
+        this.hasManyProductsOnCounter = hasManyProductsOnCounter;
     }
 
-    public Boolean getHasDailyUseOfHairdryerBathroom() {
-        return hasDailyUseOfHairdryerBathroom;
+    public Boolean getHasDailyUseOfHairdryer() {
+        return hasDailyUseOfHairdryer;
     }
 
-    public void setHasDailyUseOfHairdryerBathroom(Boolean hasDailyUseOfHairdryerBathroom) {
-        this.hasDailyUseOfHairdryerBathroom = hasDailyUseOfHairdryerBathroom;
+    public void setHasDailyUseOfHairdryer(Boolean hasDailyUseOfHairdryer) {
+        this.hasDailyUseOfHairdryer = hasDailyUseOfHairdryer;
     }
 
-    public Boolean getHasShowerNicheForProductsBathroom() {
-        return hasShowerNicheForProductsBathroom;
+    public Boolean getHasShowerNicheForProducts() {
+        return hasShowerNicheForProducts;
     }
 
-    public void setHasShowerNicheForProductsBathroom(Boolean hasShowerNicheForProductsBathroom) {
-        this.hasShowerNicheForProductsBathroom = hasShowerNicheForProductsBathroom;
+    public void setHasShowerNicheForProducts(Boolean hasShowerNicheForProducts) {
+        this.hasShowerNicheForProducts = hasShowerNicheForProducts;
     }
 
-    public Boolean getHasCurrentStorageMeetsNeedsBathroom() {
-        return hasCurrentStorageMeetsNeedsBathroom;
+    public Boolean getHasCurrentStorageMeetsNeeds() {
+        return hasCurrentStorageMeetsNeeds;
     }
 
-    public void setHasCurrentStorageMeetsNeedsBathroom(Boolean hasCurrentStorageMeetsNeedsBathroom) {
-        this.hasCurrentStorageMeetsNeedsBathroom = hasCurrentStorageMeetsNeedsBathroom;
+    public void setHasCurrentStorageMeetsNeeds(Boolean hasCurrentStorageMeetsNeeds) {
+        this.hasCurrentStorageMeetsNeeds = hasCurrentStorageMeetsNeeds;
     }
 
-    public Boolean getHasDesireMoreStorageSpaceBathroom() {
-        return hasDesireMoreStorageSpaceBathroom;
+    public Boolean getHasDesireMoreStorageSpace() {
+        return hasDesireMoreStorageSpace;
     }
 
-    public void setHasDesireMoreStorageSpaceBathroom(Boolean hasDesireMoreStorageSpaceBathroom) {
-        this.hasDesireMoreStorageSpaceBathroom = hasDesireMoreStorageSpaceBathroom;
+    public void setHasDesireMoreStorageSpace(Boolean hasDesireMoreStorageSpace) {
+        this.hasDesireMoreStorageSpace = hasDesireMoreStorageSpace;
     }
 
-    public Boolean getHasBathtubBathroom() {
-        return hasBathtubBathroom;
+    public Boolean getHasBathtub() {
+        return hasBathtub;
     }
 
-    public void setHasBathtubBathroom(Boolean hasBathtubBathroom) {
-        this.hasBathtubBathroom = hasBathtubBathroom;
+    public void setHasBathtub(Boolean hasBathtub) {
+        this.hasBathtub = hasBathtub;
     }
 
-    public Boolean getHasImmersionBathroom() {
-        return hasImmersionBathroom;
+    public Boolean getHasImmersion() {
+        return hasImmersion;
     }
 
-    public void setHasImmersionBathroom(Boolean hasImmersionBathroom) {
-        this.hasImmersionBathroom = hasImmersionBathroom;
+    public void setHasImmersion(Boolean hasImmersion) {
+        this.hasImmersion = hasImmersion;
     }
 
-    public Boolean getHasHydroBathroom() {
-        return hasHydroBathroom;
+    public Boolean getHasHydro() {
+        return hasHydro;
     }
 
-    public void setHasHydroBathroom(Boolean hasHydroBathroom) {
-        this.hasHydroBathroom = hasHydroBathroom;
+    public void setHasHydro(Boolean hasHydro) {
+        this.hasHydro = hasHydro;
     }
 
     public Timestamp getCreatedAt() {

@@ -15,31 +15,31 @@ public class LivingRoom extends Project {
     private Project project;
 
     @Column(name = "people_in_living_room")
-    private Integer peopleInLivingRoom;
+    private Integer people;
 
     @Column(name = "bool_tv_is_important_living_room")
-    private Boolean hasPeopleInLivingRoom;
+    private Boolean hasPeople;
 
     @Column(name = "tv_inch_living_room")
-    private Integer tvInchLivingRoom;
+    private Integer tvInch;
 
     @Column(name = "equipment_living_dining_room", length = 160)
-    private String equipmentLivingDiningRoom;
+    private String equipmentLiving;
 
     @Column(name = "bool_sofa_with_chaise_living_room")
-    private Boolean hasSofaWithChaiseLivingRoom;
+    private Boolean hasSofaWithChaise;
 
     @Column(name = "bool_sofa_with_retractable_chaise_living_room")
-    private Boolean hasSofaWithRetractableChaiseLivingRoom;
+    private Boolean hasSofaWithRetractableChaise;
 
     @Column(name = "bool_books_or_collection_living_room")
-    private Boolean hasBooksOrCollectionLivingRoom;
+    private Boolean hasBooksOrCollection;
 
     @Column(name = "bool_used_daily_living_room")
-    private Boolean hasUsedDailyLivingRoom;
+    private Boolean hasUsedDaily;
 
     @Column(name = "bool_receives_many_people_living_room")
-    private Boolean hasReceivesManyPeopleLivingRoom;
+    private Boolean hasReceivesManyPeople;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -58,76 +58,76 @@ public class LivingRoom extends Project {
         this.project = project;
     }
 
-    public Integer getPeopleInLivingRoom() {
-        return peopleInLivingRoom;
+    public Integer getPeople() {
+        return people;
     }
 
-    public void setPeopleInLivingRoom(Integer peopleInLivingRoom) {
-        this.peopleInLivingRoom = peopleInLivingRoom;
+    public void setPeople(Integer people) {
+        this.people = people;
     }
 
-    public Boolean getHasPeopleInLivingRoom() {
-        return hasPeopleInLivingRoom;
+    public Boolean getHasPeople() {
+        return hasPeople;
     }
 
-    public void setHasPeopleInLivingRoom(Boolean hasPeopleInLivingRoom) {
-        this.hasPeopleInLivingRoom = hasPeopleInLivingRoom;
+    public void setHasPeople(Boolean hasPeople) {
+        this.hasPeople = hasPeople;
     }
 
-    public Integer getTvInchLivingRoom() {
-        return tvInchLivingRoom;
+    public Integer getTvInch() {
+        return tvInch;
     }
 
-    public void setTvInchLivingRoom(Integer tvInchLivingRoom) {
-        this.tvInchLivingRoom = tvInchLivingRoom;
+    public void setTvInch(Integer tvInch) {
+        this.tvInch = tvInch;
     }
 
-    public String getEquipmentLivingDiningRoom() {
-        return equipmentLivingDiningRoom;
+    public String getEquipmentLiving() {
+        return equipmentLiving;
     }
 
-    public void setEquipmentLivingDiningRoom(String equipmentLivingDiningRoom) {
-        this.equipmentLivingDiningRoom = equipmentLivingDiningRoom;
+    public void setEquipmentLiving(String equipmentLiving) {
+        this.equipmentLiving = equipmentLiving;
     }
 
-    public Boolean getHasSofaWithChaiseLivingRoom() {
-        return hasSofaWithChaiseLivingRoom;
+    public Boolean getHasSofaWithChaise() {
+        return hasSofaWithChaise;
     }
 
-    public void setHasSofaWithChaiseLivingRoom(Boolean hasSofaWithChaiseLivingRoom) {
-        this.hasSofaWithChaiseLivingRoom = hasSofaWithChaiseLivingRoom;
+    public void setHasSofaWithChaise(Boolean hasSofaWithChaise) {
+        this.hasSofaWithChaise = hasSofaWithChaise;
     }
 
-    public Boolean getHasSofaWithRetractableChaiseLivingRoom() {
-        return hasSofaWithRetractableChaiseLivingRoom;
+    public Boolean getHasSofaWithRetractableChaise() {
+        return hasSofaWithRetractableChaise;
     }
 
-    public void setHasSofaWithRetractableChaiseLivingRoom(Boolean hasSofaWithRetractableChaiseLivingRoom) {
-        this.hasSofaWithRetractableChaiseLivingRoom = hasSofaWithRetractableChaiseLivingRoom;
+    public void setHasSofaWithRetractableChaise(Boolean hasSofaWithRetractableChaise) {
+        this.hasSofaWithRetractableChaise = hasSofaWithRetractableChaise;
     }
 
-    public Boolean getHasBooksOrCollectionLivingRoom() {
-        return hasBooksOrCollectionLivingRoom;
+    public Boolean getHasBooksOrCollection() {
+        return hasBooksOrCollection;
     }
 
-    public void setHasBooksOrCollectionLivingRoom(Boolean hasBooksOrCollectionLivingRoom) {
-        this.hasBooksOrCollectionLivingRoom = hasBooksOrCollectionLivingRoom;
+    public void setHasBooksOrCollection(Boolean hasBooksOrCollection) {
+        this.hasBooksOrCollection = hasBooksOrCollection;
     }
 
-    public Boolean getHasUsedDailyLivingRoom() {
-        return hasUsedDailyLivingRoom;
+    public Boolean getHasUsedDaily() {
+        return hasUsedDaily;
     }
 
-    public void setHasUsedDailyLivingRoom(Boolean hasUsedDailyLivingRoom) {
-        this.hasUsedDailyLivingRoom = hasUsedDailyLivingRoom;
+    public void setHasUsedDaily(Boolean hasUsedDaily) {
+        this.hasUsedDaily = hasUsedDaily;
     }
 
-    public Boolean getHasReceivesManyPeopleLivingRoom() {
-        return hasReceivesManyPeopleLivingRoom;
+    public Boolean getHasReceivesManyPeople() {
+        return hasReceivesManyPeople;
     }
 
-    public void setHasReceivesManyPeopleLivingRoom(Boolean hasReceivesManyPeopleLivingRoom) {
-        this.hasReceivesManyPeopleLivingRoom = hasReceivesManyPeopleLivingRoom;
+    public void setHasReceivesManyPeople(Boolean hasReceivesManyPeople) {
+        this.hasReceivesManyPeople = hasReceivesManyPeople;
     }
 
     public Timestamp getCreatedAt() {

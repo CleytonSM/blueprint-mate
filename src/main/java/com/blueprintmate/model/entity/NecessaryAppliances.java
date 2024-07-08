@@ -5,20 +5,20 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tb_toilet")
-@PrimaryKeyJoinColumn(name = "id_toilet")
-public class Toilet extends Project {
+@Table(name = "tb_necessary_appliances")
+@PrimaryKeyJoinColumn(name = "id_necessary_appliances")
+public class NecessaryAppliances {
 
     @ManyToOne
-    @JoinColumn(name = "id_toilet", referencedColumnName = "id_project",
+    @JoinColumn(name = "id_necessary_appliances", referencedColumnName = "id_appliances",
             nullable = false, insertable = false, updatable = false)
-    private Project project;
+    private Appliances appliances;
 
-    @Column(name = "apartment_pattern_toilet", length = 180)
-    private String apartmentPattern;
+    @Column(name = "nm_necessary_appliances", length = 45)
+    private String name;
 
-    @Column(name = "design_toilet", length = 50)
-    private String designToilet;
+    @Column(name = "bool_used_daily_necessary_appliances")
+    private Boolean hasUsedDaily;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -29,28 +29,28 @@ public class Toilet extends Project {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Project getProject() {
-        return project;
+    public Appliances getAppliances() {
+        return appliances;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setAppliances(Appliances appliances) {
+        this.appliances = appliances;
     }
 
-    public String getApartmentPattern() {
-        return apartmentPattern;
+    public String getName() {
+        return name;
     }
 
-    public void setApartmentPattern(String apartmentPattern) {
-        this.apartmentPattern = apartmentPattern;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDesignToilet() {
-        return designToilet;
+    public Boolean getHasUsedDaily() {
+        return hasUsedDaily;
     }
 
-    public void setDesignToilet(String designToilet) {
-        this.designToilet = designToilet;
+    public void setHasUsedDaily(Boolean hasUsedDaily) {
+        this.hasUsedDaily = hasUsedDaily;
     }
 
     public Timestamp getCreatedAt() {
