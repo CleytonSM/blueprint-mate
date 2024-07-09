@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_necessary_appliances")
 @PrimaryKeyJoinColumn(name = "id_necessary_appliances")
-public class NecessaryAppliances {
+public class NecessaryAppliances extends Appliances {
 
     @ManyToOne
     @JoinColumn(name = "id_necessary_appliances", referencedColumnName = "id_appliances",
