@@ -1,20 +1,23 @@
 package com.blueprintmate.service;
 
+import com.blueprintmate.config.UserAuthenticationProvider;
 import com.blueprintmate.helper.ModelMapperHelper;
-import com.blueprintmate.helper.OptionalHelper;
+import com.blueprintmate.model.dto.LoginDTO;
+import com.blueprintmate.model.dto.LoginResponseDTO;
 import com.blueprintmate.model.dto.RegisterDTO;
-import com.blueprintmate.model.entity.Authority;
 import com.blueprintmate.model.entity.User;
 import com.blueprintmate.repository.UserRepository;
+import com.blueprintmate.security.JwtProvider;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
 import static com.blueprintmate.helper.OptionalHelper.verifyIfEntityAlreadyExists;
 
 @Service
-public class UserService {
+public class LoginService {
 
     @Autowired
     private UserRepository repository;
@@ -22,6 +25,10 @@ public class UserService {
     private ModelMapperHelper modelMapperHelper;
     @Autowired
     private AuthorityService authorityService;
+    @Autowired
+    private UserAuthenticationProvider userAuthenticationProvider;
+    @Autowired
+    private JwtProvider jwtProvider;
 
     @Transactional
     private User save(User user) {
@@ -35,5 +42,12 @@ public class UserService {
         newUser.setAuthority(authorityService.findAuthorityByName("ROLE_USER"));
 
         save(newUser);
+    }
+
+    public LoginResponseDTO loginUser(LoginDTO loginDTO) {
+        Authentication authentication = userAuthenticationProvider
+                .authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
+
+        return new LoginResponseDTO(jwtProvider.createToken(authentication));
     }
 }

@@ -1,6 +1,6 @@
 package com.blueprintmate.helper;
 
-import com.blueprintmate.exception.EntityAlreadyExists;
+import com.blueprintmate.exception.EntityAlreadyExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 
@@ -19,7 +19,7 @@ public class OptionalHelper {
 
     public static <T> void verifyIfEntityAlreadyExists(final Optional<T> optionalT) {
         if(optionalT.isPresent()) {
-            throw new EntityAlreadyExists("This entity already exists", HttpStatus.CONFLICT);
+            throw new EntityAlreadyExistsException("This entity already exists", HttpStatus.CONFLICT);
         }
     }
 }
