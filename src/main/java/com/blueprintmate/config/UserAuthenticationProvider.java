@@ -31,7 +31,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
         
-        User user = OptionalHelper.verifyOptionalEntity(userRepository.findByEmail(username));
+        User user = OptionalHelper.getOptionalEntity(userRepository.findByEmail(username));
         
         if(passwordEncoder.matches(password, user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(user, password, grantedAuthorities(user.getAuthority()));
