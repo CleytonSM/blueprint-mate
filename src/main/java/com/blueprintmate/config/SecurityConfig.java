@@ -21,7 +21,9 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/user/register").permitAll())
+                        .requestMatchers("/register").permitAll()
+                        .requestMatchers("/login").permitAll())
+                //.addFilterBefore(JwtFilter, UsernamePasswordAuthenticationToken.class)
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable);
 

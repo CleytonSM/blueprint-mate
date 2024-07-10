@@ -1,10 +1,12 @@
 package com.blueprintmate.config;
 
+import com.blueprintmate.exception.WrongCredentialsException;
 import com.blueprintmate.helper.OptionalHelper;
 import com.blueprintmate.model.entity.Authority;
 import com.blueprintmate.model.entity.User;
 import com.blueprintmate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
 
 @Component
 public class UserAuthenticationProvider implements AuthenticationProvider {
@@ -31,16 +35,16 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
         
-        User user = OptionalHelper.getOptionalEntity(userRepository.findByEmail(username));
+        User user = getOptionalEntity(userRepository.findByEmail(username));
         
-        if(passwordEncoder.matches(password, user.getPassword())) {
-            return new UsernamePasswordAuthenticationToken(user, password, grantedAuthorities(user.getAuthority()));
+        if(!passwordEncoder.matches(password, user.getPassword())) {
+            throw new WrongCredentialsException("Wrong credentials", HttpStatus.UNAUTHORIZED);
         }
 
-        throw new RuntimeException("Wrong credentials");
+        return new UsernamePasswordAuthenticationToken(user, password, grantedAuthorities(user.getAuthority()));
     }
 
-    public List<GrantedAuthority>  grantedAuthorities(Authority authority) {
+    public List<GrantedAuthority> grantedAuthorities(Authority authority) {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
 
