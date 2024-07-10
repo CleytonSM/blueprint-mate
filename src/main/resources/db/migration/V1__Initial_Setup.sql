@@ -1,22 +1,23 @@
 CREATE TABLE tb_authority(
-  id_auth int PRIMARY KEY,
-  nm_auth int,
-  create_at timestamp,
+  id_auth int PRIMARY KEY AUTO_INCREMENT,
+  nm_auth varchar(10),
+  created_at timestamp,
   updated_at timestamp
 );
 
 CREATE TABLE tb_user(
-  id_user int PRIMARY KEY,
-  id_auth int REFERENCES tb_authority(id_auth),
+  id_user int PRIMARY KEY AUTO_INCREMENT,
+  id_auth int NOT NULL REFERENCES tb_authority(id_auth),
   email_user varchar(80),
   pwd_user varchar(80),
+  active_user boolean,
   created_at timestamp,
   updated_at timestamp,
   deleted_at timestamp
 );
 
 CREATE TABLE tb_client(
-  id_client int PRIMARY KEY,
+  id_client int PRIMARY KEY AUTO_INCREMENT,
   id_user int UNIQUE NOT NULL REFERENCES tb_user(id_user),
   nm_client varchar(60) NOT NULL,
   nicknm_client varchar(40),
@@ -31,16 +32,16 @@ CREATE TABLE tb_client(
 );
 
 CREATE TABLE tb_social_media(
-  id_social_media int PRIMARY KEY,
+  id_social_media int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   nm_social_media varchar(60),
-  create_at timestamp,
+  created_at timestamp,
   updated_at timestamp,
   deleted_at timestamp
 );
 
 CREATE TABLE tb_descendants(
-  id_descendant int PRIMARY KEY,
+  id_descendant int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   nm_descendant varchar(60),
   age_descendant int,
@@ -51,7 +52,7 @@ CREATE TABLE tb_descendants(
 
 
 CREATE TABLE tb_description(
-  id_desc int PRIMARY KEY,
+  id_desc int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   best_place_desc int,
   wknd_best_place_desc varchar(180),
@@ -79,7 +80,7 @@ CREATE TABLE tb_description(
 );
 
 CREATE TABLE tb_experience(
-  id_experience int PRIMARY KEY,
+  id_experience int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   neutral_color_exp varchar(20),
   lively_color_exp varchar(20),
@@ -91,7 +92,7 @@ CREATE TABLE tb_experience(
 );
 
 CREATE TABLE tb_context(
-  id_context int PRIMARY KEY,
+  id_context int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   project_life_stage_significance_context varchar(200),
   ambient_style_description_style_and_moods varchar(180),
@@ -104,7 +105,7 @@ CREATE TABLE tb_context(
 );
 
 CREATE TABLE tb_style_and_moods(
-  id_style_and_moods int PRIMARY KEY,
+  id_style_and_moods int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   ambient_style_style_and_moods varchar(20),
   ambient_style_description_style_and_moods varchar(180),
@@ -114,7 +115,7 @@ CREATE TABLE tb_style_and_moods(
 );
 
 CREATE TABLE tb_general_info(
-  id_general_info int PRIMARY KEY,
+  id_general_info int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   reuse_general_info varchar(200),
   additional_general_info varchar(200),
@@ -127,13 +128,13 @@ CREATE TABLE tb_general_info(
 );
 
 CREATE TABLE tb_suite(
-  id_suite int PRIMARY KEY,
+  id_suite int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   bed_type_suite varchar(30)
 );
 
 CREATE TABLE tb_master_suite(
-  id_master_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_master_suite INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_suite(id_suite),
   bool_tv_in_master_suite boolean,
   bool_armchair_or_bench_master_suite boolean,
   bool_reads_in_bed_master_suite boolean,
@@ -150,7 +151,7 @@ CREATE TABLE tb_master_suite(
 );
 
 CREATE TABLE tb_descendants_suite(
-  id_descendants_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_descendants_suite INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_suite(id_suite),
   bool_tv_in_descendants_suite boolean,
   bool_child_study_in_descendants_suite boolean,
   bool_child_receives_friends_to_sleep_descendants_suite boolean,
@@ -161,7 +162,7 @@ CREATE TABLE tb_descendants_suite(
 );
 
 CREATE TABLE tb_home_office_suite(
-  id_home_office_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_home_office_suite INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_suite(id_suite),
   bool_needs_privacy boolean,
   bool_needs_space_for_books_documents_papers boolean,
   created_at timestamp,
@@ -170,7 +171,7 @@ CREATE TABLE tb_home_office_suite(
 );
 
 CREATE TABLE tb_guest_suite(
-  id_guest_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_guest_suite INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_suite(id_suite),
   closet_use_guests_suite varchar(45),
   frequency_of_guests_guests_suite varchar(45),
   created_at timestamp,
@@ -179,7 +180,7 @@ CREATE TABLE tb_guest_suite(
 );
 
 CREATE TABLE tb_building(
-  id_building int PRIMARY KEY,
+  id_building int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client),
   neighborhood_relationship_building varchar(180),
   determining_factor_building varchar(180),
@@ -192,12 +193,12 @@ CREATE TABLE tb_building(
 );
 
 CREATE TABLE tb_project(
-  id_project int PRIMARY KEY,
+  id_project int PRIMARY KEY AUTO_INCREMENT,
   id_client int NOT NULL REFERENCES tb_client(id_client)
 );
 
 CREATE TABLE tb_kitchen(
-    id_kitchen INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_kitchen INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     color_type_kitchen VARCHAR(30) NOT NULL,
     shape_type_kitchen VARCHAR(30) NOT NULL,
     counter_top_material_kitchen VARCHAR(30) NOT NULL,
@@ -222,7 +223,7 @@ CREATE TABLE tb_kitchen(
 );
 
 CREATE TABLE tb_dining_room(
-    id_dining_room INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_dining_room INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     people_dining_room INTEGER,
     dining_table_capacity_dining_room INTEGER,
     daily_meals_location_dining_room VARCHAR(60),
@@ -232,7 +233,7 @@ CREATE TABLE tb_dining_room(
 );
 
 CREATE TABLE tb_living_room(
-    id_living_room INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_living_room INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     people_in_living_room INTEGER,
     bool_tv_is_important_living_room BOOLEAN,
     tv_inch_living_room INTEGER,
@@ -248,7 +249,7 @@ CREATE TABLE tb_living_room(
 );
 
 CREATE TABLE tb_entrance_hall(
-    id_entrance_hall INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_entrance_hall INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     bool_shoes_house_walking_entrance_hall BOOLEAN,
     bool_has_entrance_console_table_entrance_hall BOOLEAN,
     bool_want_entrance_console_table_entrance_hall BOOLEAN,
@@ -260,7 +261,7 @@ CREATE TABLE tb_entrance_hall(
 );
 
 CREATE TABLE tb_toilet(
-    id_toilet INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_toilet INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     apartment_pattern_toilet VARCHAR(180),
     design_toilet VARCHAR(50),
     created_at TIMESTAMP,
@@ -269,7 +270,7 @@ CREATE TABLE tb_toilet(
 );
 
 CREATE TABLE tb_laundry(
-    id_laundry INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_laundry INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     bool_built_in_sink_laundry BOOLEAN,
     bool_porcelain_sink_laundry BOOLEAN,
     bool_pet_food_and_bowls_stored_here_laundry BOOLEAN,
@@ -282,7 +283,7 @@ CREATE TABLE tb_laundry(
 );
 
 CREATE TABLE tb_bathroom(
-    id_bathroom INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_bathroom INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
     bool_all_renovated_bathroom BOOLEAN,
     preferred_sink_shape_bathroom VARCHAR(50),
     preferred_flush_type_bathroom VARCHAR(20),
@@ -308,7 +309,7 @@ CREATE TABLE tb_bathroom(
 );
 
 CREATE TABLE tb_appliances(
-  id_appliances int PRIMARY KEY,
+  id_appliances int PRIMARY KEY AUTO_INCREMENT,
   id_kitchen int REFERENCES tb_kitchen(id_kitchen),
   id_laundry int REFERENCES tb_laundry(id_laundry),
   bool_store_small_appliances_visible boolean,
@@ -316,7 +317,7 @@ CREATE TABLE tb_appliances(
 );
 
 CREATE TABLE tb_reuse_appliances(
-  id_reuse_appliances INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  id_reuse_appliances INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_appliances(id_appliances),
   nm_reuse_appliances varchar(30),
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
@@ -324,7 +325,7 @@ CREATE TABLE tb_reuse_appliances(
 );
 
 CREATE TABLE tb_new_appliances(
-  id_new_appliances INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  id_new_appliances INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_appliances(id_appliances),
   link_new_appliances TEXT,
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
@@ -332,10 +333,13 @@ CREATE TABLE tb_new_appliances(
 );
 
 CREATE TABLE tb_necessary_appliances(
-  id_necessary_appliances INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  id_necessary_appliances INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_appliances(id_appliances),
   nm_necessary_appliances varchar(45),
   bool_used_daily_necessary_appliances boolean,
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
   deleted_at TIMESTAMP
 );
+
+INSERT INTO tb_authority (nm_auth, created_at)
+VALUES ('ROLE_USER', NOW());
