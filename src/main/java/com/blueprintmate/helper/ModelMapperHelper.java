@@ -1,7 +1,9 @@
 package com.blueprintmate.helper;
 
+import com.blueprintmate.model.dto.ClientCreateDTO;
 import com.blueprintmate.model.dto.RegisterDTO;
 import com.blueprintmate.model.entity.Authority;
+import com.blueprintmate.model.entity.Client;
 import com.blueprintmate.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,5 +27,20 @@ public class ModelMapperHelper {
         user.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return user;
+    }
+
+    public Client convertClientCreateDTOToClient(ClientCreateDTO clientCreateDTO) {
+        Client client = new Client();
+
+        client.setName(clientCreateDTO.getName());
+        client.setNickname(clientCreateDTO.getNickname());
+        client.setBirthday(clientCreateDTO.getBirthday());
+        client.setMaritalStatus(clientCreateDTO.getMaritalStatus());
+        client.setReligion(clientCreateDTO.getReligion());
+        client.setVeganOrVegetarian(clientCreateDTO.isVeganOrVegetarian());
+        client.setIndividualNeeds(clientCreateDTO.getIndividualNeeds());
+        client.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return client;
     }
 }

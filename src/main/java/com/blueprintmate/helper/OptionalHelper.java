@@ -19,7 +19,7 @@ public class OptionalHelper {
 
     public static <T> void verifyIfEntityAlreadyExists(final Optional<T> optionalT) {
         if(optionalT.isPresent()) {
-            throw new EntityAlreadyExistsException("This entity already exists", HttpStatus.CONFLICT);
+            throw new EntityAlreadyExistsException("This entity already exists");
         }
     }
 }
