@@ -53,6 +53,9 @@ public class Description {
     @Column(name = "travel_desc", length = 50)
     private String travel;
 
+    @Column(name = "bool_watch_tv")
+    private boolean hasWatchTv;
+
     @Column(name = "watch_tv_desc", length = 200)
     private String watchTv;
 
@@ -86,6 +89,7 @@ public class Description {
     public int getId() {
         return id;
     }
+
     public Client getClient() {
         return client;
     }
@@ -188,6 +192,14 @@ public class Description {
 
     public void setTravel(String travel) {
         this.travel = travel;
+    }
+
+    public boolean isHasWatchTv() {
+        return hasWatchTv;
+    }
+
+    public void setHasWatchTv(boolean hasWatchTv) {
+        this.hasWatchTv = hasWatchTv;
     }
 
     public String getWatchTv() {
