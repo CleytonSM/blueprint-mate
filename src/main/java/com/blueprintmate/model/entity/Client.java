@@ -2,7 +2,6 @@ package com.blueprintmate.model.entity;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,7 +35,7 @@ public class Client {
     private String religion;
 
     @Column(name = "veg_vege_client", nullable = false)
-    private Boolean isVeganOrVegetarian;
+    private Boolean veganOrVegetarian;
 
     @Column(name = "individual_needs_client", length = 150, nullable = false)
     private String individualNeeds;
@@ -109,11 +108,11 @@ public class Client {
     }
 
     public boolean isVeganOrVegetarian() {
-        return isVeganOrVegetarian;
+        return veganOrVegetarian;
     }
 
-    public void setVeganOrVegetarian(boolean veganOrVegetarian) {
-        isVeganOrVegetarian = veganOrVegetarian;
+    public void setVeganOrVegetarian(Boolean veganOrVegetarian) {
+        this.veganOrVegetarian = veganOrVegetarian;
     }
 
     public String getIndividualNeeds() {
