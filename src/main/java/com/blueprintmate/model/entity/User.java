@@ -34,21 +34,6 @@ public class User {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public User() {
-    }
-
-    public User(int id, Authority authority, String email, String password, boolean active, Timestamp createdAt,
-                Timestamp updatedAt, Timestamp deletedAt) {
-        this.id = id;
-        this.authority = authority;
-        this.email = email;
-        this.password = password;
-        this.active = active;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
-    }
-
     public int getId() {
         return id;
     }
