@@ -19,7 +19,7 @@ public class ClientCreateDTO {
     private Boolean hasChildren;
     private List<DescendantsCreateDTO> descendantsList;
     private String religion;
-    @NotNull(message = "hasVeganOrVegetarian field can't be null")
+    @NotNull(message = "VeganOrVegetarian field can't be null")
     private Boolean veganOrVegetarian;
     @NotBlank(message = "IndividualNeeds field can't be null")
     private String individualNeeds;
