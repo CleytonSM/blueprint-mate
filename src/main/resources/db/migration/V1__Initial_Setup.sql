@@ -66,6 +66,7 @@ CREATE TABLE tb_description(
   practice_sports_desc varchar(100),
   bool_travel boolean,
   travel_desc varchar(50),
+  bool_watch_tv boolean,
   watch_tv_desc varchar(200),
   bool_book_read boolean,
   bool_tablet_read boolean,
