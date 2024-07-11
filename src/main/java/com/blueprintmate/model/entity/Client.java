@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_client")
@@ -25,7 +27,7 @@ public class Client {
     private String nickname;
 
     @Column(name = "birthday_client", nullable = false)
-    private Date birthday;
+    private LocalDateTime birthday;
 
     @Column(name = "marital_status_client", length = 12, nullable = false)
     private String maritalStatus;
@@ -33,10 +35,10 @@ public class Client {
     @Column(name = "religion_client", length = 45)
     private String religion;
 
-    @Column(name = "veg_vege_client")
-    private boolean isVeganOrVegetarian;
+    @Column(name = "veg_vege_client", nullable = false)
+    private Boolean isVeganOrVegetarian;
 
-    @Column(name = "individual_needs_client", length = 150)
+    @Column(name = "individual_needs_client", length = 150, nullable = false)
     private String individualNeeds;
 
     @Column(name = "created_at")
@@ -47,6 +49,12 @@ public class Client {
 
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private List<SocialMedia> socialMediaList;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private List<Descendants> descendantsList;
 
     public int getId() {
         return id;
@@ -76,12 +84,12 @@ public class Client {
         this.nickname = nickname;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public LocalDateTime getBirthday() {
+        return birthday;
     }
 
     public String getMaritalStatus() {
@@ -138,5 +146,21 @@ public class Client {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public List<SocialMedia> getSocialMediaList() {
+        return socialMediaList;
+    }
+
+    public void setSocialMediaList(List<SocialMedia> socialMediaList) {
+        this.socialMediaList = socialMediaList;
+    }
+
+    public List<Descendants> getDescendantsList() {
+        return descendantsList;
+    }
+
+    public void setDescendantsList(List<Descendants> descendantsList) {
+        this.descendantsList = descendantsList;
     }
 }

@@ -22,23 +22,21 @@ import java.util.List;
 import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
 
 @Component
-public class UserAuthenticationProvider implements AuthenticationProvider {
+public class UserAuthenticationProvider {
 
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    
-    @Override
+
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
-        
+
         User user = getOptionalEntity(userRepository.findByEmail(username));
-        
         if(!passwordEncoder.matches(password, user.getPassword())) {
-            throw new WrongCredentialsException("Wrong credentials", HttpStatus.UNAUTHORIZED);
+            throw new WrongCredentialsException("Wrong credentials");
         }
 
         return new UsernamePasswordAuthenticationToken(user, password, grantedAuthorities(user.getAuthority()));
@@ -49,10 +47,5 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
 
         return grantedAuthorities;
-    }
-
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
 }

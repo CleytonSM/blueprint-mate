@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -12,7 +13,8 @@ public class User {
     @Column(name = "id_user")
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_auth")
     private Authority authority;
 

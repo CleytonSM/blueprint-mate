@@ -17,7 +17,7 @@ public class SocialMedia {
     @JoinColumn(name = "id_client", nullable = false)
     private Client client;
 
-    @Column(name = "name_social_media", length = 60)
+    @Column(name = "nm_social_media", length = 60)
     private String name;
 
     @Column(name = "created_at")
@@ -28,6 +28,15 @@ public class SocialMedia {
 
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
+
+    public SocialMedia() {
+    }
+
+    public SocialMedia(String name, Client client, Timestamp createdAt) {
+        this.name = name;
+        this.client = client;
+        this.createdAt = createdAt;
+    }
 
     public int getId() {
         return id;

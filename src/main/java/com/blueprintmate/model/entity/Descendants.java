@@ -32,6 +32,16 @@ public class Descendants {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public Descendants() {
+    }
+
+    public Descendants(Client client, String name, int age, Timestamp createdAt) {
+        this.client = client;
+        this.name = name;
+        this.age = age;
+        this.createdAt = createdAt;
+    }
+
     public int getId() {
         return id;
     }
