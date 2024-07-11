@@ -16,19 +16,19 @@ public class ClientCreateDTO {
     private LocalDateTime birthday;
     @NotBlank(message = "MaritalStatus field can't be null")
     private String maritalStatus;
-    private Boolean isChildren;
+    private Boolean hasChildren;
     private List<DescendantsCreateDTO> descendantsList;
     private String religion;
-    @NotNull(message = "VeganOrVegetarian field can't be null")
-    private Boolean isVeganOrVegetarian;
+    @NotNull(message = "hasVeganOrVegetarian field can't be null")
+    private Boolean veganOrVegetarian;
     @NotBlank(message = "IndividualNeeds field can't be null")
     private String individualNeeds;
 
-    public @NotNull(message = "Name field can't be null") String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(@NotNull(message = "Name field can't be null") String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -48,20 +48,36 @@ public class ClientCreateDTO {
         this.socialMediaList = socialMediaList;
     }
 
-    public @NotNull(message = "Birthday field can't be null") LocalDateTime getBirthday() {
+    public LocalDateTime getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(@NotNull(message = "Birthday field can't be null") LocalDateTime birthday) {
+    public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
     }
 
-    public @NotNull(message = "MaritalStatus field can't be null") String getMaritalStatus() {
+    public String getMaritalStatus() {
         return maritalStatus;
     }
 
-    public void setMaritalStatus(@NotNull(message = "MaritalStatus field can't be null") String maritalStatus) {
+    public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
+    }
+
+    public Boolean getHasChildren() {
+        return hasChildren;
+    }
+
+    public void setHasChildren(Boolean hasChildren) {
+        this.hasChildren = hasChildren;
+    }
+
+    public List<DescendantsCreateDTO> getDescendantsList() {
+        return descendantsList;
+    }
+
+    public void setDescendantsList(List<DescendantsCreateDTO> descendantsList) {
+        this.descendantsList = descendantsList;
     }
 
     public String getReligion() {
@@ -72,36 +88,19 @@ public class ClientCreateDTO {
         this.religion = religion;
     }
 
-    @NotNull(message = "VeganOrVegetarian field can't be null")
     public Boolean isVeganOrVegetarian() {
-        return isVeganOrVegetarian;
+        return veganOrVegetarian;
     }
 
-    public void setVeganOrVegetarian(@NotNull(message = "VeganOrVegetarian field can't be null") Boolean veganOrVegetarian) {
-        isVeganOrVegetarian = veganOrVegetarian;
+    public void setVeganOrVegetarian(Boolean veganOrVegetarian) {
+        this.veganOrVegetarian = veganOrVegetarian;
     }
 
-    public @NotNull(message = "IndividualNeeds field can't be null") String getIndividualNeeds() {
+    public String getIndividualNeeds() {
         return individualNeeds;
     }
 
-    public void setIndividualNeeds(@NotNull(message = "IndividualNeeds field can't be null") String individualNeeds) {
+    public void setIndividualNeeds(String individualNeeds) {
         this.individualNeeds = individualNeeds;
-    }
-
-    public Boolean isChildren() {
-        return isChildren;
-    }
-
-    public void setChildren(Boolean children) {
-        isChildren = children;
-    }
-
-    public List<DescendantsCreateDTO> getDescendantsList() {
-        return descendantsList;
-    }
-
-    public void setDescendantsList(List<DescendantsCreateDTO> descendantsList) {
-        this.descendantsList = descendantsList;
     }
 }

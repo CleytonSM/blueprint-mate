@@ -20,7 +20,7 @@ public class ClientController {
     private ClientService service;
 
     @PostMapping("/create")
-    public ResponseEntity<Void> createClient(@Validated @RequestBody ClientCreateDTO clientCreateDTO) {
+    public ResponseEntity<Void> createClient(@Valid @RequestBody ClientCreateDTO clientCreateDTO) {
         service.createClient(clientCreateDTO);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
