@@ -32,6 +32,9 @@ public class Description {
     @Column(name = "actual_house_satisfaction_desc", length = 180)
     private String actualHouseSatisfaction;
 
+    @Column(name = "job_desc", length = 30)
+    private String job;
+
     @Column(name = "work_routine_desc", length = 180)
     private String workRoutine;
 

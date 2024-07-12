@@ -59,6 +59,7 @@ CREATE TABLE tb_description(
   miss_actual_house_desc varchar(180),
   bool_actual_house_satisfaction boolean,
   actual_house_satisfaction_desc varchar(180),
+  job_desc varchar(30),
   work_routine_desc varchar(180),
   bool_work_at_home boolean,
   days_working_at_home int,
