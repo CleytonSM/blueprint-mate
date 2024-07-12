@@ -4,6 +4,13 @@ public class SocialMediaCreateDTO {
 
     private String name;
 
+    public SocialMediaCreateDTO() {
+    }
+
+    public SocialMediaCreateDTO(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
