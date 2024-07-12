@@ -17,7 +17,6 @@ public class ClientCreateDTO {
     private LocalDateTime birthday;
     @NotBlank(message = "MaritalStatus field can't be null")
     private String maritalStatus;
-    private Boolean hasChildren;
     @Valid
     private List<DescendantsCreateDTO> descendantsList;
     private String religion;
@@ -64,14 +63,6 @@ public class ClientCreateDTO {
 
     public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
-    }
-
-    public Boolean getHasChildren() {
-        return hasChildren;
-    }
-
-    public void setHasChildren(Boolean hasChildren) {
-        this.hasChildren = hasChildren;
     }
 
     public List<DescendantsCreateDTO> getDescendantsList() {

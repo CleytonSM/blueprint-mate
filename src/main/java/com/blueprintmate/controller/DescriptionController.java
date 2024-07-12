@@ -20,7 +20,7 @@ public class DescriptionController {
 
     @PostMapping
     public ResponseEntity<Void> createDescription(@Valid @RequestBody DescriptionCreateDTO descriptionCreateDTO) {
-        service.createDescription(descriptionCreateDTO);
+        service.setUpDescription(descriptionCreateDTO);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

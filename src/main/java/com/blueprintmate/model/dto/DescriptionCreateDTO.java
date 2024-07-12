@@ -1,31 +1,52 @@
 package com.blueprintmate.model.dto;
 
-public class DescriptionCreateDTO {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+public class DescriptionCreateDTO {
+    //TODO settar valores default onde for necessário
+    @NotBlank(message = "BestPlace can't be null")
     private String bestPlace;
+    @NotBlank(message = "WeekendBestPlace can't be null")
     private String weekendBestPlace;
+    @NotBlank(message = "MissActualHouse can't be null")
     private String missActualHouse;
+    @NotNull(message = "HasActualHouseSatis can't be null")
     private Boolean hasActualHouseSatisfaction;
+    @NotBlank(message = "ActualHouseSatisfaction can't be null")
     private String actualHouseSatisfaction;
+    @NotBlank(message = "Job can't be null")
     private String job;
     private String workRoutine;
+    @NotNull(message = "HasWorkAtHome can't be null")
     private Boolean hasWorkAtHome;
+    @NotNull(message = "DaysWorkingAtHome can't be null")
     private int daysWorkingAtHome;
+    @NotNull(message = "HasTravelForWork can't be null")
     private Boolean hasTravelForWork;
     private String travelsForWork;
+    @NotNull(message = "HasPracticeSports can't be null")
     private Boolean hasPracticeSports;
+    @NotBlank(message = "PracticeSports can't be null")
     private String practiceSports;
+    @NotNull(message = "HasTravel can't be null")
     private Boolean hasTravel;
     private String travel;
+    @NotNull(message = "HasWatchTv can't be null")
     private Boolean hasWatchTv;
+    @NotBlank(message = "WatchTv can't be null")
     private String watchTv;
-    private Boolean hasRead;
-    private Boolean hasBookRead;
-    private Boolean hasTabletRead;
+    private Boolean hasRead; // default -> false
+    private Boolean hasBookRead; // default -> false
+    private Boolean hasTabletRead; // default -> false
+    @NotNull(message = "HasPets can't be null")
     private Boolean hasPets;
+    @NotBlank(message = "Pets can't be null")
     private String pets;
+    @NotNull(message = "HasCook can't be null")
     private Boolean hasCook;
-    private Boolean cook;
+    @NotBlank(message = "Cook can't be null")
+    private String cook;
 
     public DescriptionCreateDTO() {
     }
@@ -36,7 +57,7 @@ public class DescriptionCreateDTO {
                                 Boolean hasTravelForWork, String travelsForWork, Boolean hasPracticeSports,
                                 String practiceSports, Boolean hasTravel, String travel, Boolean hasWatchTv,
                                 String watchTv, Boolean hasBookRead, Boolean hasTabletRead, Boolean hasPets,
-                                String pets, Boolean hasCook, Boolean cook) {
+                                String pets, Boolean hasCook, String cook) {
         this.bestPlace = bestPlace;
         this.weekendBestPlace = weekendBestPlace;
         this.missActualHouse = missActualHouse;
@@ -238,11 +259,11 @@ public class DescriptionCreateDTO {
         this.hasCook = hasCook;
     }
 
-    public Boolean getCook() {
+    public String getCook() {
         return cook;
     }
 
-    public void setCook(Boolean cook) {
+    public void setCook(String cook) {
         this.cook = cook;
     }
 

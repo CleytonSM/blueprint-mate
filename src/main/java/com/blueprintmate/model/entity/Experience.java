@@ -17,16 +17,16 @@ public class Experience {
     @JoinColumn(name = "id_form", nullable = false)
     private Form form;
 
-    @Column(name = "neutral_color_exp", length = 20)
+    @Column(name = "neutral_color_exp", length = 20, nullable = false)
     private String neutralColor;
 
-    @Column(name = "lively_color_exp", length = 20)
+    @Column(name = "lively_color_exp", length = 20, nullable = false)
     private String livelyColor;
 
-    @Column(name = "like_to_feel_exp", length = 180)
+    @Column(name = "like_to_feel_exp", length = 180, nullable = false)
     private String likeToFeel;
 
-    @Column(name = "house_meaning_exp", length = 180)
+    @Column(name = "house_meaning_exp", length = 180, nullable = false)
     private String houseMeaning;
 
     @Column(name = "created_at")
