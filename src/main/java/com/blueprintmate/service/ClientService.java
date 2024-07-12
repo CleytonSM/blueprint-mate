@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
 import static com.blueprintmate.helper.OptionalHelper.verifyIfEntityAlreadyExists;
 
 @Service
@@ -33,10 +34,10 @@ public class ClientService {
 
         save(newClient);
 
-        if(!clientCreateDTO.getSocialMediaList().isEmpty()) {
+        if(clientCreateDTO.getSocialMediaList() != null && !clientCreateDTO.getSocialMediaList().isEmpty()) {
             socialMediaService.createSocialMedia(clientCreateDTO, newClient);
         }
-        if(!clientCreateDTO.getDescendantsList().isEmpty()) {
+        if(clientCreateDTO.getDescendantsList() != null && !clientCreateDTO.getDescendantsList().isEmpty()) {
             descendantsService.createDescendants(clientCreateDTO, newClient);
         }
     }
@@ -44,5 +45,9 @@ public class ClientService {
     @Transactional
     private Client save(Client client) {
         return repository.save(client);
+    }
+
+    public Client findClientByUserId(int id) {
+        return getOptionalEntity(repository.findByUserId(id));
     }
 }

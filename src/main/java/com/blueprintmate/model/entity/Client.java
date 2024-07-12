@@ -55,6 +55,9 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     private List<Descendants> descendantsList;
 
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private List<Description> descriptionList;
+
     public int getId() {
         return id;
     }
@@ -161,5 +164,13 @@ public class Client {
 
     public void setDescendantsList(List<Descendants> descendantsList) {
         this.descendantsList = descendantsList;
+    }
+
+    public List<Description> getDescriptionList() {
+        return descriptionList;
+    }
+
+    public void setDescriptionList(List<Description> descriptionList) {
+        this.descriptionList = descriptionList;
     }
 }

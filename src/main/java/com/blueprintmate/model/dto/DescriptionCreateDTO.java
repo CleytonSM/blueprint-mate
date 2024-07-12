@@ -1,105 +1,65 @@
-package com.blueprintmate.model.entity;
+package com.blueprintmate.model.dto;
 
-import jakarta.persistence.*;
+public class DescriptionCreateDTO {
 
-import java.sql.Timestamp;
-
-@Entity
-@Table(name = "tb_description")
-public class Description {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_desc")
-    private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
-
-    @Column(name = "best_place_desc", length = 180)
     private String bestPlace;
-
-    @Column(name = "wknd_best_place_desc", length = 180)
     private String weekendBestPlace;
-
-    @Column(name = "miss_actual_house_desc", length = 180)
     private String missActualHouse;
-
-    @Column(name = "bool_actual_house_satisfaction")
     private Boolean hasActualHouseSatisfaction;
-
-    @Column(name = "actual_house_satisfaction_desc", length = 180)
     private String actualHouseSatisfaction;
-
-    @Column(name = "job_desc", length = 30)
     private String job;
-
-    @Column(name = "work_routine_desc", length = 180)
     private String workRoutine;
-
-    @Column(name = "bool_work_at_home")
     private Boolean hasWorkAtHome;
-
-    @Column(name = "days_working_at_home")
     private int daysWorkingAtHome;
-
-    @Column(name = "bool_travels_for_work")
     private Boolean hasTravelForWork;
-
-    @Column(name = "travels_for_work_desc", length = 45)
     private String travelsForWork;
-
-    @Column(name = "bool_practice_sports")
     private Boolean hasPracticeSports;
-
-    @Column(name = "practice_sports_desc", length = 100)
     private String practiceSports;
-
-    @Column(name = "bool_travel")
     private Boolean hasTravel;
-
-    @Column(name = "travel_desc", length = 50)
     private String travel;
-
-    @Column(name = "bool_watch_tv")
     private Boolean hasWatchTv;
-
-    @Column(name = "watch_tv_desc", length = 200)
     private String watchTv;
-
-    @Column(name = "bool_read")
     private Boolean hasRead;
-
-    @Column(name = "bool_book_read")
     private Boolean hasBookRead;
-
-    @Column(name = "bool_tablet_read")
     private Boolean hasTabletRead;
-
-    @Column(name = "bool_pets")
     private Boolean hasPets;
-
-    @Column(name = "pets_desc", length = 180)
     private String pets;
-
-    @Column(name = "bool_cook")
     private Boolean hasCook;
-
-    @Column(name = "cook_desc", length = 180)
     private Boolean cook;
 
-    @Column(name = "created_at")
-    private Timestamp createdAt;
+    public DescriptionCreateDTO() {
+    }
 
-    @Column(name = "updated_at")
-    private Timestamp updatedAt;
-
-    @Column(name = "deleted_at")
-    private Timestamp deletedAt;
-
-    public int getId() {
-        return id;
+    public DescriptionCreateDTO(String bestPlace, String weekendBestPlace, String missActualHouse,
+                                Boolean hasActualHouseSatisfaction, String actualHouseSatisfaction, String job,
+                                String workRoutine, Boolean hasWorkAtHome, int daysWorkingAtHome,
+                                Boolean hasTravelForWork, String travelsForWork, Boolean hasPracticeSports,
+                                String practiceSports, Boolean hasTravel, String travel, Boolean hasWatchTv,
+                                String watchTv, Boolean hasBookRead, Boolean hasTabletRead, Boolean hasPets,
+                                String pets, Boolean hasCook, Boolean cook) {
+        this.bestPlace = bestPlace;
+        this.weekendBestPlace = weekendBestPlace;
+        this.missActualHouse = missActualHouse;
+        this.hasActualHouseSatisfaction = hasActualHouseSatisfaction;
+        this.actualHouseSatisfaction = actualHouseSatisfaction;
+        this.job = job;
+        this.workRoutine = workRoutine;
+        this.hasWorkAtHome = hasWorkAtHome;
+        this.daysWorkingAtHome = daysWorkingAtHome;
+        this.hasTravelForWork = hasTravelForWork;
+        this.travelsForWork = travelsForWork;
+        this.hasPracticeSports = hasPracticeSports;
+        this.practiceSports = practiceSports;
+        this.hasTravel = hasTravel;
+        this.travel = travel;
+        this.hasWatchTv = hasWatchTv;
+        this.watchTv = watchTv;
+        this.hasBookRead = hasBookRead;
+        this.hasTabletRead = hasTabletRead;
+        this.hasPets = hasPets;
+        this.pets = pets;
+        this.hasCook = hasCook;
+        this.cook = cook;
     }
 
     public String getBestPlace() {
@@ -108,14 +68,6 @@ public class Description {
 
     public void setBestPlace(String bestPlace) {
         this.bestPlace = bestPlace;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public String getWeekendBestPlace() {
@@ -246,14 +198,6 @@ public class Description {
         this.watchTv = watchTv;
     }
 
-    public Boolean getHasRead() {
-        return hasRead;
-    }
-
-    public void setHasRead(Boolean hasRead) {
-        this.hasRead = hasRead;
-    }
-
     public Boolean getHasBookRead() {
         return hasBookRead;
     }
@@ -302,27 +246,11 @@ public class Description {
         this.cook = cook;
     }
 
-    public Timestamp getCreatedAt() {
-        return createdAt;
+    public Boolean getHasRead() {
+        return hasRead;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Timestamp getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt) {
-        this.deletedAt = deletedAt;
+    public void setHasRead(Boolean hasRead) {
+        this.hasRead = hasRead;
     }
 }

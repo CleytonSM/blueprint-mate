@@ -9,19 +9,27 @@ public class LoginDTO {
     @NotNull(message = "Password field can't be null")
     private String password;
 
-    public @NotNull(message = "Email field can't be null") String getEmail() {
+    public LoginDTO() {
+    }
+
+    public LoginDTO(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(@NotNull(message = "Email field can't be null") String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public @NotNull(message = "Password field can't be null") String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(@NotNull(message = "Password field can't be null") String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }
