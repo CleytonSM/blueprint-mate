@@ -24,7 +24,7 @@ public class DescriptionService {
         User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Description newDescription = modelMapperHelper.convertDescriptionCreateDTOToDescription(descriptionCreateDTO);
-        newDescription.setClient(clientService.findClientByUserId(authenticatedUser.getId()));
+//        newDescription.setClient(clientService.findClientByUserId(authenticatedUser.getId()));
 
         save(newDescription);
     }

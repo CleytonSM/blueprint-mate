@@ -13,22 +13,25 @@ public class Project {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
+    @JoinColumn(name = "id_form", nullable = false)
+    private Form form;
+
+    public Project() {
+    }
+
+    public Project(Form form) {
+        this.form = form;
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Form getForm() {
+        return form;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
+    public void setForm(Form form) {
+        this.form = form;
     }
 }

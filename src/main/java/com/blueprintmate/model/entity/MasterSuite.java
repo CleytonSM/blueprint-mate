@@ -51,6 +51,30 @@ public class MasterSuite extends Suite {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public MasterSuite() {
+    }
+
+    public MasterSuite(Form form, String bedType, boolean hasTv, boolean hasArmchairOrBench, boolean readsInBed,
+                       boolean hasNightStandDrawer, boolean hasWoodHeadboardPreference,
+                       boolean hasFabricHeadboardPreference, boolean hasFullLengthMirror, float currentClosetLength,
+                       float currentClothesRailLength, int currentShoePairsCount, Timestamp createdAt,
+                       Timestamp updatedAt, Timestamp deletedAt) {
+        super(form, bedType);
+        this.hasTv = hasTv;
+        this.hasArmchairOrBench = hasArmchairOrBench;
+        this.readsInBed = readsInBed;
+        this.hasNightStandDrawer = hasNightStandDrawer;
+        this.hasWoodHeadboardPreference = hasWoodHeadboardPreference;
+        this.hasFabricHeadboardPreference = hasFabricHeadboardPreference;
+        this.hasFullLengthMirror = hasFullLengthMirror;
+        this.currentClosetLength = currentClosetLength;
+        this.currentClothesRailLength = currentClothesRailLength;
+        this.currentShoePairsCount = currentShoePairsCount;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public Suite getSuite() {
         return suite;
     }

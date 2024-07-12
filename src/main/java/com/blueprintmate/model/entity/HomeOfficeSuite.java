@@ -27,6 +27,19 @@ public class HomeOfficeSuite extends Suite {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public HomeOfficeSuite() {
+    }
+
+    public HomeOfficeSuite(Form form, String bedType, Timestamp deletedAt, Timestamp updatedAt, Timestamp createdAt,
+                           boolean needsSpaceForBooksDocumentsOrPapers, boolean needsPrivacy) {
+        super(form, bedType);
+        this.deletedAt = deletedAt;
+        this.updatedAt = updatedAt;
+        this.createdAt = createdAt;
+        this.needsSpaceForBooksDocumentsOrPapers = needsSpaceForBooksDocumentsOrPapers;
+        this.needsPrivacy = needsPrivacy;
+    }
+
     public Suite getSuite() {
         return suite;
     }

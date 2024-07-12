@@ -50,10 +50,18 @@ CREATE TABLE tb_descendants(
   deleted_at timestamp
 );
 
+CREATE TABLE tb_form(
+    id_form int PRIMARY KEY AUTO_INCREMENT,
+    id_client int NOT NULL REFERENCES tb_client(id_client),
+    title_form varchar(40)
+    created_at timestamp,
+    updated_at timestamp,
+    deleted_at timestamp
+);
 
 CREATE TABLE tb_description(
   id_desc int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   best_place_desc varchar(180),
   wknd_best_place_desc varchar(180),
   miss_actual_house_desc varchar(180),
@@ -85,7 +93,7 @@ CREATE TABLE tb_description(
 
 CREATE TABLE tb_experience(
   id_experience int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   neutral_color_exp varchar(20),
   lively_color_exp varchar(20),
   like_to_feel_exp varchar(180),
@@ -97,7 +105,7 @@ CREATE TABLE tb_experience(
 
 CREATE TABLE tb_context(
   id_context int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   project_life_stage_significance_context varchar(200),
   ambient_style_description_style_and_moods varchar(180),
   investment_expectation_context varchar(200),
@@ -110,7 +118,7 @@ CREATE TABLE tb_context(
 
 CREATE TABLE tb_style_and_moods(
   id_style_and_moods int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   ambient_style_style_and_moods varchar(20),
   ambient_style_description_style_and_moods varchar(180),
   created_at timestamp,
@@ -120,7 +128,7 @@ CREATE TABLE tb_style_and_moods(
 
 CREATE TABLE tb_general_info(
   id_general_info int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   reuse_general_info varchar(200),
   additional_general_info varchar(200),
   unlisted_furniture_or_equipment_general_info varchar(200),
@@ -133,7 +141,7 @@ CREATE TABLE tb_general_info(
 
 CREATE TABLE tb_suite(
   id_suite int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   bed_type_suite varchar(30)
 );
 
@@ -185,7 +193,7 @@ CREATE TABLE tb_guest_suite(
 
 CREATE TABLE tb_building(
   id_building int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_form int NOT NULL REFERENCES tb_form(id_form),
   neighborhood_relationship_building varchar(180),
   determining_factor_building varchar(180),
   architectural_language_building varchar(180),
@@ -198,7 +206,7 @@ CREATE TABLE tb_building(
 
 CREATE TABLE tb_project(
   id_project int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client)
+  id_form int NOT NULL REFERENCES tb_form(id_form)
 );
 
 CREATE TABLE tb_kitchen(

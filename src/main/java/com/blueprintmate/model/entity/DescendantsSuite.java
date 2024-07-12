@@ -33,6 +33,22 @@ public class DescendantsSuite extends Suite {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public DescendantsSuite() {
+    }
+
+    public DescendantsSuite(Form form, String bedType, boolean hasTv, boolean hasChildStudy,
+                            boolean hasChildReceivesFriendsToSleep, String theme, Timestamp createdAt,
+                            Timestamp updatedAt, Timestamp deletedAt) {
+        super(form, bedType);
+        this.hasTv = hasTv;
+        this.hasChildStudy = hasChildStudy;
+        this.hasChildReceivesFriendsToSleep = hasChildReceivesFriendsToSleep;
+        this.theme = theme;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public Suite getSuite() {
         return suite;
     }

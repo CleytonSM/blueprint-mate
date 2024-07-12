@@ -14,8 +14,8 @@ public class Context {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
+    @JoinColumn(name = "id_form", nullable = false)
+    private Form form;
 
     @Column(name = "project_life_stage_significance_context", length = 200)
     private String projectLifeStageSignificance;
@@ -41,16 +41,31 @@ public class Context {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public Context() {
+    }
+
+    public Context(Form form, String projectLifeStageSignificance, String ambientStyleDescriptionStyleAndMoods, String investmentExpectation, String projectDurationExpectation, String locationDuringRenovation, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        this.form = form;
+        this.projectLifeStageSignificance = projectLifeStageSignificance;
+        this.ambientStyleDescriptionStyleAndMoods = ambientStyleDescriptionStyleAndMoods;
+        this.investmentExpectation = investmentExpectation;
+        this.projectDurationExpectation = projectDurationExpectation;
+        this.locationDuringRenovation = locationDuringRenovation;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public int getId() {
         return id;
     }
 
-    public Client getClient() {
-        return client;
+    public Form getForm() {
+        return form;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public String getProjectLifeStageSignificance() {

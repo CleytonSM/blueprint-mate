@@ -58,6 +58,29 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     private List<Description> descriptionList;
 
+    public Client() {
+    }
+
+    public Client(User user, String name, String nickname, LocalDateTime birthday,
+                  String maritalStatus, String religion, Boolean veganOrVegetarian, String individualNeeds,
+                  Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt, List<SocialMedia> socialMediaList,
+                  List<Descendants> descendantsList, List<Description> descriptionList) {
+        this.user = user;
+        this.name = name;
+        this.nickname = nickname;
+        this.birthday = birthday;
+        this.maritalStatus = maritalStatus;
+        this.religion = religion;
+        this.veganOrVegetarian = veganOrVegetarian;
+        this.individualNeeds = individualNeeds;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+        this.socialMediaList = socialMediaList;
+        this.descendantsList = descendantsList;
+        this.descriptionList = descriptionList;
+    }
+
     public int getId() {
         return id;
     }
