@@ -51,20 +51,26 @@ public class ModelMapperHelper {
         description.setHasActualHouseSatisfaction(descriptionCreateDTO.getHasActualHouseSatisfaction());
         description.setActualHouseSatisfaction(descriptionCreateDTO.getActualHouseSatisfaction());
         description.setJob(descriptionCreateDTO.getJob());
-        description.setWorkRoutine(descriptionCreateDTO.getWorkRoutine()); //TODO ver o null disso
+        description.setWorkRoutine(descriptionCreateDTO.getWorkRoutine() == null
+                ? null : descriptionCreateDTO.getWorkRoutine());
         description.setHasWorkAtHome(descriptionCreateDTO.getHasWorkAtHome());
         description.setDaysWorkingAtHome(descriptionCreateDTO.getDaysWorkingAtHome());
         description.setHasTravelForWork(descriptionCreateDTO.getHasTravelForWork());
-        description.setTravelsForWork(descriptionCreateDTO.getTravelsForWork()); //TODO ver o null disso
+        description.setTravelsForWork(descriptionCreateDTO.getTravelsForWork() == null
+                ? null : descriptionCreateDTO.getTravelsForWork());
         description.setHasPracticeSports(descriptionCreateDTO.getHasPracticeSports());
         description.setPracticeSports(descriptionCreateDTO.getPracticeSports());
         description.setHasTravel(descriptionCreateDTO.getHasTravel());
-        description.setTravel(descriptionCreateDTO.getTravel()); //TODO ver o null disso
+        description.setTravel(descriptionCreateDTO.getTravel() == null
+                ? null : descriptionCreateDTO.getTravel());
         description.setHasWatchTv(descriptionCreateDTO.getHasWatchTv());
         description.setWatchTv(descriptionCreateDTO.getWatchTv());
-        description.setHasRead(descriptionCreateDTO.getHasRead()); //TODO ver o default disso
-        description.setHasBookRead(descriptionCreateDTO.getHasBookRead()); //TODO ver o default disso
-        description.setHasTabletRead(descriptionCreateDTO.getHasTabletRead()); //TODO ver o default disso
+        description.setHasRead(descriptionCreateDTO.getHasRead() == null
+                ? null : descriptionCreateDTO.getHasRead());
+        description.setHasBookRead(descriptionCreateDTO.getHasBookRead() == null
+                ? null : descriptionCreateDTO.getHasBookRead());
+        description.setHasTabletRead(descriptionCreateDTO.getHasTabletRead() == null
+                ? null : descriptionCreateDTO.getHasTabletRead());
         description.setHasPets(descriptionCreateDTO.getHasPets());
         description.setPets(descriptionCreateDTO.getPets());
         description.setHasCook(descriptionCreateDTO.getHasCook());
@@ -89,11 +95,13 @@ public class ModelMapperHelper {
     public Building convertBuildingCreateDTOToBuilding(BuildingCreateDTO buildingCreateDTO) {
         Building building = new Building();
 
-        building.setNeighborhoodRelationship(buildingCreateDTO.getNeighborhoodRelationship()); //TODO ver o null disso
+        building.setNeighborhoodRelationship(buildingCreateDTO.getNeighborhoodRelationship() == null
+                ? null : buildingCreateDTO.getNeighborhoodRelationship());
         building.setDeterminingFactor(buildingCreateDTO.getDeterminingFactor());
         building.setArchitecturalLanguage(buildingCreateDTO.getArchitecturalLanguage());
         building.setBalconyIntegration(buildingCreateDTO.getBalconyIntegration());
-        building.setBuildingManagerContact(buildingCreateDTO.getBuildingManagerContact());//TODO ver o null disso
+        building.setBuildingManagerContact(buildingCreateDTO.getBuildingManagerContact() == null
+                ? null : buildingCreateDTO.getBuildingManagerContact());
         building.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return building;
