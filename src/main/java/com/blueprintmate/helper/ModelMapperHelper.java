@@ -106,4 +106,13 @@ public class ModelMapperHelper {
 
         return building;
     }
+
+    public Form convertFormCreateDTOToForm(FormCreateDTO formCreateDTO) {
+        Form form = new Form();
+
+        form.setTitle(formCreateDTO.getTitle());
+        form.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return form;
+    }
 }

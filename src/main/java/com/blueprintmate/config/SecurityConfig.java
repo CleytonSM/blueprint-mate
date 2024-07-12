@@ -31,8 +31,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/register").permitAll()
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/client/**").hasRole("USER")
-                        .requestMatchers("/description/**").hasRole("USER"))
+                        .requestMatchers("/client/create").hasRole("USER")
+                        .requestMatchers("/form/create").hasRole("USER"))
                 .addFilterBefore(applicationContext.getBean(JwtValidatorFilter.class), UsernamePasswordAuthenticationFilter.class)
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable);

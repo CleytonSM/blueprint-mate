@@ -20,9 +20,12 @@ public class ExperienceService {
         return modelMapperHelper.convertExperienceCreateDTOToExperience(experience);
     }
 
+    public void createExperience(Experience newExperience) {
+        save(newExperience);
+    }
+
     @Transactional
     private Experience save(Experience experience) {
         return repository.save(experience);
     }
-
 }
