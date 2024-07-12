@@ -27,6 +27,19 @@ public class GuestsSuite extends Suite {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public GuestsSuite() {
+    }
+
+    public GuestsSuite(Form form, String bedType, String closetUse, String frequencyOfGuests, Timestamp createdAt,
+                       Timestamp updatedAt, Timestamp deletedAt) {
+        super(form, bedType);
+        this.closetUse = closetUse;
+        this.frequencyOfGuests = frequencyOfGuests;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public Suite getSuite() {
         return suite;
     }

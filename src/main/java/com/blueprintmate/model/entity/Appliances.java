@@ -26,12 +26,18 @@ public class Appliances {
     @Column(name = "bool_store_small_appliances_hidden")
     private Boolean hasStoreSmallHidden;
 
-    public int getId() {
-        return id;
+    public Appliances() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Appliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden) {
+        this.kitchen = kitchen;
+        this.laundry = laundry;
+        this.hasStoreSmallVisible = hasStoreSmallVisible;
+        this.hasStoreSmallHidden = hasStoreSmallHidden;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Kitchen getKitchen() {

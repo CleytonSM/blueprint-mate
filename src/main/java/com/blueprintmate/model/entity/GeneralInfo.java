@@ -14,8 +14,8 @@ public class GeneralInfo {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
+    @JoinColumn(name = "id_form", nullable = false)
+    private Form form;
 
     @Column(name = "reuse_general_info", length = 200)
     private String reuse;
@@ -41,16 +41,33 @@ public class GeneralInfo {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public GeneralInfo() {
+    }
+
+    public GeneralInfo(Form form, String reuse, String additional,
+                       String unlistedFurnitureOrEquipment, String avoidanceRequests, String plantRelationship,
+                       Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        this.form = form;
+        this.reuse = reuse;
+        this.additional = additional;
+        this.unlistedFurnitureOrEquipment = unlistedFurnitureOrEquipment;
+        this.avoidanceRequests = avoidanceRequests;
+        this.plantRelationship = plantRelationship;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public int getId() {
         return id;
     }
 
-    public Client getClient() {
-        return client;
+    public Form getForm() {
+        return form;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public String getReuse() {

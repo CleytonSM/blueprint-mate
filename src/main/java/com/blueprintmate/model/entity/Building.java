@@ -14,8 +14,8 @@ public class Building {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
+    @JoinColumn(name = "id_form", nullable = false)
+    private Form form;
 
     @Column(name = "neighborhood_relationship_building", length = 180)
     private String neighborhoodRelationship;
@@ -41,20 +41,33 @@ public class Building {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public Building() {
+    }
+
+    public Building(Form form, String neighborhoodRelationship, String determiningFactor, String architecturalLanguage,
+                    String balconyIntegration, String buildingManagerContact, Timestamp createdAt, Timestamp updatedAt,
+                    Timestamp deletedAt) {
+        this.form = form;
+        this.neighborhoodRelationship = neighborhoodRelationship;
+        this.determiningFactor = determiningFactor;
+        this.architecturalLanguage = architecturalLanguage;
+        this.balconyIntegration = balconyIntegration;
+        this.buildingManagerContact = buildingManagerContact;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Form getForm() {
+        return form;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public String getNeighborhoodRelationship() {

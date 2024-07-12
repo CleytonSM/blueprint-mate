@@ -14,8 +14,8 @@ public class Description {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
+    @JoinColumn(name = "id_form", nullable = false)
+    private Form form;
 
     @Column(name = "best_place_desc", length = 180)
     private String bestPlace;
@@ -98,6 +98,49 @@ public class Description {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public Description() {
+    }
+
+    public Description(Form form, String bestPlace, String weekendBestPlace,
+                       String missActualHouse, Boolean hasActualHouseSatisfaction, String actualHouseSatisfaction,
+                       String job, String workRoutine, Boolean hasWorkAtHome,
+                       int daysWorkingAtHome, Boolean hasTravelForWork, String travelsForWork,
+                       Boolean hasPracticeSports, String practiceSports, Boolean hasTravel,
+                       String travel, Boolean hasWatchTv, String watchTv,
+                       Boolean hasRead, Boolean hasBookRead, Boolean hasTabletRead,
+                       Boolean hasPets, String pets, Boolean hasCook,
+                       Boolean cook, Timestamp createdAt, Timestamp updatedAt,
+                       Timestamp deletedAt) {
+        this.form = form;
+        this.bestPlace = bestPlace;
+        this.weekendBestPlace = weekendBestPlace;
+        this.missActualHouse = missActualHouse;
+        this.hasActualHouseSatisfaction = hasActualHouseSatisfaction;
+        this.actualHouseSatisfaction = actualHouseSatisfaction;
+        this.job = job;
+        this.workRoutine = workRoutine;
+        this.hasWorkAtHome = hasWorkAtHome;
+        this.daysWorkingAtHome = daysWorkingAtHome;
+        this.hasTravelForWork = hasTravelForWork;
+        this.travelsForWork = travelsForWork;
+        this.hasPracticeSports = hasPracticeSports;
+        this.practiceSports = practiceSports;
+        this.hasTravel = hasTravel;
+        this.travel = travel;
+        this.hasWatchTv = hasWatchTv;
+        this.watchTv = watchTv;
+        this.hasRead = hasRead;
+        this.hasBookRead = hasBookRead;
+        this.hasTabletRead = hasTabletRead;
+        this.hasPets = hasPets;
+        this.pets = pets;
+        this.hasCook = hasCook;
+        this.cook = cook;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
     public int getId() {
         return id;
     }
@@ -110,12 +153,12 @@ public class Description {
         this.bestPlace = bestPlace;
     }
 
-    public Client getClient() {
-        return client;
+    public Form getForm() {
+        return form;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public String getWeekendBestPlace() {

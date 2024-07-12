@@ -13,22 +13,30 @@ public class Suite {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private Client client;
+    @JoinColumn(name = "id_form", nullable = false)
+    private Form form;
 
     @Column(name = "bed_type_suite", length = 30)
     private String bedType;
+
+    public Suite() {
+    }
+
+    public Suite(Form form, String bedType) {
+        this.form = form;
+        this.bedType = bedType;
+    }
 
     public int getId() {
         return id;
     }
 
-    public Client getClient() {
-        return client;
+    public Form getForm() {
+        return form;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public String getBedType() {
