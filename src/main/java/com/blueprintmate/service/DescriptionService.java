@@ -22,6 +22,9 @@ public class DescriptionService {
         return modelMapperHelper.convertDescriptionCreateDTOToDescription(descriptionCreateDTO);
     }
 
+    public void createDescription(Description newDescription) {
+        save(newDescription);
+    }
 
     @Transactional
     private Description save(Description description) {

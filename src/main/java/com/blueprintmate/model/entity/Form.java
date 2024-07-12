@@ -51,6 +51,14 @@ public class Form {
         this.client = client;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Timestamp getCreatedAt() {
         return createdAt;
     }
