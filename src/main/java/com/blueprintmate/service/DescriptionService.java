@@ -3,6 +3,7 @@ package com.blueprintmate.service;
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.DescriptionCreateDTO;
 import com.blueprintmate.model.entity.Description;
+import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.DescriptionRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,9 @@ public class DescriptionService {
         return modelMapperHelper.convertDescriptionCreateDTOToDescription(descriptionCreateDTO);
     }
 
-    public void createDescription(Description newDescription) {
+    public void createDescription(Description newDescription, Form form) {
+        newDescription.setForm(form);
+
         save(newDescription);
     }
 

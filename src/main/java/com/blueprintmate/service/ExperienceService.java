@@ -3,6 +3,7 @@ package com.blueprintmate.service;
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.ExperienceCreateDTO;
 import com.blueprintmate.model.entity.Experience;
+import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.ExperienceRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ public class ExperienceService {
         return modelMapperHelper.convertExperienceCreateDTOToExperience(experience);
     }
 
-    public void createExperience(Experience newExperience) {
+    public void createExperience(Experience newExperience, Form form) {
+        newExperience.setForm(form);
+
         save(newExperience);
     }
 

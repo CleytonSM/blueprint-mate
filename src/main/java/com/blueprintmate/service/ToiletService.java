@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.ToiletCreateDTO;
+import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.Toilet;
 import com.blueprintmate.repository.ToiletRepository;
 import jakarta.transaction.Transactional;
@@ -21,7 +22,9 @@ public class ToiletService {
         return modelMapperHelper.convertToiletCreateDTOToToilet(toilet);
     }
 
-    public void createToilet(Toilet newToilet) {
+    public void createToilet(Toilet newToilet, Form form) {
+        newToilet.setForm(form);
+
         save(newToilet);
     }
 

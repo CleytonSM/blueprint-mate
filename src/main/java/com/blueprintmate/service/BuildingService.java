@@ -3,6 +3,7 @@ package com.blueprintmate.service;
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.BuildingCreateDTO;
 import com.blueprintmate.model.entity.Building;
+import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.BuildingRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ public class BuildingService {
         return modelMapperHelper.convertBuildingCreateDTOToBuilding(building);
     }
 
-    public void createBuilding(Building newBuilding) {
+    public void createBuilding(Building newBuilding, Form form) {
+        newBuilding.setForm(form);
+
         save(newBuilding);
     }
 
