@@ -138,4 +138,31 @@ public class ModelMapperHelper {
 
         return entranceHall;
     }
+
+    public LivingRoom convertLivingRoomCreateDTOToLivingRoom(LivingRoomCreateDTO livingRoomCreateDTO) {
+        LivingRoom livingRoom = new LivingRoom();
+
+        livingRoom.setPeople(livingRoomCreateDTO.getPeople());
+        livingRoom.setHasPeople(livingRoomCreateDTO.getHasPeople());
+        livingRoom.setTvInch(livingRoomCreateDTO.getTvInch());
+        livingRoom.setEquipmentLiving(livingRoomCreateDTO.getEquipmentLiving());
+        livingRoom.setHasSofaWithChaise(livingRoomCreateDTO.getHasSofaWithChaise());
+        livingRoom.setHasSofaWithRetractableChaise(livingRoomCreateDTO.getHasSofaWithRetractableChaise());
+        livingRoom.setHasBooksOrCollection(livingRoomCreateDTO.getHasBooksOrCollection());
+        livingRoom.setHasUsedDaily(livingRoomCreateDTO.getHasUsedDaily());
+        livingRoom.setReceivesManyPeople(livingRoomCreateDTO.getReceivesManyPeople());
+        livingRoom.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return livingRoom;
+    }
+
+    public DiningRoom convertDiningRoomCreateDTOToDiningRoom(DiningRoomCreateDTO diningRoomCreateDTO) {
+        DiningRoom diningRoom = new DiningRoom();
+
+        diningRoom.setDiningTableCapacity(diningRoomCreateDTO.getDiningTableCapacity());
+        diningRoom.setDailyMealsLocation(diningRoomCreateDTO.getDailyMealsLocation());
+        diningRoom.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return diningRoom;
+    }
 }

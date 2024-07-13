@@ -39,6 +39,12 @@ public class FormService {
     @Autowired
     private EntranceHallService entranceHallService;
 
+    @Autowired
+    private LivingRoomService livingRoomService;
+
+    @Autowired
+    private DiningRoomService diningRoomService;
+
     public void createForm(FormCreateDTO formCreateDTO) {
         User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Client retrievedClient = clientService.findClientByUserId(authenticatedUser.getId());
@@ -48,6 +54,8 @@ public class FormService {
         Building building = buildingService.setUpBuilding(formCreateDTO.getBuilding());
         Toilet toilet = toiletService.setUpToilet(formCreateDTO.getToilet());
         EntranceHall entranceHall = entranceHallService.setUpEntranceHall(formCreateDTO.getEntranceHall());
+        LivingRoom livingRoom = livingRoomService.setUpLivingRoom(formCreateDTO.getLivingRoom());
+        DiningRoom diningRoom = diningRoomService.setUpDiningRoom(formCreateDTO.getDiningRoom());
 
         Form newForm = modelMapperHelper.convertFormCreateDTOToForm(formCreateDTO);
         newForm.setClient(retrievedClient);
@@ -58,6 +66,8 @@ public class FormService {
         formData.put("building", building);
         formData.put("toilet", toilet);
         formData.put("entranceHall", entranceHall);
+        formData.put("livingRoom", livingRoom);
+        formData.put("diningRoom", diningRoom);
         formData.put("form", newForm);
 
         saveEntities(formData);
@@ -71,12 +81,16 @@ public class FormService {
         Building newBuilding = (Building) formData.get("building");
         Toilet newToilet = (Toilet) formData.get("toilet");
         EntranceHall newEntranceHall = (EntranceHall) formData.get("entranceHall");
+        LivingRoom newLivingRoom = (LivingRoom) formData.get("livingRoom");
+        DiningRoom newDiningRoom = (DiningRoom) formData.get("diningRoom");
 
         descriptionService.createDescription(newDescription);
         experienceService.createExperience(newExperience);
         buildingService.createBuilding(newBuilding);
         toiletService.createToilet(newToilet);
         entranceHallService.createEntranceHall(newEntranceHall);
+        livingRoomService.createLivingRoom(newLivingRoom);
+        diningRoomService.createDiningRoom(newDiningRoom);
     }
 
     @Transactional
