@@ -6,6 +6,8 @@ public class FormCreateDTO {
     private DescriptionCreateDTO description;
     private ExperienceCreateDTO experience;
     private BuildingCreateDTO building;
+    private ToiletCreateDTO toilet;
+    private EntranceHallCreateDTO entranceHall;
 
     public String getTitle() {
         return title;
@@ -37,5 +39,21 @@ public class FormCreateDTO {
 
     public void setBuilding(BuildingCreateDTO building) {
         this.building = building;
+    }
+
+    public ToiletCreateDTO getToilet() {
+        return toilet;
+    }
+
+    public void setToilet(ToiletCreateDTO toilet) {
+        this.toilet = toilet;
+    }
+
+    public EntranceHallCreateDTO getEntranceHall() {
+        return entranceHall;
+    }
+
+    public void setEntranceHall(EntranceHallCreateDTO entranceHall) {
+        this.entranceHall = entranceHall;
     }
 }

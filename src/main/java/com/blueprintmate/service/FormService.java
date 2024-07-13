@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +33,12 @@ public class FormService {
     @Autowired
     private BuildingService buildingService;
 
+    @Autowired
+    private ToiletService toiletService;
+
+    @Autowired
+    private EntranceHallService entranceHallService;
+
     public void createForm(FormCreateDTO formCreateDTO) {
         User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Client retrievedClient = clientService.findClientByUserId(authenticatedUser.getId());
@@ -42,7 +46,8 @@ public class FormService {
         Description description = descriptionService.setUpDescription(formCreateDTO.getDescription());
         Experience experience = experienceService.setUpExperience(formCreateDTO.getExperience());
         Building building = buildingService.setUpBuilding(formCreateDTO.getBuilding());
-
+        Toilet toilet = toiletService.setUpToilet(formCreateDTO.getToilet());
+        EntranceHall entranceHall = entranceHallService.setUpEntranceHall(formCreateDTO.getEntranceHall());
 
         Form newForm = modelMapperHelper.convertFormCreateDTOToForm(formCreateDTO);
         newForm.setClient(retrievedClient);
@@ -51,6 +56,8 @@ public class FormService {
         formData.put("description", description);
         formData.put("experience", experience);
         formData.put("building", building);
+        formData.put("toilet", toilet);
+        formData.put("entranceHall", entranceHall);
         formData.put("form", newForm);
 
         saveEntities(formData);
@@ -62,10 +69,14 @@ public class FormService {
         Description newDescription = (Description) formData.get("description");
         Experience newExperience = (Experience) formData.get("experience");
         Building newBuilding = (Building) formData.get("building");
+        Toilet newToilet = (Toilet) formData.get("toilet");
+        EntranceHall newEntranceHall = (EntranceHall) formData.get("entranceHall");
 
         descriptionService.createDescription(newDescription);
         experienceService.createExperience(newExperience);
         buildingService.createBuilding(newBuilding);
+        toiletService.createToilet(newToilet);
+        entranceHallService.createEntranceHall(newEntranceHall);
     }
 
     @Transactional
