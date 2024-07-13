@@ -17,16 +17,16 @@ public class EntranceHall extends Project {
     @Column(name = "bool_shoes_house_walking_entrance_hall")
     private Boolean hasShoesHouseWalking;
 
-    @Column(name = "bool_has_entrance_console_table_entrance_hall")
+    @Column(name = "bool_has_entrance_console_table_entrance_hall", nullable = false)
     private Boolean hasEntranceConsoleTable;
 
-    @Column(name = "bool_want_entrance_console_table_entrance_hall")
+    @Column(name = "bool_want_entrance_console_table_entrance_hall", nullable = false)
     private Boolean hasWantEntranceConsoleTable;
 
-    @Column(name = "bool_full_length_mirror_entrance_hall")
+    @Column(name = "bool_full_length_mirror_entrance_hall", nullable = false)
     private Boolean hasFullLengthMirror;
 
-    @Column(name = "bool_familiar_with_electronic_locks_entrance_hall")
+    @Column(name = "bool_familiar_with_electronic_locks_entrance_hall", nullable = false)
     private Boolean hasFamiliarWithElectronicLocks;
 
     @Column(name = "created_at")

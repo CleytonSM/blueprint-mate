@@ -115,4 +115,27 @@ public class ModelMapperHelper {
 
         return form;
     }
+
+    public Toilet convertToiletCreateDTOToToilet(ToiletCreateDTO toiletCreateDTO) {
+        Toilet toilet = new Toilet();
+
+        toilet.setApartmentPattern(toiletCreateDTO.getApartmentPattern());
+        toilet.setDesignToilet(toiletCreateDTO.getDesignToilet());
+        toilet.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return toilet;
+    }
+
+    public EntranceHall convertEntranceHallCreateDTOToEntranceHall(EntranceHallCreateDTO entranceHallCreateDTO) {
+        EntranceHall entranceHall = new EntranceHall();
+
+        entranceHall.setHasShoesHouseWalking(entranceHallCreateDTO.getHasShoesHouseWalking() == null
+                ? null : entranceHall.getHasShoesHouseWalking());
+        entranceHall.setHasEntranceConsoleTable((entranceHallCreateDTO.getHasEntranceConsoleTable()));
+        entranceHall.setHasWantEntranceConsoleTable((entranceHallCreateDTO.getHasWantEntranceConsoleTable()));
+        entranceHall.setHasFullLengthMirror((entranceHallCreateDTO.getHasFullLengthMirror()));
+        entranceHall.setHasFamiliarWithElectronicLocks((entranceHallCreateDTO.getHasFamiliarWithElectronicLocks()));
+
+        return entranceHall;
+    }
 }

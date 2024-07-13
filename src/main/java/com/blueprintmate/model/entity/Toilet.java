@@ -14,10 +14,10 @@ public class Toilet extends Project {
             nullable = false, insertable = false, updatable = false)
     private Project project;
 
-    @Column(name = "apartment_pattern_toilet", length = 180)
+    @Column(name = "apartment_pattern_toilet", length = 180, nullable = false)
     private String apartmentPattern;
 
-    @Column(name = "design_toilet", length = 50)
+    @Column(name = "design_toilet", length = 50, nullable = false)
     private String designToilet;
 
     @Column(name = "created_at")
@@ -29,12 +29,21 @@ public class Toilet extends Project {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Project getProject() {
-        return project;
+    public Toilet() {
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public Toilet(Form form, String apartmentPattern, String designToilet,
+                  Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(form);
+        this.apartmentPattern = apartmentPattern;
+        this.designToilet = designToilet;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
+    public Project getProject() {
+        return project;
     }
 
     public String getApartmentPattern() {
