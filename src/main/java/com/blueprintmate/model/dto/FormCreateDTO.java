@@ -8,6 +8,8 @@ public class FormCreateDTO {
     private BuildingCreateDTO building;
     private ToiletCreateDTO toilet;
     private EntranceHallCreateDTO entranceHall;
+    private LivingRoomCreateDTO livingRoom;
+    private DiningRoomCreateDTO diningRoom;
 
     public String getTitle() {
         return title;
@@ -55,5 +57,21 @@ public class FormCreateDTO {
 
     public void setEntranceHall(EntranceHallCreateDTO entranceHall) {
         this.entranceHall = entranceHall;
+    }
+
+    public LivingRoomCreateDTO getLivingRoom() {
+        return livingRoom;
+    }
+
+    public void setLivingRoom(LivingRoomCreateDTO livingRoom) {
+        this.livingRoom = livingRoom;
+    }
+
+    public DiningRoomCreateDTO getDiningRoom() {
+        return diningRoom;
+    }
+
+    public void setDiningRoom(DiningRoomCreateDTO diningRoom) {
+        this.diningRoom = diningRoom;
     }
 }

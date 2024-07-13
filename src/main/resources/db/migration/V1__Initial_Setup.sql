@@ -236,7 +236,6 @@ CREATE TABLE tb_kitchen(
 
 CREATE TABLE tb_dining_room(
     id_dining_room INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_project(id_project),
-    people_dining_room INTEGER,
     dining_table_capacity_dining_room INTEGER,
     daily_meals_location_dining_room VARCHAR(60),
     created_at TIMESTAMP,
@@ -249,12 +248,12 @@ CREATE TABLE tb_living_room(
     people_in_living_room INTEGER,
     bool_tv_is_important_living_room BOOLEAN,
     tv_inch_living_room INTEGER,
-    equipment_living_dining_room VARCHAR(160),
+    equipment_living_room VARCHAR(160),
     bool_sofa_with_chaise_living_room BOOLEAN,
     bool_sofa_with_retractable_chaise_living_room BOOLEAN,
     bool_books_or_collection_living_room BOOLEAN,
     bool_used_daily_living_room BOOLEAN,
-    bool_receives_many_people_living_room BOOLEAN,
+    receives_many_people_living_room varchar(100),
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
     deleted_at TIMESTAMP

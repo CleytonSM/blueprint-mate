@@ -1,63 +1,35 @@
-package com.blueprintmate.model.entity;
+package com.blueprintmate.model.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
+public class LivingRoomCreateDTO {
 
-@Entity
-@Table(name = "tb_living_room")
-@PrimaryKeyJoinColumn(name = "id_living_room")
-public class LivingRoom extends Project {
-
-    @ManyToOne
-    @JoinColumn(name = "id_living_room", referencedColumnName = "id_project",
-            nullable = false, insertable = false, updatable = false)
-    private Project project;
-
-    @Column(name = "people_in_living_room", nullable = false)
+    @NotBlank(message = "People field can't be null")
     private Integer people;
-
-    @Column(name = "bool_tv_is_important_living_room", nullable = false)
+    @NotNull(message = "HasPeople field can't be null")
     private Boolean hasPeople;
-
-    @Column(name = "tv_inch_living_room", nullable = false)
+    @NotNull(message = "TvInch field can't be null")
     private Integer tvInch;
-
-    @Column(name = "equipment_living_room", length = 160, nullable = false)
+    @NotBlank(message = "EquipmentLiving field can't be null")
     private String equipmentLiving;
-
-    @Column(name = "bool_sofa_with_chaise_living_room", nullable = false)
+    @NotNull(message = "HasSofaWithChaise field can't be null")
     private Boolean hasSofaWithChaise;
-
-    @Column(name = "bool_sofa_with_retractable_chaise_living_room", nullable = false)
+    @NotNull(message = "HasSofaWithRetractableChaise field can't be null")
     private Boolean hasSofaWithRetractableChaise;
-
-    @Column(name = "bool_books_or_collection_living_room", nullable = false)
+    @NotNull(message = "HasBooksOrCollection field can't be null")
     private Boolean hasBooksOrCollection;
-
-    @Column(name = "bool_used_daily_living_room", nullable = false)
+    @NotNull(message = "HasUsedDaily field can't be null")
     private Boolean hasUsedDaily;
-
-    @Column(name = "receives_many_people_living_room", length = 100, nullable = false)
+    @NotBlank(message = "ReceivesManyPeople field can't be null")
     private String receivesManyPeople;
 
-    @Column(name = "created_at")
-    private Timestamp createdAt;
-
-    @Column(name = "updated_at")
-    private Timestamp updatedAt;
-
-    @Column(name = "deleted_at")
-    private Timestamp deletedAt;
-
-    public LivingRoom() {
+    public LivingRoomCreateDTO() {
     }
 
-    public LivingRoom(Form form, Integer people, Boolean hasPeople, Integer tvInch,
-                      String equipmentLiving, Boolean hasSofaWithChaise, Boolean hasSofaWithRetractableChaise,
-                      Boolean hasBooksOrCollection, Boolean hasUsedDaily, String receivesManyPeople,
-                      Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        super(form);
+    public LivingRoomCreateDTO(Integer people, Boolean hasPeople, Integer tvInch, String equipmentLiving,
+                               Boolean hasSofaWithChaise, Boolean hasSofaWithRetractableChaise,
+                               Boolean hasBooksOrCollection, Boolean hasUsedDaily, String receivesManyPeople) {
         this.people = people;
         this.hasPeople = hasPeople;
         this.tvInch = tvInch;
@@ -67,17 +39,6 @@ public class LivingRoom extends Project {
         this.hasBooksOrCollection = hasBooksOrCollection;
         this.hasUsedDaily = hasUsedDaily;
         this.receivesManyPeople = receivesManyPeople;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public Integer getPeople() {
@@ -150,29 +111,5 @@ public class LivingRoom extends Project {
 
     public void setReceivesManyPeople(String receivesManyPeople) {
         this.receivesManyPeople = receivesManyPeople;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Timestamp getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt) {
-        this.deletedAt = deletedAt;
     }
 }

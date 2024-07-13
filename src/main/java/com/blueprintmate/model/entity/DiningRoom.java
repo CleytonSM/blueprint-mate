@@ -14,13 +14,10 @@ public class DiningRoom extends Project {
             nullable = false, insertable = false, updatable = false)
     private Project project;
 
-    @Column(name = "people_dining_room")
-    private Integer people;
-
-    @Column(name = "dining_table_capacity_dining_room")
+    @Column(name = "dining_table_capacity_dining_room", nullable = false)
     private Integer diningTableCapacity;
 
-    @Column(name = "daily_meals_location_dining_room", length = 60)
+    @Column(name = "daily_meals_location_dining_room", length = 60, nullable = false)
     private String dailyMealsLocation;
 
     @Column(name = "created_at")
@@ -32,4 +29,60 @@ public class DiningRoom extends Project {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
+    public DiningRoom() {
+    }
+
+    public DiningRoom(Form form, Integer diningTableCapacity, String dailyMealsLocation,
+                      Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(form);
+        this.diningTableCapacity = diningTableCapacity;
+        this.dailyMealsLocation = dailyMealsLocation;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Integer getDiningTableCapacity() {
+        return diningTableCapacity;
+    }
+
+    public void setDiningTableCapacity(Integer diningTableCapacity) {
+        this.diningTableCapacity = diningTableCapacity;
+    }
+
+    public String getDailyMealsLocation() {
+        return dailyMealsLocation;
+    }
+
+    public void setDailyMealsLocation(String dailyMealsLocation) {
+        this.dailyMealsLocation = dailyMealsLocation;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Timestamp getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Timestamp deletedAt) {
+        this.deletedAt = deletedAt;
+    }
 }
