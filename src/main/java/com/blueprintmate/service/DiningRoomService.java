@@ -3,6 +3,7 @@ package com.blueprintmate.service;
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.DiningRoomCreateDTO;
 import com.blueprintmate.model.entity.DiningRoom;
+import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.DiningRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,9 @@ public class DiningRoomService {
         return modelMapperHelper.convertDiningRoomCreateDTOToDiningRoom(diningRoom);
     }
 
-    public void createDiningRoom(DiningRoom newDiningRoom) {
+    public void createDiningRoom(DiningRoom newDiningRoom, Form form) {
+        newDiningRoom.setForm(form);
+
         save(newDiningRoom);
     }
 

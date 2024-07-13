@@ -3,6 +3,7 @@ package com.blueprintmate.service;
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.EntranceHallCreateDTO;
 import com.blueprintmate.model.entity.EntranceHall;
+import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.EntranceHallRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,9 @@ public class EntranceHallService {
         return modelMapperHelper.convertEntranceHallCreateDTOToEntranceHall(entranceHall);
     }
 
-    public void createEntranceHall(EntranceHall newEntranceHall) {
+    public void createEntranceHall(EntranceHall newEntranceHall, Form form) {
+        newEntranceHall.setForm(form);
+
         save(newEntranceHall);
     }
 

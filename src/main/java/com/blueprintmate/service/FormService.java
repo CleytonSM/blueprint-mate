@@ -74,7 +74,8 @@ public class FormService {
     }
 
     private void saveEntities(Map<String, Object> formData) {
-        save((Form) formData.get("form"));
+        Form newForm = (Form) formData.get("form");
+        save(newForm);
 
         Description newDescription = (Description) formData.get("description");
         Experience newExperience = (Experience) formData.get("experience");
@@ -84,13 +85,13 @@ public class FormService {
         LivingRoom newLivingRoom = (LivingRoom) formData.get("livingRoom");
         DiningRoom newDiningRoom = (DiningRoom) formData.get("diningRoom");
 
-        descriptionService.createDescription(newDescription);
-        experienceService.createExperience(newExperience);
-        buildingService.createBuilding(newBuilding);
-        toiletService.createToilet(newToilet);
-        entranceHallService.createEntranceHall(newEntranceHall);
-        livingRoomService.createLivingRoom(newLivingRoom);
-        diningRoomService.createDiningRoom(newDiningRoom);
+        descriptionService.createDescription(newDescription, newForm);
+        experienceService.createExperience(newExperience, newForm);
+        buildingService.createBuilding(newBuilding, newForm);
+        toiletService.createToilet(newToilet, newForm);
+        entranceHallService.createEntranceHall(newEntranceHall, newForm);
+        livingRoomService.createLivingRoom(newLivingRoom, newForm);
+        diningRoomService.createDiningRoom(newDiningRoom, newForm);
     }
 
     @Transactional
