@@ -26,14 +26,8 @@ public class Kitchen extends Project {
     @Column(name = "material_preference_kitchen", length = 30)
     private String materialPreference;
 
-    @Column(name = "bool_wet_gutter_kitchen")
-    private Boolean hasWetGutter;
-
-    @Column(name = "bool_built_in_trash_can_kitchen")
-    private Boolean hasBuiltInTrashCan;
-
-    @Column(name = "bool_choose_appliances_kitchen")
-    private Boolean hasChooseAppliances;
+    @Column(name = "bool_wet_gutter_or_built_in_trash_can_kitchen")
+    private Boolean hasWetGutterOrBuiltInTrashCan;
 
     @Column(name = "bool_stove_kitchen")
     private Boolean hasStove;
@@ -117,28 +111,12 @@ public class Kitchen extends Project {
         this.materialPreference = materialPreference;
     }
 
-    public Boolean getHasWetGutter() {
-        return hasWetGutter;
+    public Boolean getHasWetGutterOrBuiltInTrashCan() {
+        return hasWetGutterOrBuiltInTrashCan;
     }
 
-    public void setHasWetGutter(Boolean hasWetGutter) {
-        this.hasWetGutter = hasWetGutter;
-    }
-
-    public Boolean getHasBuiltInTrashCan() {
-        return hasBuiltInTrashCan;
-    }
-
-    public void setHasBuiltInTrashCan(Boolean hasBuiltInTrashCan) {
-        this.hasBuiltInTrashCan = hasBuiltInTrashCan;
-    }
-
-    public Boolean getHasChooseAppliances() {
-        return hasChooseAppliances;
-    }
-
-    public void setHasChooseAppliances(Boolean hasChooseAppliances) {
-        this.hasChooseAppliances = hasChooseAppliances;
+    public void setHasWetGutterOrBuiltInTrashCan(Boolean hasWetGutterOrBuiltInTrashCan) {
+        this.hasWetGutterOrBuiltInTrashCan = hasWetGutterOrBuiltInTrashCan;
     }
 
     public Boolean getHasStove() {
