@@ -29,12 +29,22 @@ public class NecessaryAppliances extends Appliances {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Appliances getAppliances() {
-        return appliances;
+    public NecessaryAppliances() {
     }
 
-    public void setAppliances(Appliances appliances) {
-        this.appliances = appliances;
+    public NecessaryAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
+                               Boolean hasStoreSmallHidden, String name, Boolean hasUsedDaily, Timestamp createdAt,
+                               Timestamp updatedAt, Timestamp deletedAt) {
+        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+        this.name = name;
+        this.hasUsedDaily = hasUsedDaily;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
+    public Appliances getAppliances() {
+        return appliances;
     }
 
     public String getName() {

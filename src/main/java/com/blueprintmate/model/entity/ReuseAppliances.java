@@ -26,12 +26,20 @@ public class ReuseAppliances extends Appliances {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Appliances getAppliances() {
-        return appliances;
+    public ReuseAppliances() {
     }
 
-    public void setAppliances(Appliances appliances) {
-        this.appliances = appliances;
+    public ReuseAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                           String name, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+        this.name = name;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
+    public Appliances getAppliances() {
+        return appliances;
     }
 
     public String getName() {
