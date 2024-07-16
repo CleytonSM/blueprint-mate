@@ -1,96 +1,61 @@
-package com.blueprintmate.model.entity;
+package com.blueprintmate.model.dto;
 
-import jakarta.persistence.*;
+import com.blueprintmate.model.enumerable.FlushType;
+import com.blueprintmate.model.enumerable.SinkShape;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
+public class BathroomCreateDTO {
 
-@Entity
-@Table(name = "tb_bathroom")
-@PrimaryKeyJoinColumn(name = "id_bathroom")
-public class Bathroom extends Project {
-
-    @ManyToOne
-    @JoinColumn(name = "id_bathroom", referencedColumnName = "id_project",
-            nullable = false, insertable = false, updatable = false)
-    private Project project;
-
-    @Column(name = "bool_all_renovated_bathroom")
+    @NotNull(message = "HasAllRenovated field can't be null")
     private Boolean hasAllRenovated;
-
-    @Column(name = "preferred_sink_shape_bathroom", length = 50)
-    private String preferredSinkShape;
-
-    @Column(name = "preferred_flush_type_bathroom", length = 20)
-    private String preferredFlushType;
-
-    @Column(name = "bool_hygienic_shower_bathroom")
+    @NotBlank(message = "PreferredSinkShape field can't be null")
+    private SinkShape preferredSinkShape;
+    @NotBlank(message = "PreferredFlushType field can't be null")
+    private FlushType preferredFlushType;
+    @NotNull(message = "HasHygienicShower field can't be null")
     private Boolean hasHygienicShower;
-
-    @Column(name = "bool_bidet_bathroom")
+    @NotNull(message = "HasBidet field can't be null")
     private Boolean hasBidet;
-
-    @Column(name = "bool_prefers_mixer_tap_bathroom")
+    @NotNull(message = "HasPrefersMixerTap field can't be null")
     private Boolean hasPrefersMixerTap;
-
-    @Column(name = "bool_prefers_single_handle_bathroom")
+    @NotNull(message = "HasPrefersSingleHandle field can't be null")
     private Boolean hasPrefersSingleHandle;
-
-    @Column(name = "bool_electric_towel_rack_bathroom")
+    @NotNull(message = "HasElectricTowelRack field can't be null")
     private Boolean hasElectricTowelRack;
-
-    @Column(name = "bool_laundry_hamper_in_cabinet_bathroom")
+    @NotNull(message = "HasLaundryHamperInCabinet field can't be null")
     private Boolean hasLaundryHamperInCabinet;
-
-    @Column(name = "bool_makeup_in_bathroom_mirror_bathroom")
+    @NotNull(message = "HasMakeupInBathroomMirror field can't be null")
     private Boolean hasMakeupInBathroomMirror;
-
-    @Column(name = "bool_many_products_on_counter_bathroom")
+    @NotNull(message = "HasManyProductsOnCounter field can't be null")
     private Boolean hasManyProductsOnCounter;
-
-    @Column(name = "bool_daily_use_of_hairdryer_bathroom")
+    @NotNull(message = "HasDailyUseOfHairdryer field can't be null")
     private Boolean hasDailyUseOfHairdryer;
-
-    @Column(name = "bool_shower_niche_for_products_bathroom")
+    @NotNull(message = "HasShowerNicheForProducts field can't be null")
     private Boolean hasShowerNicheForProducts;
-
-    @Column(name = "bool_current_storage_meets_needs_bathroom")
+    @NotNull(message = "HasCurrentStorageMeetsNeeds field can't be null")
     private Boolean hasCurrentStorageMeetsNeeds;
-
-    @Column(name = "bool_desire_more_storage_space_bathroom")
+    @NotNull(message = "HasDesireMoreStorageSpace field can't be null")
     private Boolean hasDesireMoreStorageSpace;
-
-    @Column(name = "bool_sauna_in_shower_bathroom")
+    @NotNull(message = "HasSaunaInShower field can't be null")
     private Boolean hasSaunaInShower;
-
-    @Column(name = "bool_bathtub_bathroom")
+    @NotNull(message = "HasBathtub field can't be null")
     private Boolean hasBathtub;
-
-    @Column(name = "bool_immersion_bathroom")
+    @NotNull(message = "HasImmersion field can't be null")
     private Boolean hasImmersion;
-
-    @Column(name = "bool_hydro_bathroom")
+    @NotNull(message = "HasHydro field can't be null")
     private Boolean hasHydro;
 
-    @Column(name = "created_at")
-    private Timestamp createdAt;
-
-    @Column(name = "updated_at")
-    private Timestamp updatedAt;
-
-    @Column(name = "deleted_at")
-    private Timestamp deletedAt;
-
-    public Bathroom() {
+    public BathroomCreateDTO() {
     }
 
-    public Bathroom(Form form, Boolean hasAllRenovated, String preferredSinkShape, String preferredFlushType,
-                    Boolean hasHygienicShower, Boolean hasBidet, Boolean hasPrefersMixerTap,
-                    Boolean hasPrefersSingleHandle, Boolean hasElectricTowelRack, Boolean hasLaundryHamperInCabinet,
-                    Boolean hasMakeupInBathroomMirror, Boolean hasManyProductsOnCounter, Boolean hasDailyUseOfHairdryer,
-                    Boolean hasShowerNicheForProducts, Boolean hasCurrentStorageMeetsNeeds,
-                    Boolean hasDesireMoreStorageSpace, Boolean hasSaunaInShower, Boolean hasBathtub, Boolean hasImmersion,
-                    Boolean hasHydro, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        super(form);
+    public BathroomCreateDTO(Boolean hasAllRenovated, SinkShape preferredSinkShape, FlushType preferredFlushType,
+                             Boolean hasHygienicShower, Boolean hasBidet, Boolean hasPrefersMixerTap,
+                             Boolean hasPrefersSingleHandle, Boolean hasElectricTowelRack, Boolean hasLaundryHamperInCabinet,
+                             Boolean hasMakeupInBathroomMirror, Boolean hasManyProductsOnCounter,
+                             Boolean hasDailyUseOfHairdryer, Boolean hasShowerNicheForProducts,
+                             Boolean hasCurrentStorageMeetsNeeds, Boolean hasDesireMoreStorageSpace,
+                             Boolean hasSaunaInShower, Boolean hasBathtub, Boolean hasImmersion, Boolean hasHydro) {
         this.hasAllRenovated = hasAllRenovated;
         this.preferredSinkShape = preferredSinkShape;
         this.preferredFlushType = preferredFlushType;
@@ -110,13 +75,6 @@ public class Bathroom extends Project {
         this.hasBathtub = hasBathtub;
         this.hasImmersion = hasImmersion;
         this.hasHydro = hasHydro;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
-    }
-
-    public Project getProject() {
-        return project;
     }
 
     public Boolean getHasAllRenovated() {
@@ -127,19 +85,19 @@ public class Bathroom extends Project {
         this.hasAllRenovated = hasAllRenovated;
     }
 
-    public String getPreferredSinkShape() {
+    public SinkShape getPreferredSinkShape() {
         return preferredSinkShape;
     }
 
-    public void setPreferredSinkShape(String preferredSinkShape) {
+    public void setPreferredSinkShape(SinkShape preferredSinkShape) {
         this.preferredSinkShape = preferredSinkShape;
     }
 
-    public String getPreferredFlushType() {
+    public FlushType getPreferredFlushType() {
         return preferredFlushType;
     }
 
-    public void setPreferredFlushType(String preferredFlushType) {
+    public void setPreferredFlushType(FlushType preferredFlushType) {
         this.preferredFlushType = preferredFlushType;
     }
 
@@ -269,29 +227,5 @@ public class Bathroom extends Project {
 
     public void setHasHydro(Boolean hasHydro) {
         this.hasHydro = hasHydro;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Timestamp getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt) {
-        this.deletedAt = deletedAt;
     }
 }

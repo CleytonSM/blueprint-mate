@@ -12,6 +12,7 @@ public class FormCreateDTO {
     private DiningRoomCreateDTO diningRoom;
     private KitchenCreateDTO kitchen;
     private LaundryCreateDTO laundry;
+    private BathroomCreateDTO bathroom;
 
     public String getTitle() {
         return title;
@@ -91,5 +92,13 @@ public class FormCreateDTO {
 
     public void setLaundry(LaundryCreateDTO laundry) {
         this.laundry = laundry;
+    }
+
+    public BathroomCreateDTO getBathroom() {
+        return bathroom;
+    }
+
+    public void setBathroom(BathroomCreateDTO bathroom) {
+        this.bathroom = bathroom;
     }
 }
