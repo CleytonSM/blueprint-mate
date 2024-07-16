@@ -8,24 +8,18 @@ import java.sql.Timestamp;
 @Table(name = "tb_dining_room")
 @PrimaryKeyJoinColumn(name = "id_dining_room")
 public class DiningRoom extends Project {
-
     @ManyToOne
     @JoinColumn(name = "id_dining_room", referencedColumnName = "id_project",
             nullable = false, insertable = false, updatable = false)
     private Project project;
-
     @Column(name = "dining_table_capacity_dining_room", nullable = false)
     private Integer diningTableCapacity;
-
     @Column(name = "daily_meals_location_dining_room", length = 60, nullable = false)
     private String dailyMealsLocation;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

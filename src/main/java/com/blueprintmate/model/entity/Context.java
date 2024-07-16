@@ -7,34 +7,25 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_context")
 public class Context {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_context")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
     private Form form;
-
     @Column(name = "project_life_stage_significance_context", length = 200)
     private String projectLifeStageSignificance;
-
     @Column(name = "investment_expectation_context", length = 200)
     private String investmentExpectation;
-
     @Column(name = "project_duration_expectation_context", length = 200)
     private String projectDurationExpectation;
-
     @Column(name = "location_during_renovation_context", length = 200)
     private String locationDuringRenovation;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

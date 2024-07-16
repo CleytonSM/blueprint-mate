@@ -7,25 +7,19 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_form")
 public class Form {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_form")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_client", nullable = false)
     private Client client;
-
     @Column(name = "title_form", nullable = false, length = 40)
     private String title;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
