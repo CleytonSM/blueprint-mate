@@ -4,47 +4,47 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class DescriptionCreateDTO {
-    @NotBlank(message = "BestPlace can't be null")
+    @NotBlank(message = "BestPlace field can't be null")
     private String bestPlace;
-    @NotBlank(message = "WeekendBestPlace can't be null")
+    @NotBlank(message = "WeekendBestPlace field can't be null")
     private String weekendBestPlace;
-    @NotBlank(message = "MissActualHouse can't be null")
+    @NotBlank(message = "MissActualHouse field can't be null")
     private String missActualHouse;
-    @NotNull(message = "HasActualHouseSatis can't be null")
+    @NotNull(message = "HasActualHouseSatis field can't be null")
     private Boolean hasActualHouseSatisfaction;
-    @NotBlank(message = "ActualHouseSatisfaction can't be null")
+    @NotBlank(message = "ActualHouseSatisfaction field can't be null")
     private String actualHouseSatisfaction;
-    @NotBlank(message = "Job can't be null")
+    @NotBlank(message = "Job field can't be null")
     private String job;
     private String workRoutine;
-    @NotNull(message = "HasWorkAtHome can't be null")
+    @NotNull(message = "HasWorkAtHome field can't be null")
     private Boolean hasWorkAtHome;
-    @NotNull(message = "DaysWorkingAtHome can't be null")
+    @NotNull(message = "DaysWorkingAtHome field can't be null")
     private int daysWorkingAtHome;
-    @NotNull(message = "HasTravelForWork can't be null")
+    @NotNull(message = "HasTravelForWork field can't be null")
     private Boolean hasTravelForWork;
     private String travelsForWork;
-    @NotNull(message = "HasPracticeSports can't be null")
+    @NotNull(message = "HasPracticeSports field can't be null")
     private Boolean hasPracticeSports;
-    @NotBlank(message = "PracticeSports can't be null")
+    @NotBlank(message = "PracticeSports field can't be null")
     private String practiceSports;
-    @NotNull(message = "HasTravel can't be null")
+    @NotNull(message = "HasTravel field can't be null")
     private Boolean hasTravel;
     private String travel;
-    @NotNull(message = "HasWatchTv can't be null")
+    @NotNull(message = "HasWatchTv field can't be null")
     private Boolean hasWatchTv;
-    @NotBlank(message = "WatchTv can't be null")
+    @NotBlank(message = "WatchTv field can't be null")
     private String watchTv;
     private Boolean hasRead;
     private Boolean hasBookRead;
     private Boolean hasTabletRead;
-    @NotNull(message = "HasPets can't be null")
+    @NotNull(message = "HasPets field can't be null")
     private Boolean hasPets;
-    @NotBlank(message = "Pets can't be null")
+    @NotBlank(message = "Pets field can't be null")
     private String pets;
-    @NotNull(message = "HasCook can't be null")
+    @NotNull(message = "HasCook field can't be null")
     private Boolean hasCook;
-    @NotBlank(message = "Cook can't be null")
+    @NotBlank(message = "Cook field can't be null")
     private String cook;
 
     public DescriptionCreateDTO() {
