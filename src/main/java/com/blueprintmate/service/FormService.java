@@ -53,6 +53,8 @@ public class FormService {
     private HomeOfficeSuiteService homeOfficeSuiteService;
     @Autowired
     private GeneralInfoService generalInfoService;
+    @Autowired
+    private StyleAndMoodsService styleAndMoodsService;
 
     public void createForm(FormCreateDTO formCreateDTO) {
         User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -73,6 +75,7 @@ public class FormService {
         GuestsSuite newGuestsSuite = guestsSuiteService.setUpGuestsSuite(formCreateDTO.getGuestsSuite());
         HomeOfficeSuite newHomeOfficeSuite = homeOfficeSuiteService.setUpHomeOfficeSuite(formCreateDTO.getHomeOfficeSuite());
         GeneralInfo newGeneralInfo = generalInfoService.setUpGeneralInfo(formCreateDTO.getGeneralInfo());
+        StyleAndMoods newStyleAndMoods = styleAndMoodsService.setUpStyleAndMoods(formCreateDTO.getStyleAndMoods());
 
         Form newForm = modelMapperHelper.convertFormCreateDTOToForm(formCreateDTO);
         newForm.setClient(retrievedClient);
@@ -108,11 +111,11 @@ public class FormService {
         guestsSuiteService.createGuestsSuite(newGuestsSuite, newForm);
         homeOfficeSuiteService.createHomeOfficeSuite(newHomeOfficeSuite, newForm);
         generalInfoService.createGeneralInfo(newGeneralInfo, newForm);
+        styleAndMoodsService.createStyleAndMoods(newStyleAndMoods, newForm);
     }
 
     @Transactional
     private Form save(Form form) {
         return repository.save(form);
     }
-
 }

@@ -311,4 +311,14 @@ public class ModelMapperHelper {
 
         return generalInfo;
     }
+
+    public StyleAndMoods convertStyleAndMoodsCreateDTOToStyleAndMoods(StyleAndMoodsCreateDTO styleAndMoodsCreateDTO) {
+        StyleAndMoods styleAndMoods = new StyleAndMoods();
+
+        styleAndMoods.setAmbientStyle(styleAndMoodsCreateDTO.getAmbientStyle().toString());
+        styleAndMoods.setAmbientStyleDescription(styleAndMoodsCreateDTO.getAmbientStyleDescription());
+        styleAndMoods.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return styleAndMoods;
+    }
 }
