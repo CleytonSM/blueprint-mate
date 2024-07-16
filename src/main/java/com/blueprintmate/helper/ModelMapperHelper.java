@@ -298,4 +298,17 @@ public class ModelMapperHelper {
 
         return homeOfficeSuite;
     }
+
+    public GeneralInfo convertGeneralInfoCreateDTOToGeneralInfo(GeneralInfoCreateDTO generalInfoCreateDTO) {
+        GeneralInfo generalInfo = new GeneralInfo();
+
+        generalInfo.setReuse(generalInfoCreateDTO.getReuse());
+        generalInfo.setAdditional(generalInfoCreateDTO.getAdditional());
+        generalInfo.setUnlistedFurnitureOrEquipment(generalInfoCreateDTO.getUnlistedFurnitureOrEquipment());
+        generalInfo.setAvoidanceRequests(generalInfoCreateDTO.getAvoidanceRequests());
+        generalInfo.setPlantRelationship(generalInfoCreateDTO.getPlantRelationship());
+        generalInfo.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return generalInfo;
+    }
 }

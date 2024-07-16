@@ -5,6 +5,7 @@ import com.blueprintmate.model.dto.HomeOfficeSuiteCreateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.HomeOfficeSuite;
 import com.blueprintmate.repository.HomeOfficeSuiteRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class HomeOfficeSuiteService {
         save(newHomeOfficeSuite);
     }
 
+    @Transactional
     private HomeOfficeSuite save(HomeOfficeSuite homeOfficeSuite) {
         return repository.save(homeOfficeSuite);
     }
