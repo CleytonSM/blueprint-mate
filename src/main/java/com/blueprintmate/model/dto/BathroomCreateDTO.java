@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class BathroomCreateDTO {
-
     @NotNull(message = "HasAllRenovated field can't be null")
     private Boolean hasAllRenovated;
     @NotBlank(message = "PreferredSinkShape field can't be null")

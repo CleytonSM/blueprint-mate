@@ -2,9 +2,7 @@ package com.blueprintmate.security;
 
 import com.blueprintmate.config.UserAuthenticationProvider;
 import com.blueprintmate.exception.InvalidJwtTokenException;
-import com.blueprintmate.helper.OptionalHelper;
 import com.blueprintmate.helper.SecretKeyHelper;
-import com.blueprintmate.model.entity.Authority;
 import com.blueprintmate.model.entity.User;
 import com.blueprintmate.repository.UserRepository;
 import io.jsonwebtoken.JwtException;
@@ -14,11 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.cdi.Eager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class DiningRoomCreateDTO {
-
     @NotNull(message = "DiningTableCapacity field can't be null")
     private Integer diningTableCapacity;
     @NotBlank(message = "DailyMealsLocation field can't be null")

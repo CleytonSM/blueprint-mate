@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class DescriptionCreateDTO {
-    //TODO settar valores default onde for necessário
     @NotBlank(message = "BestPlace can't be null")
     private String bestPlace;
     @NotBlank(message = "WeekendBestPlace can't be null")

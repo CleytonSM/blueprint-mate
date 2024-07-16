@@ -5,7 +5,6 @@ import com.blueprintmate.model.enumerable.NeutralColor;
 import jakarta.validation.constraints.NotBlank;
 
 public class ExperienceCreateDTO {
-
     @NotBlank(message = "NeutralColor can't be null")
     private NeutralColor neutralColor;
     @NotBlank(message = "LivelyColor can't be null")
