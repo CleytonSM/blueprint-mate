@@ -321,4 +321,16 @@ public class ModelMapperHelper {
 
         return styleAndMoods;
     }
+
+    public Context convertContextCreateDTOToContext(ContextCreateDTO contextCreateDTO) {
+        Context context = new Context();
+
+        context.setProjectLifeStageSignificance(contextCreateDTO.getProjectLifeStageSignificance());
+        context.setInvestmentExpectation(contextCreateDTO.getInvestmentExpectation());
+        context.setProjectDurationExpectation(contextCreateDTO.getProjectDurationExpectation());
+        context.setLocationDuringRenovation(contextCreateDTO.getLocationDuringRenovation());
+        context.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return context;
+    }
 }
