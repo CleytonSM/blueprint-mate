@@ -1,9 +1,9 @@
 package com.blueprintmate.model.dto;
 
-public class NewAppliancesCreateDTO {
+public class NewAppliancesCreateOnKitchenDTO {
     private String link;
 
-    public NewAppliancesCreateDTO(String link) {
+    public NewAppliancesCreateOnKitchenDTO(String link) {
         this.link = link;
     }
 

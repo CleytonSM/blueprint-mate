@@ -3,17 +3,17 @@ package com.blueprintmate.model.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class NecessaryAppliancesCreateDTO {
+public class NecessaryAppliancesCreateOnKitchenDTO {
 
     @NotNull(message = "Name field can't be null")
     private String name;
     @NotBlank(message = "HasUsedDaily field can't be null")
     private Boolean hasUsedDaily;
 
-    public NecessaryAppliancesCreateDTO() {
+    public NecessaryAppliancesCreateOnKitchenDTO() {
     }
 
-    public NecessaryAppliancesCreateDTO(String name, Boolean hasUsedDaily) {
+    public NecessaryAppliancesCreateOnKitchenDTO(String name, Boolean hasUsedDaily) {
         this.name = name;
         this.hasUsedDaily = hasUsedDaily;
     }

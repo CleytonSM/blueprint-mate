@@ -1,7 +1,7 @@
 package com.blueprintmate.service;
 
 import com.blueprintmate.model.dto.AppliancesConfigCreateDTO;
-import com.blueprintmate.model.dto.ReuseAppliancesCreateDTO;
+import com.blueprintmate.model.dto.ReuseAppliancesCreateOnKitchenDTO;
 import com.blueprintmate.model.entity.Kitchen;
 import com.blueprintmate.model.entity.ReuseAppliances;
 import com.blueprintmate.repository.ReuseAppliancesRepository;
@@ -18,14 +18,14 @@ public class ReuseAppliancesService {
     @Autowired
     private ReuseAppliancesRepository repository;
 
-    public void createReuseAppliancesOnKitchen(List<ReuseAppliancesCreateDTO> newReuseAppliancesList, Kitchen kitchen, AppliancesConfigCreateDTO appliancesConfig) {
-        newReuseAppliancesList.forEach(reuseAppliancesCreateDTO ->
+    public void createReuseAppliancesOnKitchen(List<ReuseAppliancesCreateOnKitchenDTO> newReuseAppliancesList, Kitchen kitchen, AppliancesConfigCreateDTO appliancesConfig) {
+        newReuseAppliancesList.forEach(reuseAppliancesCreateOnKitchenDTO ->
                 save(new ReuseAppliances(
                         kitchen,
                         null,
                         appliancesConfig.getHasStoreSmallVisible(),
                         appliancesConfig.getHasStoreSmallHidden(),
-                        reuseAppliancesCreateDTO.getName(),
+                        reuseAppliancesCreateOnKitchenDTO.getName(),
                         Timestamp.valueOf(LocalDateTime.now())
                 )));
     }

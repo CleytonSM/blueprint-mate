@@ -192,4 +192,20 @@ public class ModelMapperHelper {
 
         return kitchen;
     }
+
+    public Laundry convertLaundryCreateDTOToLaundry(LaundryCreateDTO laundryCreateDTO) {
+        Laundry laundry = new Laundry();
+
+        laundry.setHasBuiltInSink(laundryCreateDTO.getHasBuiltInSink());
+        laundry.setHasPorcelainSink(laundryCreateDTO.getHasPorcelainSink());
+        laundry.setHasPetFoodAndBowlsStoredHere(laundryCreateDTO.getHasPetFoodAndBowlsStoredHere() == null
+                ? null : laundryCreateDTO.getHasPetFoodAndBowlsStoredHere());
+        laundry.setHasRecyclesTrash(laundryCreateDTO.getHasRecyclesTrash() == null
+                ? null : laundryCreateDTO.getHasPetFoodAndBowlsStoredHere());//
+        laundry.setCurrentDryingRackCount(laundryCreateDTO.getCurrentDryingRackCount());
+        laundry.setDryingRackSizes(laundryCreateDTO.getDryingRackSizes());
+        laundry.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return laundry;
+    }
 }
