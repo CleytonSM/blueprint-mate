@@ -17,6 +17,7 @@ public class FormCreateDTO {
     private DescendantsSuiteCreateDTO descendantsSuite;
     private GuestsSuiteSuiteCreateDTO guestsSuite;
     private HomeOfficeSuiteCreateDTO homeOfficeSuite;
+    private GeneralInfoCreateDTO  generalInfo;
 
     public String getTitle() {
         return title;
@@ -136,5 +137,13 @@ public class FormCreateDTO {
 
     public void setHomeOfficeSuite(HomeOfficeSuiteCreateDTO homeOfficeSuite) {
         this.homeOfficeSuite = homeOfficeSuite;
+    }
+
+    public GeneralInfoCreateDTO getGeneralInfo() {
+        return generalInfo;
+    }
+
+    public void setGeneralInfo(GeneralInfoCreateDTO generalInfo) {
+        this.generalInfo = generalInfo;
     }
 }

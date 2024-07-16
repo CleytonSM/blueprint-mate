@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_general_info")
 public class GeneralInfo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_general_info")
