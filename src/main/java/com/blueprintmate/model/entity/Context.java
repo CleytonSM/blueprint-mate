@@ -20,9 +20,6 @@ public class Context {
     @Column(name = "project_life_stage_significance_context", length = 200)
     private String projectLifeStageSignificance;
 
-    @Column(name = "ambient_style_description_style_and_moods", length = 180)
-    private String ambientStyleDescriptionStyleAndMoods;
-
     @Column(name = "investment_expectation_context", length = 200)
     private String investmentExpectation;
 
@@ -44,10 +41,9 @@ public class Context {
     public Context() {
     }
 
-    public Context(Form form, String projectLifeStageSignificance, String ambientStyleDescriptionStyleAndMoods, String investmentExpectation, String projectDurationExpectation, String locationDuringRenovation, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+    public Context(Form form, String projectLifeStageSignificance, String investmentExpectation, String projectDurationExpectation, String locationDuringRenovation, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
         this.form = form;
         this.projectLifeStageSignificance = projectLifeStageSignificance;
-        this.ambientStyleDescriptionStyleAndMoods = ambientStyleDescriptionStyleAndMoods;
         this.investmentExpectation = investmentExpectation;
         this.projectDurationExpectation = projectDurationExpectation;
         this.locationDuringRenovation = locationDuringRenovation;
@@ -74,14 +70,6 @@ public class Context {
 
     public void setProjectLifeStageSignificance(String projectLifeStageSignificance) {
         this.projectLifeStageSignificance = projectLifeStageSignificance;
-    }
-
-    public String getAmbientStyleDescriptionStyleAndMoods() {
-        return ambientStyleDescriptionStyleAndMoods;
-    }
-
-    public void setAmbientStyleDescriptionStyleAndMoods(String ambientStyleDescriptionStyleAndMoods) {
-        this.ambientStyleDescriptionStyleAndMoods = ambientStyleDescriptionStyleAndMoods;
     }
 
     public String getInvestmentExpectation() {

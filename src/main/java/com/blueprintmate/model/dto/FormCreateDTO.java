@@ -19,6 +19,7 @@ public class FormCreateDTO {
     private HomeOfficeSuiteCreateDTO homeOfficeSuite;
     private GeneralInfoCreateDTO generalInfo;
     private StyleAndMoodsCreateDTO styleAndMoods;
+    private ContextCreateDTO contextCreate;
 
     public String getTitle() {
         return title;
@@ -154,5 +155,13 @@ public class FormCreateDTO {
 
     public void setStyleAndMoods(StyleAndMoodsCreateDTO styleAndMoods) {
         this.styleAndMoods = styleAndMoods;
+    }
+
+    public ContextCreateDTO getContextCreate() {
+        return contextCreate;
+    }
+
+    public void setContextCreate(ContextCreateDTO contextCreate) {
+        this.contextCreate = contextCreate;
     }
 }

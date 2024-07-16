@@ -107,7 +107,6 @@ CREATE TABLE tb_context(
   id_context int PRIMARY KEY AUTO_INCREMENT,
   id_form int NOT NULL REFERENCES tb_form(id_form),
   project_life_stage_significance_context varchar(200),
-  ambient_style_description_style_and_moods varchar(180),
   investment_expectation_context varchar(200),
   project_duration_expectation_context varchar(200),
   location_during_renovation_context varchar(200),

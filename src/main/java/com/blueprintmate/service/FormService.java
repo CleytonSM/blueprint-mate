@@ -55,6 +55,8 @@ public class FormService {
     private GeneralInfoService generalInfoService;
     @Autowired
     private StyleAndMoodsService styleAndMoodsService;
+    @Autowired
+    private ContextService contextService;
 
     public void createForm(FormCreateDTO formCreateDTO) {
         User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -71,11 +73,14 @@ public class FormService {
         Laundry newLaundry = laundryService.setUpLaundry(formCreateDTO.getLaundry());
         Bathroom newBathroom = bathroomService.setUpBathroom(formCreateDTO.getBathroom());
         MasterSuite newMasterSuite = masterSuiteService.setUpMasterSuite(formCreateDTO.getMasterSuite());
-        DescendantsSuite newDescendantsSuite = descendantsSuiteService.setUpDescendantsSuite(formCreateDTO.getDescendantsSuite());
+        DescendantsSuite newDescendantsSuite = descendantsSuiteService.setUpDescendantsSuite(formCreateDTO
+                .getDescendantsSuite());
         GuestsSuite newGuestsSuite = guestsSuiteService.setUpGuestsSuite(formCreateDTO.getGuestsSuite());
-        HomeOfficeSuite newHomeOfficeSuite = homeOfficeSuiteService.setUpHomeOfficeSuite(formCreateDTO.getHomeOfficeSuite());
+        HomeOfficeSuite newHomeOfficeSuite = homeOfficeSuiteService.setUpHomeOfficeSuite(formCreateDTO
+                .getHomeOfficeSuite());
         GeneralInfo newGeneralInfo = generalInfoService.setUpGeneralInfo(formCreateDTO.getGeneralInfo());
         StyleAndMoods newStyleAndMoods = styleAndMoodsService.setUpStyleAndMoods(formCreateDTO.getStyleAndMoods());
+        Context newContext = contextService.setUpContext(formCreateDTO.getContextCreate());
 
         Form newForm = modelMapperHelper.convertFormCreateDTOToForm(formCreateDTO);
         newForm.setClient(retrievedClient);
@@ -112,6 +117,7 @@ public class FormService {
         homeOfficeSuiteService.createHomeOfficeSuite(newHomeOfficeSuite, newForm);
         generalInfoService.createGeneralInfo(newGeneralInfo, newForm);
         styleAndMoodsService.createStyleAndMoods(newStyleAndMoods, newForm);
+        contextService.createContext(newContext, newForm);
     }
 
     @Transactional
