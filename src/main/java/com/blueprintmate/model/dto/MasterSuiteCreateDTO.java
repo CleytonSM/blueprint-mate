@@ -25,9 +25,7 @@ public class MasterSuiteCreateDTO {
     private Boolean hasFullLengthMirror;
     @NotNull(message = "CurrentClosetLength field can't be null")
     private float currentClosetLength;
-    @NotNull(message = "CurrentClothesRailLength field can't be null")
     private float currentClothesRailLength;
-    @NotNull(message = "CurrentShoePairsCount field can't be null")
     private int currentShoePairsCount;
 
     public MasterSuiteCreateDTO() {

@@ -45,6 +45,8 @@ public class FormService {
     private BathroomService bathroomService;
     @Autowired
     private MasterSuiteService masterSuiteService;
+    @Autowired
+    private DescendantsSuiteService descendantsSuiteService;
 
     public void createForm(FormCreateDTO formCreateDTO) {
         User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -61,6 +63,7 @@ public class FormService {
         Laundry newLaundry = laundryService.setUpLaundry(formCreateDTO.getLaundry());
         Bathroom newBathroom = bathroomService.setUpBathroom(formCreateDTO.getBathroom());
         MasterSuite newMasterSuite = masterSuiteService.setUpMasterSuite(formCreateDTO.getMasterSuite());
+        DescendantsSuite newDescendantsSuite = descendantsSuiteService.setUpDescendantsSuite(formCreateDTO.getDescendantsSuite());
 
         Form newForm = modelMapperHelper.convertFormCreateDTOToForm(formCreateDTO);
         newForm.setClient(retrievedClient);
@@ -92,6 +95,7 @@ public class FormService {
                 newLaundry);
         bathroomService.createBathroom(newBathroom, newForm);
         masterSuiteService.createMasterSuite(newMasterSuite, newForm);
+        descendantsSuiteService.createDescendantsSuite(newDescendantsSuite, newForm);
     }
 
     @Transactional
