@@ -13,10 +13,10 @@ public class HomeOfficeSuite extends Suite {
     private Suite suite;
 
     @Column(name = "bool_needs_privacy")
-    private boolean needsPrivacy;
+    private Boolean needsPrivacy;
 
     @Column(name = "bool_needs_space_for_books_documents_papers")
-    private boolean needsSpaceForBooksDocumentsOrPapers;
+    private Boolean needsSpaceForBooksDocumentsOrPapers;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -31,7 +31,7 @@ public class HomeOfficeSuite extends Suite {
     }
 
     public HomeOfficeSuite(Form form, String bedType, Timestamp deletedAt, Timestamp updatedAt, Timestamp createdAt,
-                           boolean needsSpaceForBooksDocumentsOrPapers, boolean needsPrivacy) {
+                           Boolean needsSpaceForBooksDocumentsOrPapers, Boolean needsPrivacy) {
         super(form, bedType);
         this.deletedAt = deletedAt;
         this.updatedAt = updatedAt;
@@ -44,19 +44,19 @@ public class HomeOfficeSuite extends Suite {
         return suite;
     }
 
-    public boolean isNeedsPrivacy() {
+    public Boolean isNeedsPrivacy() {
         return needsPrivacy;
     }
 
-    public void setNeedsPrivacy(boolean needsPrivacy) {
+    public void setNeedsPrivacy(Boolean needsPrivacy) {
         this.needsPrivacy = needsPrivacy;
     }
 
-    public boolean isNeedsSpaceForBooksDocumentsOrPapers() {
+    public Boolean isNeedsSpaceForBooksDocumentsOrPapers() {
         return needsSpaceForBooksDocumentsOrPapers;
     }
 
-    public void setNeedsSpaceForBooksDocumentsOrPapers(boolean needsSpaceForBooksDocumentsOrPapers) {
+    public void setNeedsSpaceForBooksDocumentsOrPapers(Boolean needsSpaceForBooksDocumentsOrPapers) {
         this.needsSpaceForBooksDocumentsOrPapers = needsSpaceForBooksDocumentsOrPapers;
     }
 
