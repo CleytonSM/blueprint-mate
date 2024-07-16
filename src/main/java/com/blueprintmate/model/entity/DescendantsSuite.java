@@ -13,13 +13,13 @@ public class DescendantsSuite extends Suite {
     private Suite suite;
 
     @Column(name = "bool_tv_in_descendants_suite")
-    private boolean hasTv;
+    private Boolean hasTv;
 
     @Column(name = "bool_child_study_in_descendants_suite")
-    private boolean hasChildStudy;
+    private Boolean hasChildStudy;
 
     @Column(name = "bool_child_receives_friends_to_sleep_descendants_suite")
-    private boolean hasChildReceivesFriendsToSleep;
+    private Boolean hasChildReceivesFriendsToSleep;
 
     @Column(name = "theme_descendants_suite")
     private String theme;
@@ -36,8 +36,8 @@ public class DescendantsSuite extends Suite {
     public DescendantsSuite() {
     }
 
-    public DescendantsSuite(Form form, String bedType, boolean hasTv, boolean hasChildStudy,
-                            boolean hasChildReceivesFriendsToSleep, String theme, Timestamp createdAt,
+    public DescendantsSuite(Form form, String bedType, Boolean hasTv, Boolean hasChildStudy,
+                            Boolean hasChildReceivesFriendsToSleep, String theme, Timestamp createdAt,
                             Timestamp updatedAt, Timestamp deletedAt) {
         super(form, bedType);
         this.hasTv = hasTv;
@@ -53,27 +53,27 @@ public class DescendantsSuite extends Suite {
         return suite;
     }
 
-    public boolean isHasTv() {
+    public Boolean isHasTv() {
         return hasTv;
     }
 
-    public void setHasTv(boolean hasTv) {
+    public void setHasTv(Boolean hasTv) {
         this.hasTv = hasTv;
     }
 
-    public boolean isHasChildStudy() {
+    public Boolean isHasChildStudy() {
         return hasChildStudy;
     }
 
-    public void setHasChildStudy(boolean hasChildStudy) {
+    public void setHasChildStudy(Boolean hasChildStudy) {
         this.hasChildStudy = hasChildStudy;
     }
 
-    public boolean isHasChildReceivesFriendsToSleep() {
+    public Boolean isHasChildReceivesFriendsToSleep() {
         return hasChildReceivesFriendsToSleep;
     }
 
-    public void setHasChildReceivesFriendsToSleep(boolean hasChildReceivesFriendsToSleep) {
+    public void setHasChildReceivesFriendsToSleep(Boolean hasChildReceivesFriendsToSleep) {
         this.hasChildReceivesFriendsToSleep = hasChildReceivesFriendsToSleep;
     }
 

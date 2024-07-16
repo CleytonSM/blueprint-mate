@@ -255,4 +255,20 @@ public class ModelMapperHelper {
 
         return masterSuite;
     }
+
+    public DescendantsSuite convertDescendantsSuiteCreateDTOToDescendantsSuite(
+            DescendantsSuiteCreateDTO descendantsSuiteCreateDTO) {
+        DescendantsSuite descendantsSuite = new DescendantsSuite();
+
+        descendantsSuite.setBedType(descendantsSuiteCreateDTO.getBedType().toString());
+        descendantsSuite.setHasTv(descendantsSuiteCreateDTO.getHasTv());
+        descendantsSuite.setHasChildStudy(descendantsSuiteCreateDTO.getHasChildStudy());
+        descendantsSuite.setHasChildReceivesFriendsToSleep(
+                descendantsSuiteCreateDTO.getHasChildReceivesFriendsToSleep() == null
+                        ? null : descendantsSuiteCreateDTO.getHasChildReceivesFriendsToSleep());
+        descendantsSuite.setTheme(descendantsSuiteCreateDTO.getTheme());
+        descendantsSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return descendantsSuite;
+    }
 }

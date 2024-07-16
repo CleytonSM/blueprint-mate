@@ -14,6 +14,7 @@ public class FormCreateDTO {
     private LaundryCreateDTO laundry;
     private BathroomCreateDTO bathroom;
     private MasterSuiteCreateDTO masterSuite;
+    private DescendantsSuiteCreateDTO descendantsSuite;
 
     public String getTitle() {
         return title;
@@ -109,5 +110,13 @@ public class FormCreateDTO {
 
     public void setMasterSuite(MasterSuiteCreateDTO masterSuite) {
         this.masterSuite = masterSuite;
+    }
+
+    public DescendantsSuiteCreateDTO getDescendantsSuite() {
+        return descendantsSuite;
+    }
+
+    public void setDescendantsSuite(DescendantsSuiteCreateDTO descendantsSuite) {
+        this.descendantsSuite = descendantsSuite;
     }
 }
