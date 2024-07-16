@@ -35,9 +35,9 @@ public class DescriptionCreateDTO {
     private Boolean hasWatchTv;
     @NotBlank(message = "WatchTv can't be null")
     private String watchTv;
-    private Boolean hasRead; // default -> false
-    private Boolean hasBookRead; // default -> false
-    private Boolean hasTabletRead; // default -> false
+    private Boolean hasRead;
+    private Boolean hasBookRead;
+    private Boolean hasTabletRead;
     @NotNull(message = "HasPets can't be null")
     private Boolean hasPets;
     @NotBlank(message = "Pets can't be null")
