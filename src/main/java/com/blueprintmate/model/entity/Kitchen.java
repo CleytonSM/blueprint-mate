@@ -8,7 +8,6 @@ import java.sql.Timestamp;
 @Table(name = "tb_kitchen")
 @PrimaryKeyJoinColumn(name = "id_kitchen")
 public class Kitchen extends Project {
-
     @ManyToOne
     @JoinColumn(name = "id_kitchen", referencedColumnName = "id_project",
             nullable = false, insertable = false, updatable = false)
@@ -71,12 +70,40 @@ public class Kitchen extends Project {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Project getProject() {
-        return project;
+    public Kitchen() {
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public Kitchen(Form form, String colorType, String shapeType,
+                   String counterTopMaterial, String materialPreference, Boolean hasWetGutterOrBuiltInTrashCan,
+                   Boolean hasStove, Boolean hasCooktop, Boolean hasInduction,
+                   Boolean hasBurners, Boolean hasStoveOnCounterTop, Boolean hasStoveOnTower,
+                   String fridgeType, Boolean hasSeparateFreezer, Integer fridgeCapacityLiters,
+                   String currentStorageSatisfaction, Integer dinnerCapacity, Timestamp createdAt,
+                   Timestamp updatedAt, Timestamp deletedAt) {
+        super(form);
+        this.colorType = colorType;
+        this.shapeType = shapeType;
+        this.counterTopMaterial = counterTopMaterial;
+        this.materialPreference = materialPreference;
+        this.hasWetGutterOrBuiltInTrashCan = hasWetGutterOrBuiltInTrashCan;
+        this.hasStove = hasStove;
+        this.hasCooktop = hasCooktop;
+        this.hasInduction = hasInduction;
+        this.hasBurners = hasBurners;
+        this.hasStoveOnCounterTop = hasStoveOnCounterTop;
+        this.hasStoveOnTower = hasStoveOnTower;
+        this.fridgeType = fridgeType;
+        this.hasSeparateFreezer = hasSeparateFreezer;
+        this.fridgeCapacityLiters = fridgeCapacityLiters;
+        this.currentStorageSatisfaction = currentStorageSatisfaction;
+        this.dinnerCapacity = dinnerCapacity;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
+    public Project getProject() {
+        return project;
     }
 
     public String getColorType() {

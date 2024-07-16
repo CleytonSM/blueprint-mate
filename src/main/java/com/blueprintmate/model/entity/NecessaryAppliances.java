@@ -43,6 +43,14 @@ public class NecessaryAppliances extends Appliances {
         this.deletedAt = deletedAt;
     }
 
+    public NecessaryAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
+                               Boolean hasStoreSmallHidden, String name, Boolean hasUsedDaily, Timestamp createdAt) {
+        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+        this.name = name;
+        this.hasUsedDaily = hasUsedDaily;
+        this.createdAt = createdAt;
+    }
+
     public Appliances getAppliances() {
         return appliances;
     }

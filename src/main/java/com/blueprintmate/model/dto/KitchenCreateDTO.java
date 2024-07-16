@@ -1,33 +1,46 @@
 package com.blueprintmate.model.dto;
 
-import com.blueprintmate.model.entity.NecessaryAppliances;
 import com.blueprintmate.model.enumerable.ColorType;
 import com.blueprintmate.model.enumerable.MaterialPreference;
 import com.blueprintmate.model.enumerable.ShapeType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
 public class KitchenCreateDTO {
-
+    @NotBlank(message = "ColorType field can't be null")
     private ColorType colorType;
+    @NotBlank(message = "ShapeType field can't be null")
     private ShapeType shapeType;
+    @NotBlank(message = "CounterTopMaterial field can't be null")
     private String counterTopMaterial;
+    @NotBlank(message = "MaterialPreference field can't be null")
     private MaterialPreference materialPreference;
+    @NotNull(message = "HasWetGutterOrBuiltInTrashCan field can't be null")
     private Boolean hasWetGutterOrBuiltInTrashCan;
     private List<NewAppliancesCreateDTO> newAppliancesList;
     private List<ReuseAppliancesCreateDTO> reuseAppliancesList;
+    @NotNull(message = "HasStove field can't be null")
     private Boolean hasStove;
+    @NotNull(message = "HasCooktop field can't be null")
     private Boolean hasCooktop;
+    @NotNull(message = "HasInduction field can't be null")
     private Boolean hasInduction;
+    @NotNull(message = "HasBurners field can't be null")
     private Boolean hasBurners;
+    @NotNull(message = "HasStoveOnCounterTop field can't be null")
     private Boolean hasStoveOnCounterTop;
+    @NotNull(message = "HasStoveOnTower field can't be null")
     private Boolean hasStoveOnTower;
     private String fridgeType;
     private Boolean hasSeparateFreezer;
     private Integer fridgeCapacityLiters;
+    @NotBlank(message = "CurrentStorageSatisfaction field can't be null")
     private String currentStorageSatisfaction;
     private List<NecessaryAppliancesCreateDTO> necessaryAppliancesList;
     private AppliancesConfigCreateDTO appliancesConfig;
+    @NotNull(message = "DinnerCapacity field can't be null")
     private Integer dinnerCapacity;
 
     public KitchenCreateDTO() {

@@ -77,4 +77,12 @@ public class FormCreateDTO {
     public void setDiningRoom(DiningRoomCreateDTO diningRoom) {
         this.diningRoom = diningRoom;
     }
+
+    public KitchenCreateDTO getKitchen() {
+        return kitchen;
+    }
+
+    public void setKitchen(KitchenCreateDTO kitchen) {
+        this.kitchen = kitchen;
+    }
 }

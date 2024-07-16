@@ -8,7 +8,6 @@ import java.sql.Timestamp;
 @Table(name = "tb_new_appliances")
 @PrimaryKeyJoinColumn(name = "id_new_appliances")
 public class NewAppliances extends Appliances {
-
     @ManyToOne
     @JoinColumn(name = "id_new_appliances", referencedColumnName = "id_appliances",
             nullable = false, insertable = false, updatable = false)
@@ -37,6 +36,13 @@ public class NewAppliances extends Appliances {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
+    }
+
+    public NewAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
+                         Boolean hasStoreSmallHidden, String link, Timestamp createdAt) {
+        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+        this.link = link;
+        this.createdAt = createdAt;
     }
 
     public Appliances getAppliances() {

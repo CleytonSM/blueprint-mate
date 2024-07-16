@@ -5,6 +5,7 @@ import com.blueprintmate.model.dto.DiningRoomCreateDTO;
 import com.blueprintmate.model.entity.DiningRoom;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.DiningRoomRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class DiningRoomService {
         save(newDiningRoom);
     }
 
+    @Transactional
     private DiningRoom save(DiningRoom newDiningRoom) {
         return repository.save(newDiningRoom);
     }

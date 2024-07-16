@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "tb_appliances")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Appliances {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_appliances")

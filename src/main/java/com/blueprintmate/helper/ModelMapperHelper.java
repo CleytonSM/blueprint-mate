@@ -165,4 +165,31 @@ public class ModelMapperHelper {
 
         return diningRoom;
     }
+
+    public Kitchen convertKitchenCreateDTOToKitchen(KitchenCreateDTO kitchenCreateDTO) {
+        Kitchen kitchen = new Kitchen();
+
+        kitchen.setColorType(kitchenCreateDTO.getColorType().toString());
+        kitchen.setShapeType(kitchenCreateDTO.getShapeType().toString());
+        kitchen.setCounterTopMaterial(kitchenCreateDTO.getCounterTopMaterial());
+        kitchen.setMaterialPreference(kitchenCreateDTO.getMaterialPreference().toString());
+        kitchen.setHasWetGutterOrBuiltInTrashCan(kitchenCreateDTO.getHasWetGutterOrBuiltInTrashCan());
+        kitchen.setHasStove(kitchenCreateDTO.getHasStove());
+        kitchen.setHasCooktop(kitchenCreateDTO.getHasCooktop());
+        kitchen.setHasInduction(kitchenCreateDTO.getHasInduction());
+        kitchen.setHasBurners(kitchenCreateDTO.getHasBurners());
+        kitchen.setHasStoveOnCounterTop(kitchenCreateDTO.getHasStoveOnCounterTop());
+        kitchen.setHasStoveOnTower(kitchenCreateDTO.getHasStoveOnTower());
+        kitchen.setFridgeType(kitchenCreateDTO.getFridgeType() == null
+                ? null : kitchenCreateDTO.getFridgeType());
+        kitchen.setHasSeparateFreezer(kitchenCreateDTO.getHasSeparateFreezer() == null
+                ? null : kitchenCreateDTO.getHasSeparateFreezer());
+        kitchen.setFridgeCapacityLiters(kitchenCreateDTO.getFridgeCapacityLiters() == null
+                ? null : kitchenCreateDTO.getFridgeCapacityLiters());
+        kitchen.setCurrentStorageSatisfaction(kitchenCreateDTO.getCurrentStorageSatisfaction());
+        kitchen.setDinnerCapacity(kitchenCreateDTO.getDinnerCapacity());
+        kitchen.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return kitchen;
+    }
 }
