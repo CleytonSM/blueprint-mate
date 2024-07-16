@@ -271,4 +271,31 @@ public class ModelMapperHelper {
 
         return descendantsSuite;
     }
+
+    public GuestsSuite convertGuestsSuiteCreateDTOToGuestsSuite(GuestsSuiteSuiteCreateDTO guestsSuiteSuiteCreateDTO) {
+        GuestsSuite guestsSuite = new GuestsSuite();
+
+        guestsSuite.setBedType(guestsSuiteSuiteCreateDTO.getBedType().toString());
+        guestsSuite.setClosetUse(guestsSuiteSuiteCreateDTO.getClosetUse() == null
+                ? null : guestsSuiteSuiteCreateDTO.getClosetUse());
+        guestsSuite.setFrequencyOfGuests(guestsSuiteSuiteCreateDTO.getFrequencyOfGuests() == null
+                ? null : guestsSuiteSuiteCreateDTO.getFrequencyOfGuests());
+        guestsSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return guestsSuite;
+    }
+
+    public HomeOfficeSuite convertHomeOfficeSuiteCreateDTOToHomeOfficeSuite(HomeOfficeSuiteCreateDTO homeOfficeSuiteCreateDTO) {
+        HomeOfficeSuite homeOfficeSuite = new HomeOfficeSuite();
+
+        homeOfficeSuite.setBedType(homeOfficeSuiteCreateDTO.getBedType().toString());
+        homeOfficeSuite.setNeedsPrivacy(homeOfficeSuiteCreateDTO.getNeedsPrivacy() == null
+                ? null : homeOfficeSuiteCreateDTO.getNeedsPrivacy());
+        homeOfficeSuite.setNeedsSpaceForBooksDocumentsOrPapers(
+                homeOfficeSuiteCreateDTO.getNeedsSpaceForBooksDocumentsOrPapers() == null
+                        ? null : homeOfficeSuiteCreateDTO.getNeedsSpaceForBooksDocumentsOrPapers());
+        homeOfficeSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return homeOfficeSuite;
+    }
 }

@@ -15,6 +15,8 @@ public class FormCreateDTO {
     private BathroomCreateDTO bathroom;
     private MasterSuiteCreateDTO masterSuite;
     private DescendantsSuiteCreateDTO descendantsSuite;
+    private GuestsSuiteSuiteCreateDTO guestsSuite;
+    private HomeOfficeSuiteCreateDTO homeOfficeSuite;
 
     public String getTitle() {
         return title;
@@ -118,5 +120,21 @@ public class FormCreateDTO {
 
     public void setDescendantsSuite(DescendantsSuiteCreateDTO descendantsSuite) {
         this.descendantsSuite = descendantsSuite;
+    }
+
+    public GuestsSuiteSuiteCreateDTO getGuestsSuite() {
+        return guestsSuite;
+    }
+
+    public void setGuestsSuite(GuestsSuiteSuiteCreateDTO guestsSuite) {
+        this.guestsSuite = guestsSuite;
+    }
+
+    public HomeOfficeSuiteCreateDTO getHomeOfficeSuite() {
+        return homeOfficeSuite;
+    }
+
+    public void setHomeOfficeSuite(HomeOfficeSuiteCreateDTO homeOfficeSuite) {
+        this.homeOfficeSuite = homeOfficeSuite;
     }
 }
