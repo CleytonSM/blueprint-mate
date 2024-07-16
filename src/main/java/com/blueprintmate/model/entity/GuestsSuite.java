@@ -11,19 +11,14 @@ public class GuestsSuite extends Suite {
     @ManyToOne
     @JoinColumn(name = "id_guests_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
     private Suite suite;
-
     @Column(name = "closet_use_guests_suite")
     private String closetUse;
-
     @Column(name = "frequency_of_guests_guests_suite")
     private String frequencyOfGuests;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
