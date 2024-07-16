@@ -1,70 +1,46 @@
-package com.blueprintmate.model.entity;
+package com.blueprintmate.model.dto;
 
-import jakarta.persistence.*;
+import com.blueprintmate.model.enumerable.BedType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
-
-@Entity
-@PrimaryKeyJoinColumn(name = "id_master_suite")
-public class MasterSuite extends Suite {
-
-    @ManyToOne
-    @JoinColumn(name = "id_master_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
-    private Suite suite;
-
-    @Column(name = "bool_tv_in_master_suite")
+public class MasterSuiteCreateDTO {
+    @NotBlank(message = "BedType field can't be null")
+    private BedType bedType;
+    @NotNull(message = "HasTv field can't be null")
     private Boolean hasTv;
-
-    @Column(name = "bool_armchair_master_suite")
+    @NotNull(message = "HasArmchair field can't be null")
     private Boolean hasArmchair;
-
-    @Column(name = "bool_bench_master_suite")
+    @NotNull(message = "HasBench field can't be null")
     private Boolean hasBench;
-
-    @Column(name = "bool_reads_in_bed_master_suite")
+    @NotNull(message = "TeadsInBed field can't be null")
     private Boolean readsInBed;
-
-    @Column(name = "bool_nightstand_drawer_master_suite")
+    @NotNull(message = "HasNightStandDrawer field can't be null")
     private Boolean hasNightStandDrawer;
-
-    @Column(name = "bool_wood_headboard_preference_master_suite")
+    @NotNull(message = "HasWoodHeadboardPreference field can't be null")
     private Boolean hasWoodHeadboardPreference;
-
-    @Column(name = "bool_fabric_headboard_preference_master_suite")
+    @NotNull(message = "HasFabricHeadboardPreference field can't be null")
     private Boolean hasFabricHeadboardPreference;
-
-    @Column(name = "bool_full_length_mirror_in_master_suite")
+    @NotNull(message = "HasFullLengthMirror field can't be null")
     private Boolean hasFullLengthMirror;
-
-    @Column(name = "current_closet_length_master_suite")
+    @NotNull(message = "CurrentClosetLength field can't be null")
     private float currentClosetLength;
-
-    @Column(name = "current_clothes_rail_length_master_suite")
+    @NotNull(message = "CurrentClothesRailLength field can't be null")
     private float currentClothesRailLength;
-
-    @Column(name = "current_shoe_pairs_count_master_suite")
+    @NotNull(message = "CurrentShoePairsCount field can't be null")
     private int currentShoePairsCount;
 
-    @Column(name = "created_at")
-    private Timestamp createdAt;
-
-    @Column(name = "updated_at")
-    private Timestamp updatedAt;
-
-    @Column(name = "deleted_at")
-    private Timestamp deletedAt;
-
-    public MasterSuite() {
+    public MasterSuiteCreateDTO() {
     }
 
-    public MasterSuite(Form form, String bedType, Boolean hasTv, Boolean hasArmchair, Boolean readsInBed,
-                       Boolean hasNightStandDrawer, Boolean hasWoodHeadboardPreference,
-                       Boolean hasFabricHeadboardPreference, Boolean hasFullLengthMirror, float currentClosetLength,
-                       float currentClothesRailLength, int currentShoePairsCount, Timestamp createdAt,
-                       Timestamp updatedAt, Timestamp deletedAt) {
-        super(form, bedType);
+    public MasterSuiteCreateDTO(BedType bedType, Boolean hasTv, Boolean hasArmchair, Boolean hasBench,
+                                Boolean readsInBed, Boolean hasNightStandDrawer, Boolean hasWoodHeadboardPreference,
+                                Boolean hasFabricHeadboardPreference, Boolean hasFullLengthMirror,
+                                float currentClosetLength, float currentClothesRailLength, int currentShoePairsCount) {
+        this.bedType = bedType;
         this.hasTv = hasTv;
         this.hasArmchair = hasArmchair;
+        this.hasBench = hasBench;
         this.readsInBed = readsInBed;
         this.hasNightStandDrawer = hasNightStandDrawer;
         this.hasWoodHeadboardPreference = hasWoodHeadboardPreference;
@@ -73,13 +49,14 @@ public class MasterSuite extends Suite {
         this.currentClosetLength = currentClosetLength;
         this.currentClothesRailLength = currentClothesRailLength;
         this.currentShoePairsCount = currentShoePairsCount;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
     }
 
-    public Suite getSuite() {
-        return suite;
+    public BedType getBedType() {
+        return bedType;
+    }
+
+    public void setBedType(BedType bedType) {
+        this.bedType = bedType;
     }
 
     public Boolean getHasTv() {
@@ -168,29 +145,5 @@ public class MasterSuite extends Suite {
 
     public void setCurrentShoePairsCount(int currentShoePairsCount) {
         this.currentShoePairsCount = currentShoePairsCount;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Timestamp getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Timestamp deletedAt) {
-        this.deletedAt = deletedAt;
     }
 }

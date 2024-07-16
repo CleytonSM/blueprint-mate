@@ -13,6 +13,7 @@ public class FormCreateDTO {
     private KitchenCreateDTO kitchen;
     private LaundryCreateDTO laundry;
     private BathroomCreateDTO bathroom;
+    private MasterSuiteCreateDTO masterSuite;
 
     public String getTitle() {
         return title;
@@ -100,5 +101,13 @@ public class FormCreateDTO {
 
     public void setBathroom(BathroomCreateDTO bathroom) {
         this.bathroom = bathroom;
+    }
+
+    public MasterSuiteCreateDTO getMasterSuite() {
+        return masterSuite;
+    }
+
+    public void setMasterSuite(MasterSuiteCreateDTO masterSuite) {
+        this.masterSuite = masterSuite;
     }
 }

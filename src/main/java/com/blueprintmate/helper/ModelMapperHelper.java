@@ -235,4 +235,24 @@ public class ModelMapperHelper {
 
         return bathroom;
     }
+
+    public MasterSuite convertMasterSuiteCreateDTOToMasterSuite(MasterSuiteCreateDTO masterSuiteCreateDTO) {
+        MasterSuite masterSuite = new MasterSuite();
+
+        masterSuite.setBedType(masterSuiteCreateDTO.getBedType().toString());
+        masterSuite.setHasTv(masterSuiteCreateDTO.getHasTv());
+        masterSuite.setHasArmchair(masterSuiteCreateDTO.getHasArmchair());
+        masterSuite.setHasBench(masterSuiteCreateDTO.getHasBench());
+        masterSuite.setReadsInBed(masterSuiteCreateDTO.getReadsInBed());
+        masterSuite.setHasNightStandDrawer(masterSuiteCreateDTO.getHasNightStandDrawer());
+        masterSuite.setHasWoodHeadboardPreference(masterSuiteCreateDTO.getHasWoodHeadboardPreference());
+        masterSuite.setHasFabricHeadboardPreference(masterSuiteCreateDTO.getHasFabricHeadboardPreference());
+        masterSuite.setHasFullLengthMirror(masterSuiteCreateDTO.getHasFullLengthMirror());
+        masterSuite.setCurrentClosetLength(masterSuiteCreateDTO.getCurrentClosetLength());
+        masterSuite.setCurrentClothesRailLength(masterSuiteCreateDTO.getCurrentClothesRailLength());
+        masterSuite.setCurrentShoePairsCount(masterSuiteCreateDTO.getCurrentShoePairsCount());
+        masterSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return masterSuite;
+    }
 }
