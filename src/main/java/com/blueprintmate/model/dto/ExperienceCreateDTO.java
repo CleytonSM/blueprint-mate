@@ -5,13 +5,13 @@ import com.blueprintmate.model.enumerable.NeutralColor;
 import jakarta.validation.constraints.NotBlank;
 
 public class ExperienceCreateDTO {
-    @NotBlank(message = "NeutralColor can't be null")
+    @NotBlank(message = "NeutralColor field can't be null")
     private NeutralColor neutralColor;
-    @NotBlank(message = "LivelyColor can't be null")
+    @NotBlank(message = "LivelyColor field can't be null")
     private LivelyColor livelyColor;
-    @NotBlank(message = "LikeToFeel can't be null")
+    @NotBlank(message = "LikeToFeel field can't be null")
     private String likeToFeel;
-    @NotBlank(message = "HouseMeaning can't be null")
+    @NotBlank(message = "HouseMeaning field can't be null")
     private String houseMeaning;
 
     public ExperienceCreateDTO() {
