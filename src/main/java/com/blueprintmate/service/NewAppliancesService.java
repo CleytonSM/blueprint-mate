@@ -1,7 +1,7 @@
 package com.blueprintmate.service;
 
 import com.blueprintmate.model.dto.AppliancesConfigCreateDTO;
-import com.blueprintmate.model.dto.NewAppliancesCreateDTO;
+import com.blueprintmate.model.dto.NewAppliancesCreateOnKitchenDTO;
 import com.blueprintmate.model.entity.Kitchen;
 import com.blueprintmate.model.entity.NewAppliances;
 import com.blueprintmate.repository.NewAppliancesRepository;
@@ -18,15 +18,15 @@ public class NewAppliancesService {
     @Autowired
     private NewAppliancesRepository repository;
 
-    public void createNewAppliancesOnKitchen(List<NewAppliancesCreateDTO> newNewAppliancesList, Kitchen kitchen,
+    public void createNewAppliancesOnKitchen(List<NewAppliancesCreateOnKitchenDTO> newNewAppliancesList, Kitchen kitchen,
                                              AppliancesConfigCreateDTO appliancesConfig) {
-        newNewAppliancesList.forEach(newAppliancesCreateDTO ->
+        newNewAppliancesList.forEach(newAppliancesCreateOnKitchenDTO ->
                 save(new NewAppliances(
                         kitchen,
                         null,
                         appliancesConfig.getHasStoreSmallVisible(),
                         appliancesConfig.getHasStoreSmallHidden(),
-                        newAppliancesCreateDTO.getLink(),
+                        newAppliancesCreateOnKitchenDTO.getLink(),
                         Timestamp.valueOf(LocalDateTime.now()))));
     }
 

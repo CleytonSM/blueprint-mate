@@ -42,12 +42,26 @@ public class Laundry extends Project {
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public Project getProject() {
-        return project;
+    public Laundry() {
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public Laundry(Form form, Boolean hasBuiltInSink, Boolean hasPorcelainSink, Boolean hasPetFoodAndBowlsStoredHere,
+                   Boolean hasRecyclesTrash, Integer currentDryingRackCount, BigDecimal dryingRackSizes,
+                   Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(form);
+        this.hasBuiltInSink = hasBuiltInSink;
+        this.hasPorcelainSink = hasPorcelainSink;
+        this.hasPetFoodAndBowlsStoredHere = hasPetFoodAndBowlsStoredHere;
+        this.hasRecyclesTrash = hasRecyclesTrash;
+        this.currentDryingRackCount = currentDryingRackCount;
+        this.dryingRackSizes = dryingRackSizes;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
+    }
+
+    public Project getProject() {
+        return project;
     }
 
     public Boolean getHasBuiltInSink() {

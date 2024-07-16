@@ -19,8 +19,8 @@ public class KitchenCreateDTO {
     private MaterialPreference materialPreference;
     @NotNull(message = "HasWetGutterOrBuiltInTrashCan field can't be null")
     private Boolean hasWetGutterOrBuiltInTrashCan;
-    private List<NewAppliancesCreateDTO> newAppliancesList;
-    private List<ReuseAppliancesCreateDTO> reuseAppliancesList;
+    private List<NewAppliancesCreateOnKitchenDTO> newAppliancesOnKitchenList;
+    private List<ReuseAppliancesCreateOnKitchenDTO> reuseAppliancesOnKitchenList;
     @NotNull(message = "HasStove field can't be null")
     private Boolean hasStove;
     @NotNull(message = "HasCooktop field can't be null")
@@ -38,7 +38,7 @@ public class KitchenCreateDTO {
     private Integer fridgeCapacityLiters;
     @NotBlank(message = "CurrentStorageSatisfaction field can't be null")
     private String currentStorageSatisfaction;
-    private List<NecessaryAppliancesCreateDTO> necessaryAppliancesList;
+    private List<NecessaryAppliancesCreateOnKitchenDTO> necessaryAppliancesOnKitchenList;
     private AppliancesConfigCreateDTO appliancesConfig;
     @NotNull(message = "DinnerCapacity field can't be null")
     private Integer dinnerCapacity;
@@ -48,20 +48,20 @@ public class KitchenCreateDTO {
 
     public KitchenCreateDTO(ColorType colorType, ShapeType shapeType, String counterTopMaterial,
                             MaterialPreference materialPreference, Boolean hasWetGutterOrBuiltInTrashCan,
-                            List<NewAppliancesCreateDTO> newAppliancesList,
-                            List<ReuseAppliancesCreateDTO> reuseAppliancesList, Boolean hasStove, Boolean hasCooktop,
+                            List<NewAppliancesCreateOnKitchenDTO> newAppliancesOnKitchenList,
+                            List<ReuseAppliancesCreateOnKitchenDTO> reuseAppliancesOnKitchenList, Boolean hasStove, Boolean hasCooktop,
                             Boolean hasInduction, Boolean hasBurners, Boolean hasStoveOnCounterTop,
                             Boolean hasStoveOnTower, String fridgeType, Boolean hasSeparateFreezer,
                             Integer fridgeCapacityLiters, String currentStorageSatisfaction,
-                            List<NecessaryAppliancesCreateDTO> necessaryAppliancesList,
+                            List<NecessaryAppliancesCreateOnKitchenDTO> necessaryAppliancesOnKitchenList,
                             AppliancesConfigCreateDTO appliancesConfig, Integer dinnerCapacity) {
         this.colorType = colorType;
         this.shapeType = shapeType;
         this.counterTopMaterial = counterTopMaterial;
         this.materialPreference = materialPreference;
         this.hasWetGutterOrBuiltInTrashCan = hasWetGutterOrBuiltInTrashCan;
-        this.newAppliancesList = newAppliancesList;
-        this.reuseAppliancesList = reuseAppliancesList;
+        this.newAppliancesOnKitchenList = newAppliancesOnKitchenList;
+        this.reuseAppliancesOnKitchenList = reuseAppliancesOnKitchenList;
         this.hasStove = hasStove;
         this.hasCooktop = hasCooktop;
         this.hasInduction = hasInduction;
@@ -72,7 +72,7 @@ public class KitchenCreateDTO {
         this.hasSeparateFreezer = hasSeparateFreezer;
         this.fridgeCapacityLiters = fridgeCapacityLiters;
         this.currentStorageSatisfaction = currentStorageSatisfaction;
-        this.necessaryAppliancesList = necessaryAppliancesList;
+        this.necessaryAppliancesOnKitchenList = necessaryAppliancesOnKitchenList;
         this.appliancesConfig = appliancesConfig;
         this.dinnerCapacity = dinnerCapacity;
     }
@@ -117,20 +117,20 @@ public class KitchenCreateDTO {
         this.hasWetGutterOrBuiltInTrashCan = hasWetGutterOrBuiltInTrashCan;
     }
 
-    public List<NewAppliancesCreateDTO> getNewAppliancesList() {
-        return newAppliancesList;
+    public List<NewAppliancesCreateOnKitchenDTO> getNewAppliancesOnKitchenList() {
+        return newAppliancesOnKitchenList;
     }
 
-    public void setNewAppliancesList(List<NewAppliancesCreateDTO> newAppliancesList) {
-        this.newAppliancesList = newAppliancesList;
+    public void setNewAppliancesOnKitchenList(List<NewAppliancesCreateOnKitchenDTO> newAppliancesOnKitchenList) {
+        this.newAppliancesOnKitchenList = newAppliancesOnKitchenList;
     }
 
-    public List<ReuseAppliancesCreateDTO> getReuseAppliancesList() {
-        return reuseAppliancesList;
+    public List<ReuseAppliancesCreateOnKitchenDTO> getReuseAppliancesOnKitchenList() {
+        return reuseAppliancesOnKitchenList;
     }
 
-    public void setReuseAppliancesList(List<ReuseAppliancesCreateDTO> reuseAppliancesList) {
-        this.reuseAppliancesList = reuseAppliancesList;
+    public void setReuseAppliancesOnKitchenList(List<ReuseAppliancesCreateOnKitchenDTO> reuseAppliancesOnKitchenList) {
+        this.reuseAppliancesOnKitchenList = reuseAppliancesOnKitchenList;
     }
 
     public Boolean getHasStove() {
@@ -213,12 +213,12 @@ public class KitchenCreateDTO {
         this.currentStorageSatisfaction = currentStorageSatisfaction;
     }
 
-    public List<NecessaryAppliancesCreateDTO> getNecessaryAppliancesList() {
-        return necessaryAppliancesList;
+    public List<NecessaryAppliancesCreateOnKitchenDTO> getNecessaryAppliancesOnKitchenList() {
+        return necessaryAppliancesOnKitchenList;
     }
 
-    public void setNecessaryAppliancesList(List<NecessaryAppliancesCreateDTO> necessaryAppliancesList) {
-        this.necessaryAppliancesList = necessaryAppliancesList;
+    public void setNecessaryAppliancesOnKitchenList(List<NecessaryAppliancesCreateOnKitchenDTO> necessaryAppliancesOnKitchenList) {
+        this.necessaryAppliancesOnKitchenList = necessaryAppliancesOnKitchenList;
     }
 
     public AppliancesConfigCreateDTO getAppliancesConfig() {

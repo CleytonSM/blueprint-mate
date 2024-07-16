@@ -1,7 +1,5 @@
 package com.blueprintmate.model.dto;
 
-import com.blueprintmate.model.entity.Kitchen;
-
 public class FormCreateDTO {
 
     private String title;
@@ -13,6 +11,7 @@ public class FormCreateDTO {
     private LivingRoomCreateDTO livingRoom;
     private DiningRoomCreateDTO diningRoom;
     private KitchenCreateDTO kitchen;
+    private LaundryCreateDTO laundry;
 
     public String getTitle() {
         return title;
@@ -84,5 +83,13 @@ public class FormCreateDTO {
 
     public void setKitchen(KitchenCreateDTO kitchen) {
         this.kitchen = kitchen;
+    }
+
+    public LaundryCreateDTO getLaundry() {
+        return laundry;
+    }
+
+    public void setLaundry(LaundryCreateDTO laundry) {
+        this.laundry = laundry;
     }
 }
