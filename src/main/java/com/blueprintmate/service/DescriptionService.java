@@ -16,8 +16,6 @@ public class DescriptionService {
     private DescriptionRepository repository;
     @Autowired
     private ModelMapperHelper modelMapperHelper;
-    @Autowired
-    private ClientService clientService;
 
     public Description setUpDescription(DescriptionCreateDTO descriptionCreateDTO) {
         return modelMapperHelper.convertDescriptionCreateDTOToDescription(descriptionCreateDTO);
