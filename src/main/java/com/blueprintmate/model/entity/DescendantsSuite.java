@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@Table(name = "tb_descendants_suite")
 @PrimaryKeyJoinColumn(name = "id_descendants_suite")
 public class DescendantsSuite extends Suite {
-
     @ManyToOne
     @JoinColumn(name = "id_descendants_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
     private Suite suite;

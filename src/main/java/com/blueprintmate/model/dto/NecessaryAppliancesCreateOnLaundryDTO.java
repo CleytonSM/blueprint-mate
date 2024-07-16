@@ -3,7 +3,7 @@ package com.blueprintmate.model.dto;
 import jakarta.validation.constraints.NotNull;
 
 public class NecessaryAppliancesCreateOnLaundryDTO {
-//    @NotNull(message = "Name field can't be null")
+    @NotNull(message = "Name field can't be null")
     private String name;
 
     public NecessaryAppliancesCreateOnLaundryDTO() {

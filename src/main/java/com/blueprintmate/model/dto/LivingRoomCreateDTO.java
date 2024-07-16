@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class LivingRoomCreateDTO {
-
     @NotBlank(message = "People field can't be null")
     private Integer people;
     @NotNull(message = "HasPeople field can't be null")

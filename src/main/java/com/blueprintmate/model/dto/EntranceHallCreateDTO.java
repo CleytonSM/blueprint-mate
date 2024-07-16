@@ -3,7 +3,6 @@ package com.blueprintmate.model.dto;
 import jakarta.validation.constraints.NotNull;
 
 public class EntranceHallCreateDTO {
-
     private Boolean hasShoesHouseWalking;
     @NotNull(message = "HasEntranceConsoleTable field can't be null")
     private Boolean hasEntranceConsoleTable;

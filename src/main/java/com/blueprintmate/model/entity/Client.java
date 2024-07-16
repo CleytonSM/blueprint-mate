@@ -55,16 +55,13 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     private List<Descendants> descendantsList;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
-    private List<Description> descriptionList;
-
     public Client() {
     }
 
     public Client(User user, String name, String nickname, LocalDateTime birthday,
                   String maritalStatus, String religion, Boolean veganOrVegetarian, String individualNeeds,
                   Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt, List<SocialMedia> socialMediaList,
-                  List<Descendants> descendantsList, List<Description> descriptionList) {
+                  List<Descendants> descendantsList) {
         this.user = user;
         this.name = name;
         this.nickname = nickname;
@@ -78,7 +75,6 @@ public class Client {
         this.deletedAt = deletedAt;
         this.socialMediaList = socialMediaList;
         this.descendantsList = descendantsList;
-        this.descriptionList = descriptionList;
     }
 
     public int getId() {
@@ -187,13 +183,5 @@ public class Client {
 
     public void setDescendantsList(List<Descendants> descendantsList) {
         this.descendantsList = descendantsList;
-    }
-
-    public List<Description> getDescriptionList() {
-        return descriptionList;
-    }
-
-    public void setDescriptionList(List<Description> descriptionList) {
-        this.descriptionList = descriptionList;
     }
 }
