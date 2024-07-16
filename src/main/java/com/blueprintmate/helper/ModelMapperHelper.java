@@ -208,4 +208,31 @@ public class ModelMapperHelper {
 
         return laundry;
     }
+
+    public Bathroom convertBathroomCreateDTOToBathroom(BathroomCreateDTO bathroomCreateDTO) {
+        Bathroom bathroom = new Bathroom();
+
+        bathroom.setHasAllRenovated(bathroomCreateDTO.getHasBathtub());
+        bathroom.setPreferredSinkShape(bathroomCreateDTO.getPreferredSinkShape().toString());
+        bathroom.setPreferredFlushType(bathroomCreateDTO.getPreferredFlushType().toString());
+        bathroom.setHasHygienicShower(bathroomCreateDTO.getHasHygienicShower());
+        bathroom.setHasBidet(bathroomCreateDTO.getHasBidet());
+        bathroom.setHasPrefersMixerTap(bathroomCreateDTO.getHasPrefersMixerTap());
+        bathroom.setHasPrefersSingleHandle(bathroomCreateDTO.getHasPrefersSingleHandle());
+        bathroom.setHasElectricTowelRack(bathroomCreateDTO.getHasElectricTowelRack());
+        bathroom.setHasLaundryHamperInCabinet(bathroomCreateDTO.getHasLaundryHamperInCabinet());
+        bathroom.setHasMakeupInBathroomMirror(bathroomCreateDTO.getHasMakeupInBathroomMirror());
+        bathroom.setHasManyProductsOnCounter(bathroomCreateDTO.getHasManyProductsOnCounter());
+        bathroom.setHasDailyUseOfHairdryer(bathroomCreateDTO.getHasDailyUseOfHairdryer());
+        bathroom.setHasShowerNicheForProducts(bathroomCreateDTO.getHasShowerNicheForProducts());
+        bathroom.setHasCurrentStorageMeetsNeeds(bathroomCreateDTO.getHasCurrentStorageMeetsNeeds());
+        bathroom.setHasDesireMoreStorageSpace(bathroomCreateDTO.getHasDesireMoreStorageSpace());
+        bathroom.setHasSaunaInShower(bathroomCreateDTO.getHasSaunaInShower());
+        bathroom.setHasBathtub(bathroomCreateDTO.getHasBathtub());
+        bathroom.setHasImmersion(bathroomCreateDTO.getHasImmersion());
+        bathroom.setHasHydro(bathroomCreateDTO.getHasHydro());
+        bathroom.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return bathroom;
+    }
 }
