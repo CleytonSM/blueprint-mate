@@ -148,7 +148,8 @@ CREATE TABLE tb_suite(
 CREATE TABLE tb_master_suite(
   id_master_suite INTEGER PRIMARY KEY AUTO_INCREMENT REFERENCES tb_suite(id_suite),
   bool_tv_in_master_suite boolean,
-  bool_armchair_or_bench_master_suite boolean,
+  bool_armchair_master_suite boolean,
+  bool_bench_master_suite boolean,
   bool_reads_in_bed_master_suite boolean,
   bool_nightstand_drawer_master_suite boolean,
   bool_wood_headboard_preference_master_suite boolean,
