@@ -11,46 +11,32 @@ public class MasterSuite extends Suite {
     @ManyToOne
     @JoinColumn(name = "id_master_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
     private Suite suite;
-
     @Column(name = "bool_tv_in_master_suite")
     private Boolean hasTv;
-
     @Column(name = "bool_armchair_master_suite")
     private Boolean hasArmchair;
-
     @Column(name = "bool_bench_master_suite")
     private Boolean hasBench;
-
     @Column(name = "bool_reads_in_bed_master_suite")
     private Boolean readsInBed;
-
     @Column(name = "bool_nightstand_drawer_master_suite")
     private Boolean hasNightStandDrawer;
-
     @Column(name = "bool_wood_headboard_preference_master_suite")
     private Boolean hasWoodHeadboardPreference;
-
     @Column(name = "bool_fabric_headboard_preference_master_suite")
     private Boolean hasFabricHeadboardPreference;
-
     @Column(name = "bool_full_length_mirror_in_master_suite")
     private Boolean hasFullLengthMirror;
-
     @Column(name = "current_closet_length_master_suite")
     private float currentClosetLength;
-
     @Column(name = "current_clothes_rail_length_master_suite")
     private float currentClothesRailLength;
-
     @Column(name = "current_shoe_pairs_count_master_suite")
     private int currentShoePairsCount;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
