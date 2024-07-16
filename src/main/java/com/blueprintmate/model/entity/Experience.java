@@ -7,34 +7,25 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_experience")
 public class Experience {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_experience")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
     private Form form;
-
     @Column(name = "neutral_color_exp", length = 20, nullable = false)
     private String neutralColor;
-
     @Column(name = "lively_color_exp", length = 20, nullable = false)
     private String livelyColor;
-
     @Column(name = "like_to_feel_exp", length = 180, nullable = false)
     private String likeToFeel;
-
     @Column(name = "house_meaning_exp", length = 180, nullable = false)
     private String houseMeaning;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
