@@ -5,6 +5,7 @@ import com.blueprintmate.model.dto.EntranceHallCreateDTO;
 import com.blueprintmate.model.entity.EntranceHall;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.EntranceHallRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class EntranceHallService {
         save(newEntranceHall);
     }
 
+    @Transactional
     private EntranceHall save(EntranceHall newEntranceHall) {
         return repository.save(newEntranceHall);
     }
