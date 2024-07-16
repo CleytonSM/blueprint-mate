@@ -3,7 +3,6 @@ package com.blueprintmate.model.dto;
 import jakarta.validation.constraints.NotBlank;
 
 public class ToiletCreateDTO {
-
     @NotBlank(message = "ApartmentPattern field can't be null")
     private String apartmentPattern;
     @NotBlank(message = "DesignToilet field can't be null")
