@@ -321,30 +321,41 @@ CREATE TABLE tb_appliances(
   id_appliances int PRIMARY KEY AUTO_INCREMENT,
   id_kitchen int REFERENCES tb_kitchen(id_kitchen),
   id_laundry int REFERENCES tb_laundry(id_laundry),
-  bool_store_small_appliances_visible boolean,
-  bool_store_small_appliances_hidden boolean
+  bool_store_small_visible_appliances boolean,
+  bool_store_small_hidden_appliances boolean
 );
 
-CREATE TABLE tb_reuse_appliances(
-  id_reuse_appliances INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
-  nm_reuse_appliances varchar(30),
+CREATE TABLE tb_reuse_appliances_in_kitchen(
+  id_reuse_appliances_in_kitchen INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  id_kitchen int REFERENCES tb_kitchen(id_kitchen),
+  nm_reuse_appliances_in_kitchen varchar(30),
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
   deleted_at TIMESTAMP
 );
 
-CREATE TABLE tb_new_appliances(
-  id_new_appliances INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
-  link_new_appliances TEXT,
+CREATE TABLE tb_new_appliances_in_kitchen(
+  id_new_appliances_in_kitchen INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  id_kitchen int REFERENCES tb_kitchen(id_kitchen),
+  link_new_appliances_in_kitchen TEXT,
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
   deleted_at TIMESTAMP
 );
 
-CREATE TABLE tb_necessary_appliances(
-  id_necessary_appliances INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
-  nm_necessary_appliances varchar(45),
-  bool_used_daily_necessary_appliances boolean,
+CREATE TABLE tb_necessary_appliances_in_kitchen(
+  id_necessary_appliances_in_kitchen INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  id_kitchen int REFERENCES tb_kitchen(id_kitchen),
+  nm_necessary_appliances_in_kitchen varchar(45),
+  bool_used_daily_necessary_appliances_in_kitchen boolean,
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP,
+  deleted_at TIMESTAMP
+);
+
+CREATE TABLE tb_necessary_appliances_in_laundry(
+  id_necessary_appliances_in_laundry INTEGER PRIMARY KEY REFERENCES tb_appliances(id_appliances),
+  nm_necessary_appliances_in_laundry varchar(45),
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
   deleted_at TIMESTAMP

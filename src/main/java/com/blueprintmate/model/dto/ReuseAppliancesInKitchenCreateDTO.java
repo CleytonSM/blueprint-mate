@@ -1,13 +1,12 @@
 package com.blueprintmate.model.dto;
 
-public class ReuseAppliancesCreateOnKitchenDTO {
-
+public class ReuseAppliancesInKitchenCreateDTO {
     private String name;
 
-    public ReuseAppliancesCreateOnKitchenDTO() {
+    public ReuseAppliancesInKitchenCreateDTO() {
     }
 
-    public ReuseAppliancesCreateOnKitchenDTO(String name) {
+    public ReuseAppliancesInKitchenCreateDTO(String name) {
         this.name = name;
     }
 

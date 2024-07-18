@@ -5,42 +5,37 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tb_new_appliances")
-@PrimaryKeyJoinColumn(name = "id_new_appliances")
-public class NewAppliances extends Appliances {
+@Table(name = "tb_new_appliances_in_kitchen")
+@PrimaryKeyJoinColumn(name = "id_new_appliances_in_kitchen")
+public class NewAppliancesInKitchen extends Appliances {
     @ManyToOne
-    @JoinColumn(name = "id_new_appliances", referencedColumnName = "id_appliances",
+    @JoinColumn(name = "id_new_appliances_in_kitchen", referencedColumnName = "id_appliances",
             nullable = false, insertable = false, updatable = false)
     private Appliances appliances;
-
-    @Column(name = "link_new_appliances", length = Integer.MAX_VALUE)
+    @Column(name = "link_new_appliances_in_kitchen", length = Integer.MAX_VALUE)
     private String link;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public NewAppliances() {
+    public NewAppliancesInKitchen() {
     }
 
-    public NewAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
-                         Boolean hasStoreSmallHidden, String link, Timestamp createdAt,
-                         Timestamp updatedAt, Timestamp deletedAt) {
-        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+    public NewAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                  String link, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.link = link;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
     }
 
-    public NewAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
-                         Boolean hasStoreSmallHidden, String link, Timestamp createdAt) {
-        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+    public NewAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                  String link, Timestamp createdAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.link = link;
         this.createdAt = createdAt;
     }
