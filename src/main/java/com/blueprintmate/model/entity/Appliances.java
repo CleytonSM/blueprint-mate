@@ -10,29 +10,28 @@ public class Appliances {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_appliances")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_kitchen")
     private Kitchen kitchen;
-
     @ManyToOne
     @JoinColumn(name = "id_laundry")
     private Laundry laundry;
-
-    @Column(name = "bool_store_small_appliances_visible")
+    @Column(name = "bool_store_small_visible_appliances")
     private Boolean hasStoreSmallVisible;
-
-    @Column(name = "bool_store_small_appliances_hidden")
+    @Column(name = "bool_store_small_hidden_appliances")
     private Boolean hasStoreSmallHidden;
 
     public Appliances() {
     }
 
-    public Appliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden) {
+    public Appliances(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden) {
         this.kitchen = kitchen;
-        this.laundry = laundry;
         this.hasStoreSmallVisible = hasStoreSmallVisible;
         this.hasStoreSmallHidden = hasStoreSmallHidden;
+    }
+
+    public Appliances(Laundry laundry) {
+        this.laundry = laundry;
     }
 
     public int getId() {

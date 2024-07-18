@@ -34,11 +34,13 @@ public class FormService {
     @Autowired
     private KitchenService kitchenService;
     @Autowired
-    private NewAppliancesService newAppliancesService;
+    private NewAppliancesInKitchenService newAppliancesInKitchenService;
     @Autowired
-    private ReuseAppliancesService reuseAppliancesService;
+    private ReuseAppliancesInKitchenService reuseAppliancesInKitchenService;
     @Autowired
-    private NecessaryAppliancesService necessaryAppliancesService;
+    private NecessaryAppliancesInKitchenService necessaryAppliancesInKitchenService;
+    @Autowired
+    private NecessaryAppliancesInLaundryService necessaryAppliancesInLaundryService;
     @Autowired
     private LaundryService laundryService;
     @Autowired
@@ -94,22 +96,15 @@ public class FormService {
         livingRoomService.createLivingRoom(newLivingRoom, newForm);
         diningRoomService.createDiningRoom(newDiningRoom, newForm);
         kitchenService.createKitchen(newKitchen, newForm);
-        newAppliancesService.createNewAppliancesOnKitchen(
-                formCreateDTO.getKitchen().getNewAppliancesOnKitchenList(),
-                newKitchen,
-                formCreateDTO.getKitchen().getAppliancesConfig());
-        reuseAppliancesService.createReuseAppliancesOnKitchen(
-                formCreateDTO.getKitchen().getReuseAppliancesOnKitchenList(),
-                newKitchen,
-                formCreateDTO.getKitchen().getAppliancesConfig());
-        necessaryAppliancesService.createNecessaryAppliancesOnKitchen(
-                formCreateDTO.getKitchen().getNecessaryAppliancesOnKitchenList(),
-                newKitchen,
-                formCreateDTO.getKitchen().getAppliancesConfig());
+        newAppliancesInKitchenService.createNewAppliancesOnKitchen(
+                formCreateDTO.getKitchen().getAppliances(), newKitchen);
+        reuseAppliancesInKitchenService.createReuseAppliances(
+                formCreateDTO.getKitchen().getAppliances(), newKitchen);
+        necessaryAppliancesInKitchenService.createNecessaryAppliances(
+                formCreateDTO.getKitchen().getAppliances(), newKitchen);
         laundryService.createLaundry(newLaundry, newForm);
-        necessaryAppliancesService.createNecessaryAppliancesOnLaundry(
-                formCreateDTO.getLaundry().getNecessaryAppliancesOnLaundryList(),
-                newLaundry);
+        necessaryAppliancesInLaundryService.createNecessaryAppliances(
+                formCreateDTO.getLaundry().getNecessaryAppliancesOnLaundryList(), newLaundry);
         bathroomService.createBathroom(newBathroom, newForm);
         masterSuiteService.createMasterSuite(newMasterSuite, newForm);
         descendantsSuiteService.createDescendantsSuite(newDescendantsSuite, newForm);

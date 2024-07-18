@@ -5,37 +5,31 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "tb_necessary_appliances")
-@PrimaryKeyJoinColumn(name = "id_necessary_appliances")
-public class NecessaryAppliances extends Appliances {
-
+@Table(name = "tb_necessary_appliances_in_kitchen")
+@PrimaryKeyJoinColumn(name = "id_necessary_appliances_in_kitchen")
+public class NecessaryAppliancesInKitchen extends Appliances {
     @ManyToOne
-    @JoinColumn(name = "id_necessary_appliances", referencedColumnName = "id_appliances",
+    @JoinColumn(name = "id_necessary_appliances_in_kitchen", referencedColumnName = "id_appliances",
             nullable = false, insertable = false, updatable = false)
     private Appliances appliances;
-
-    @Column(name = "nm_necessary_appliances", length = 45)
+    @Column(name = "nm_necessary_appliances_in_kitchen", length = 45)
     private String name;
-
-    @Column(name = "bool_used_daily_necessary_appliances")
+    @Column(name = "bool_used_daily_necessary_appliances_in_kitchen")
     private Boolean hasUsedDaily;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
-    public NecessaryAppliances() {
+    public NecessaryAppliancesInKitchen() {
     }
 
-    public NecessaryAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
-                               Boolean hasStoreSmallHidden, String name, Boolean hasUsedDaily, Timestamp createdAt,
-                               Timestamp updatedAt, Timestamp deletedAt) {
-        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+    public NecessaryAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                        String name, Boolean hasUsedDaily, Timestamp createdAt, Timestamp updatedAt,
+                                        Timestamp deletedAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.name = name;
         this.hasUsedDaily = hasUsedDaily;
         this.createdAt = createdAt;
@@ -43,9 +37,9 @@ public class NecessaryAppliances extends Appliances {
         this.deletedAt = deletedAt;
     }
 
-    public NecessaryAppliances(Kitchen kitchen, Laundry laundry, Boolean hasStoreSmallVisible,
-                               Boolean hasStoreSmallHidden, String name, Boolean hasUsedDaily, Timestamp createdAt) {
-        super(kitchen, laundry, hasStoreSmallVisible, hasStoreSmallHidden);
+    public NecessaryAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                        String name, Boolean hasUsedDaily, Timestamp createdAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.name = name;
         this.hasUsedDaily = hasUsedDaily;
         this.createdAt = createdAt;
