@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -13,6 +14,7 @@ public class Context {
     private int id;
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
     private Form form;
     @Column(name = "project_life_stage_significance_context", length = 200)
     private String projectLifeStageSignificance;

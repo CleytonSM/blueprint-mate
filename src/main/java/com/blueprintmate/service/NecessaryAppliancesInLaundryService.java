@@ -26,6 +26,7 @@ public class NecessaryAppliancesInLaundryService {
                 save(new NecessaryAppliancesInLaundry(
                         laundry,
                         necessaryAppliancesCreateOnLaundryDTO.getName(),
+                        Timestamp.valueOf(LocalDateTime.now()),
                         Timestamp.valueOf(LocalDateTime.now())
                 )));
     }

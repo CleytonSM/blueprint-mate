@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Component
 public class ModelMapperHelper {
@@ -76,6 +75,7 @@ public class ModelMapperHelper {
         description.setHasCook(descriptionCreateDTO.getHasCook());
         description.setCook(descriptionCreateDTO.getCook());
         description.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        description.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return description;
     }
@@ -88,6 +88,7 @@ public class ModelMapperHelper {
         experience.setLikeToFeel(experienceCreateDTO.getLikeToFeel());
         experience.setHouseMeaning(experienceCreateDTO.getHouseMeaning());
         experience.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        experience.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return experience;
     }
@@ -103,6 +104,7 @@ public class ModelMapperHelper {
         building.setBuildingManagerContact(buildingCreateDTO.getBuildingManagerContact() == null
                 ? null : buildingCreateDTO.getBuildingManagerContact());
         building.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        building.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return building;
     }
@@ -112,6 +114,7 @@ public class ModelMapperHelper {
 
         form.setTitle(formCreateDTO.getTitle());
         form.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        form.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return form;
     }
@@ -122,6 +125,7 @@ public class ModelMapperHelper {
         toilet.setApartmentPattern(toiletCreateDTO.getApartmentPattern());
         toilet.setDesignToilet(toiletCreateDTO.getDesignToilet());
         toilet.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        toilet.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return toilet;
     }
@@ -135,6 +139,8 @@ public class ModelMapperHelper {
         entranceHall.setHasWantEntranceConsoleTable((entranceHallCreateDTO.getHasWantEntranceConsoleTable()));
         entranceHall.setHasFullLengthMirror((entranceHallCreateDTO.getHasFullLengthMirror()));
         entranceHall.setHasFamiliarWithElectronicLocks((entranceHallCreateDTO.getHasFamiliarWithElectronicLocks()));
+        entranceHall.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        entranceHall.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return entranceHall;
     }
@@ -152,6 +158,7 @@ public class ModelMapperHelper {
         livingRoom.setHasUsedDaily(livingRoomCreateDTO.getHasUsedDaily());
         livingRoom.setReceivesManyPeople(livingRoomCreateDTO.getReceivesManyPeople());
         livingRoom.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        livingRoom.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return livingRoom;
     }
@@ -162,6 +169,7 @@ public class ModelMapperHelper {
         diningRoom.setDiningTableCapacity(diningRoomCreateDTO.getDiningTableCapacity());
         diningRoom.setDailyMealsLocation(diningRoomCreateDTO.getDailyMealsLocation());
         diningRoom.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        diningRoom.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return diningRoom;
     }
@@ -189,6 +197,7 @@ public class ModelMapperHelper {
         kitchen.setCurrentStorageSatisfaction(kitchenCreateDTO.getCurrentStorageSatisfaction());
         kitchen.setDinnerCapacity(kitchenCreateDTO.getDinnerCapacity());
         kitchen.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        kitchen.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return kitchen;
     }
@@ -205,6 +214,7 @@ public class ModelMapperHelper {
         laundry.setCurrentDryingRackCount(laundryCreateDTO.getCurrentDryingRackCount());
         laundry.setDryingRackSizes(laundryCreateDTO.getDryingRackSizes());
         laundry.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        laundry.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return laundry;
     }
@@ -232,6 +242,7 @@ public class ModelMapperHelper {
         bathroom.setHasImmersion(bathroomCreateDTO.getHasImmersion());
         bathroom.setHasHydro(bathroomCreateDTO.getHasHydro());
         bathroom.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        bathroom.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return bathroom;
     }
@@ -252,6 +263,7 @@ public class ModelMapperHelper {
         masterSuite.setCurrentClothesRailLength(masterSuiteCreateDTO.getCurrentClothesRailLength());
         masterSuite.setCurrentShoePairsCount(masterSuiteCreateDTO.getCurrentShoePairsCount());
         masterSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        masterSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return masterSuite;
     }
@@ -268,19 +280,21 @@ public class ModelMapperHelper {
                         ? null : descendantsSuiteCreateDTO.getHasChildReceivesFriendsToSleep());
         descendantsSuite.setTheme(descendantsSuiteCreateDTO.getTheme());
         descendantsSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        descendantsSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return descendantsSuite;
     }
 
-    public GuestsSuite convertGuestsSuiteCreateDTOToGuestsSuite(GuestsSuiteSuiteCreateDTO guestsSuiteSuiteCreateDTO) {
+    public GuestsSuite convertGuestsSuiteCreateDTOToGuestsSuite(GuestsSuiteCreateDTO guestsSuiteCreateDTO) {
         GuestsSuite guestsSuite = new GuestsSuite();
 
-        guestsSuite.setBedType(guestsSuiteSuiteCreateDTO.getBedType().toString());
-        guestsSuite.setClosetUse(guestsSuiteSuiteCreateDTO.getClosetUse() == null
-                ? null : guestsSuiteSuiteCreateDTO.getClosetUse());
-        guestsSuite.setFrequencyOfGuests(guestsSuiteSuiteCreateDTO.getFrequencyOfGuests() == null
-                ? null : guestsSuiteSuiteCreateDTO.getFrequencyOfGuests());
+        guestsSuite.setBedType(guestsSuiteCreateDTO.getBedType().toString());
+        guestsSuite.setClosetUse(guestsSuiteCreateDTO.getClosetUse() == null
+                ? null : guestsSuiteCreateDTO.getClosetUse());
+        guestsSuite.setFrequencyOfGuests(guestsSuiteCreateDTO.getFrequencyOfGuests() == null
+                ? null : guestsSuiteCreateDTO.getFrequencyOfGuests());
         guestsSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        guestsSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return guestsSuite;
     }
@@ -295,6 +309,7 @@ public class ModelMapperHelper {
                 homeOfficeSuiteCreateDTO.getNeedsSpaceForBooksDocumentsOrPapers() == null
                         ? null : homeOfficeSuiteCreateDTO.getNeedsSpaceForBooksDocumentsOrPapers());
         homeOfficeSuite.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        homeOfficeSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return homeOfficeSuite;
     }
@@ -308,6 +323,7 @@ public class ModelMapperHelper {
         generalInfo.setAvoidanceRequests(generalInfoCreateDTO.getAvoidanceRequests());
         generalInfo.setPlantRelationship(generalInfoCreateDTO.getPlantRelationship());
         generalInfo.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        generalInfo.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return generalInfo;
     }
@@ -318,6 +334,7 @@ public class ModelMapperHelper {
         styleAndMoods.setAmbientStyle(styleAndMoodsCreateDTO.getAmbientStyle().toString());
         styleAndMoods.setAmbientStyleDescription(styleAndMoodsCreateDTO.getAmbientStyleDescription());
         styleAndMoods.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        styleAndMoods.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return styleAndMoods;
     }
@@ -330,6 +347,7 @@ public class ModelMapperHelper {
         context.setProjectDurationExpectation(contextCreateDTO.getProjectDurationExpectation());
         context.setLocationDuringRenovation(contextCreateDTO.getLocationDuringRenovation());
         context.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+        context.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return context;
     }

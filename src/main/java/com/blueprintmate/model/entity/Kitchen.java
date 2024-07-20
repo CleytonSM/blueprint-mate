@@ -1,72 +1,57 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_kitchen")
-@PrimaryKeyJoinColumn(name = "id_kitchen")
-public class Kitchen extends Project {
+public class Kitchen {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_kitchen")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_kitchen", referencedColumnName = "id_project",
-            nullable = false, insertable = false, updatable = false)
-    private Project project;
-
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
     @Column(name = "color_type_kitchen", length = 30)
     private String colorType;
-
     @Column(name = "shape_type_kitchen", length = 30)
     private String shapeType;
-
     @Column(name = "counter_top_material_kitchen", length = 30)
     private String counterTopMaterial;
-
     @Column(name = "material_preference_kitchen", length = 30)
     private String materialPreference;
-
     @Column(name = "bool_wet_gutter_or_built_in_trash_can_kitchen")
     private Boolean hasWetGutterOrBuiltInTrashCan;
-
     @Column(name = "bool_stove_kitchen")
     private Boolean hasStove;
-
     @Column(name = "bool_cooktop_kitchen")
     private Boolean hasCooktop;
-
     @Column(name = "bool_induction_kitchen")
     private Boolean hasInduction;
-
     @Column(name = "bool_burners_kitchen")
     private Boolean hasBurners;
-
     @Column(name = "bool_stove_on_counter_top_kitchen")
     private Boolean hasStoveOnCounterTop;
-
     @Column(name = "bool_stove_on_tower_kitchen")
     private Boolean hasStoveOnTower;
-
     @Column(name = "fridge_type_kitchen", length = 60)
     private String fridgeType;
-
     @Column(name = "bool_separate_freezer_kitchen")
     private Boolean hasSeparateFreezer;
-
     @Column(name = "fridge_capacity_liters_kitchen", length = 140)
     private Integer fridgeCapacityLiters;
-
     @Column(name = "current_storage_satisfaction_kitchen")
     private String currentStorageSatisfaction;
-
     @Column(name = "dinner_capacity_kitchen")
     private Integer dinnerCapacity;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
@@ -80,7 +65,7 @@ public class Kitchen extends Project {
                    String fridgeType, Boolean hasSeparateFreezer, Integer fridgeCapacityLiters,
                    String currentStorageSatisfaction, Integer dinnerCapacity, Timestamp createdAt,
                    Timestamp updatedAt, Timestamp deletedAt) {
-        super(form);
+        this.form = form;
         this.colorType = colorType;
         this.shapeType = shapeType;
         this.counterTopMaterial = counterTopMaterial;
@@ -102,8 +87,16 @@ public class Kitchen extends Project {
         this.deletedAt = deletedAt;
     }
 
-    public Project getProject() {
-        return project;
+    public int getId() {
+        return id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public String getColorType() {

@@ -23,6 +23,7 @@ public class NewAppliancesInKitchenService {
                         appliances.getHasStoreSmallVisible(),
                         appliances.getHasStoreSmallHidden(),
                         newAppliancesCreateOnKitchenDTO.getLink(),
+                        Timestamp.valueOf(LocalDateTime.now()),
                         Timestamp.valueOf(LocalDateTime.now()))));
     }
 

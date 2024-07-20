@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -13,8 +14,9 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_client")
     private int id;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "id_user", nullable = false)
+    @JsonIgnore
     private User user;
     @Column(name = "nm_client", length = 50, nullable = false)
     private String name;

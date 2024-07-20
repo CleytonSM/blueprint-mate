@@ -34,10 +34,11 @@ public class ReuseAppliancesInKitchen extends Appliances {
     }
 
     public ReuseAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
-                                    String name, Timestamp createdAt) {
+                                    String name, Timestamp createdAt, Timestamp updatedAt) {
         super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.name = name;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Appliances getAppliances() {

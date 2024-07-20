@@ -138,14 +138,10 @@ CREATE TABLE tb_general_info(
   deleted_at timestamp
 );
 
-CREATE TABLE tb_suite(
-  id_suite int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
-  bed_type_suite varchar(30)
-);
-
 CREATE TABLE tb_master_suite(
-  id_master_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_master_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
+  id_form int NOT NULL REFERENCES tb_form(id_form),
+  bed_type_suite varchar(30),
   bool_tv_in_master_suite boolean,
   bool_armchair_master_suite boolean,
   bool_bench_master_suite boolean,
@@ -163,7 +159,9 @@ CREATE TABLE tb_master_suite(
 );
 
 CREATE TABLE tb_descendants_suite(
-  id_descendants_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_descendants_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
+  id_form int NOT NULL REFERENCES tb_form(id_form),
+  bed_type_suite varchar(30),
   bool_tv_in_descendants_suite boolean,
   bool_child_study_in_descendants_suite boolean,
   bool_child_receives_friends_to_sleep_descendants_suite boolean,
@@ -174,7 +172,9 @@ CREATE TABLE tb_descendants_suite(
 );
 
 CREATE TABLE tb_home_office_suite(
-  id_home_office_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_home_office_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
+  id_form int NOT NULL REFERENCES tb_form(id_form),
+  bed_type_suite varchar(30),
   bool_needs_privacy boolean,
   bool_needs_space_for_books_documents_papers boolean,
   created_at timestamp,
@@ -183,7 +183,9 @@ CREATE TABLE tb_home_office_suite(
 );
 
 CREATE TABLE tb_guests_suite(
-  id_guests_suite INTEGER PRIMARY KEY REFERENCES tb_suite(id_suite),
+  id_guests_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
+  id_form int NOT NULL REFERENCES tb_form(id_form),
+  bed_type_suite varchar(30),
   closet_use_guests_suite varchar(45),
   frequency_of_guests_guests_suite varchar(45),
   created_at timestamp,
@@ -204,13 +206,9 @@ CREATE TABLE tb_building(
   deleted_at timestamp
 );
 
-CREATE TABLE tb_project(
-  id_project int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form)
-);
-
 CREATE TABLE tb_kitchen(
-    id_kitchen INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_kitchen INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     color_type_kitchen VARCHAR(30) NOT NULL,
     shape_type_kitchen VARCHAR(30) NOT NULL,
     counter_top_material_kitchen VARCHAR(30) NOT NULL,
@@ -233,7 +231,8 @@ CREATE TABLE tb_kitchen(
 );
 
 CREATE TABLE tb_dining_room(
-    id_dining_room INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_dining_room INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     dining_table_capacity_dining_room INTEGER,
     daily_meals_location_dining_room VARCHAR(60),
     created_at TIMESTAMP,
@@ -242,7 +241,8 @@ CREATE TABLE tb_dining_room(
 );
 
 CREATE TABLE tb_living_room(
-    id_living_room INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_living_room INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     people_in_living_room INTEGER,
     bool_tv_is_important_living_room BOOLEAN,
     tv_inch_living_room INTEGER,
@@ -258,7 +258,8 @@ CREATE TABLE tb_living_room(
 );
 
 CREATE TABLE tb_entrance_hall(
-    id_entrance_hall INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_entrance_hall INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     bool_shoes_house_walking_entrance_hall BOOLEAN,
     bool_has_entrance_console_table_entrance_hall BOOLEAN,
     bool_want_entrance_console_table_entrance_hall BOOLEAN,
@@ -270,7 +271,8 @@ CREATE TABLE tb_entrance_hall(
 );
 
 CREATE TABLE tb_toilet(
-    id_toilet INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_toilet INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     apartment_pattern_toilet VARCHAR(180),
     design_toilet VARCHAR(50),
     created_at TIMESTAMP,
@@ -279,7 +281,8 @@ CREATE TABLE tb_toilet(
 );
 
 CREATE TABLE tb_laundry(
-    id_laundry INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_laundry INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     bool_built_in_sink_laundry BOOLEAN,
     bool_porcelain_sink_laundry BOOLEAN,
     bool_pet_food_and_bowls_stored_here_laundry BOOLEAN,
@@ -292,7 +295,8 @@ CREATE TABLE tb_laundry(
 );
 
 CREATE TABLE tb_bathroom(
-    id_bathroom INTEGER PRIMARY KEY REFERENCES tb_project(id_project),
+    id_bathroom INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_form int NOT NULL REFERENCES tb_form(id_form),
     bool_all_renovated_bathroom BOOLEAN,
     preferred_sink_shape_bathroom VARCHAR(50),
     preferred_flush_type_bathroom VARCHAR(20),

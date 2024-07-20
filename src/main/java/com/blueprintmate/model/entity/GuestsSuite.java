@@ -1,16 +1,23 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_guests_suite")
-@PrimaryKeyJoinColumn(name = "id_guests_suite")
-public class GuestsSuite extends Suite {
+public class GuestsSuite {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_guests_suite")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_guests_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
-    private Suite suite;
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
+    @Column(name = "bed_type_suite", length = 30)
+    private String bedType;
     @Column(name = "closet_use_guests_suite")
     private String closetUse;
     @Column(name = "frequency_of_guests_guests_suite")
@@ -27,7 +34,8 @@ public class GuestsSuite extends Suite {
 
     public GuestsSuite(Form form, String bedType, String closetUse, String frequencyOfGuests, Timestamp createdAt,
                        Timestamp updatedAt, Timestamp deletedAt) {
-        super(form, bedType);
+        this.form = form;
+        this.bedType = bedType;
         this.closetUse = closetUse;
         this.frequencyOfGuests = frequencyOfGuests;
         this.createdAt = createdAt;
@@ -35,8 +43,24 @@ public class GuestsSuite extends Suite {
         this.deletedAt = deletedAt;
     }
 
-    public Suite getSuite() {
-        return suite;
+    public int getId() {
+        return id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+    }
+
+    public String getBedType() {
+        return bedType;
+    }
+
+    public void setBedType(String bedType) {
+        this.bedType = bedType;
     }
 
     public String getClosetUse() {

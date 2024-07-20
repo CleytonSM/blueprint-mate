@@ -3,16 +3,16 @@ package com.blueprintmate.model.dto;
 import com.blueprintmate.model.enumerable.BedType;
 import jakarta.validation.constraints.NotBlank;
 
-public class GuestsSuiteSuiteCreateDTO {
+public class GuestsSuiteCreateDTO {
     @NotBlank(message = "BedType field can't be null")
     private BedType bedType;
     private String closetUse;
     private String frequencyOfGuests;
 
-    public GuestsSuiteSuiteCreateDTO() {
+    public GuestsSuiteCreateDTO() {
     }
 
-    public GuestsSuiteSuiteCreateDTO(BedType bedType, String closetUse, String frequencyOfGuests) {
+    public GuestsSuiteCreateDTO(BedType bedType, String closetUse, String frequencyOfGuests) {
         this.bedType = bedType;
         this.closetUse = closetUse;
         this.frequencyOfGuests = frequencyOfGuests;

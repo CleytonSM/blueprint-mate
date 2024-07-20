@@ -23,6 +23,7 @@ public class ReuseAppliancesInKitchenService {
                         appliances.getHasStoreSmallVisible(),
                         appliances.getHasStoreSmallHidden(),
                         reuseAppliancesCreateOnKitchenDTO.getName(),
+                        Timestamp.valueOf(LocalDateTime.now()),
                         Timestamp.valueOf(LocalDateTime.now())
                 )));
     }

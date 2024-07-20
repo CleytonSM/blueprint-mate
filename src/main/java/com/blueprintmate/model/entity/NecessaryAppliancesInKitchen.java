@@ -38,11 +38,12 @@ public class NecessaryAppliancesInKitchen extends Appliances {
     }
 
     public NecessaryAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
-                                        String name, Boolean hasUsedDaily, Timestamp createdAt) {
+                                        String name, Boolean hasUsedDaily, Timestamp createdAt, Timestamp updatedAt) {
         super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.name = name;
         this.hasUsedDaily = hasUsedDaily;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Appliances getAppliances() {

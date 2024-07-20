@@ -7,28 +7,21 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_descendants")
 public class Descendants {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_descendant")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_client", nullable = false)
     private Client client;
-
     @Column(name = "nm_descendant", length = 60)
     private String name;
-
     @Column(name = "age_descendant")
     private int age;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

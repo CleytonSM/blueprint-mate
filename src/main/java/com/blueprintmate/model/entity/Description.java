@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -13,6 +14,7 @@ public class Description {
     private int id;
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
     private Form form;
     @Column(name = "best_place_desc", length = 180, nullable = false)
     private String bestPlace;

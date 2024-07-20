@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -7,38 +8,31 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_laundry")
-@PrimaryKeyJoinColumn(name = "id_laundry")
-public class Laundry extends Project {
-
+public class Laundry {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_laundry")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_laundry", referencedColumnName = "id_project",
-            nullable = false, insertable = false, updatable = false)
-    private Project project;
-
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
     @Column(name = "bool_built_in_sink_laundry")
     private Boolean hasBuiltInSink;
-
     @Column(name = "bool_porcelain_sink_laundry")
     private Boolean hasPorcelainSink;
-
     @Column(name = "bool_pet_food_and_bowls_stored_here_laundry")
     private Boolean hasPetFoodAndBowlsStoredHere;
-
     @Column(name = "bool_recycles_trash_laundry")
     private Boolean hasRecyclesTrash;
-
     @Column(name = "current_drying_rack_count_laundry")
     private Integer currentDryingRackCount;
-
     @Column(name = "drying_rack_sizes_laundry", precision = 5, scale = 2)
     private BigDecimal dryingRackSizes;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
@@ -48,7 +42,7 @@ public class Laundry extends Project {
     public Laundry(Form form, Boolean hasBuiltInSink, Boolean hasPorcelainSink, Boolean hasPetFoodAndBowlsStoredHere,
                    Boolean hasRecyclesTrash, Integer currentDryingRackCount, BigDecimal dryingRackSizes,
                    Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        super(form);
+        this.form = form;
         this.hasBuiltInSink = hasBuiltInSink;
         this.hasPorcelainSink = hasPorcelainSink;
         this.hasPetFoodAndBowlsStoredHere = hasPetFoodAndBowlsStoredHere;
@@ -60,8 +54,16 @@ public class Laundry extends Project {
         this.deletedAt = deletedAt;
     }
 
-    public Project getProject() {
-        return project;
+    public int getId() {
+        return id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public Boolean getHasBuiltInSink() {

@@ -34,10 +34,11 @@ public class NewAppliancesInKitchen extends Appliances {
     }
 
     public NewAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
-                                  String link, Timestamp createdAt) {
+                                  String link, Timestamp createdAt, Timestamp updatedAt) {
         super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.link = link;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Appliances getAppliances() {
