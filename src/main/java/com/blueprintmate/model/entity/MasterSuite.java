@@ -1,16 +1,23 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_master_suite")
-@PrimaryKeyJoinColumn(name = "id_master_suite")
-public class MasterSuite extends Suite {
+public class MasterSuite {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_master_suite")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_master_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
-    private Suite suite;
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
+    @Column(name = "bed_type_suite", length = 30)
+    private String bedType;
     @Column(name = "bool_tv_in_master_suite")
     private Boolean hasTv;
     @Column(name = "bool_armchair_master_suite")
@@ -48,7 +55,8 @@ public class MasterSuite extends Suite {
                        Boolean hasFabricHeadboardPreference, Boolean hasFullLengthMirror, float currentClosetLength,
                        float currentClothesRailLength, int currentShoePairsCount, Timestamp createdAt,
                        Timestamp updatedAt, Timestamp deletedAt) {
-        super(form, bedType);
+        this.form = form;
+        this.bedType = bedType;
         this.hasTv = hasTv;
         this.hasArmchair = hasArmchair;
         this.readsInBed = readsInBed;
@@ -64,8 +72,24 @@ public class MasterSuite extends Suite {
         this.deletedAt = deletedAt;
     }
 
-    public Suite getSuite() {
-        return suite;
+    public int getId() {
+        return id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+    }
+
+    public String getBedType() {
+        return bedType;
+    }
+
+    public void setBedType(String bedType) {
+        this.bedType = bedType;
     }
 
     public Boolean getHasTv() {

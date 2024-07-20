@@ -1,17 +1,21 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_dining_room")
-@PrimaryKeyJoinColumn(name = "id_dining_room")
-public class DiningRoom extends Project {
+public class DiningRoom {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_dining_room")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_dining_room", referencedColumnName = "id_project",
-            nullable = false, insertable = false, updatable = false)
-    private Project project;
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
     @Column(name = "dining_table_capacity_dining_room", nullable = false)
     private Integer diningTableCapacity;
     @Column(name = "daily_meals_location_dining_room", length = 60, nullable = false)
@@ -28,7 +32,7 @@ public class DiningRoom extends Project {
 
     public DiningRoom(Form form, Integer diningTableCapacity, String dailyMealsLocation,
                       Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        super(form);
+        this.form = form;
         this.diningTableCapacity = diningTableCapacity;
         this.dailyMealsLocation = dailyMealsLocation;
         this.createdAt = createdAt;
@@ -36,8 +40,16 @@ public class DiningRoom extends Project {
         this.deletedAt = deletedAt;
     }
 
-    public Project getProject() {
-        return project;
+    public int getId() {
+        return id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public Integer getDiningTableCapacity() {

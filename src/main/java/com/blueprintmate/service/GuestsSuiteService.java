@@ -1,7 +1,7 @@
 package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
-import com.blueprintmate.model.dto.GuestsSuiteSuiteCreateDTO;
+import com.blueprintmate.model.dto.GuestsSuiteCreateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.GuestsSuite;
 import com.blueprintmate.repository.GuestsSuiteRepository;
@@ -16,7 +16,7 @@ public class GuestsSuiteService {
     @Autowired
     private ModelMapperHelper modelMapperHelper;
 
-    public GuestsSuite setUpGuestsSuite(GuestsSuiteSuiteCreateDTO guestsSuite) {
+    public GuestsSuite setUpGuestsSuite(GuestsSuiteCreateDTO guestsSuite) {
         return modelMapperHelper.convertGuestsSuiteCreateDTOToGuestsSuite(guestsSuite);
     }
 

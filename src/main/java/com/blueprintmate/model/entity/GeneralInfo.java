@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -11,32 +12,24 @@ public class GeneralInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_general_info")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
     private Form form;
-
     @Column(name = "reuse_general_info", length = 200)
     private String reuse;
-
     @Column(name = "additional_general_info", length = 200)
     private String additional;
-
     @Column(name = "unlisted_furniture_or_equipment_general_info", length = 200)
     private String unlistedFurnitureOrEquipment;
-
     @Column(name = "avoidance_requests_general_info", length = 200)
     private String avoidanceRequests;
-
     @Column(name = "plant_relationship_general_info", length = 50)
     private String plantRelationship;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

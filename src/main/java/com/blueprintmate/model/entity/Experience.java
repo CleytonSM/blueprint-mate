@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -13,6 +14,7 @@ public class Experience {
     private int id;
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
     private Form form;
     @Column(name = "neutral_color_exp", length = 20, nullable = false)
     private String neutralColor;

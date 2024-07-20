@@ -1,16 +1,23 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_descendants_suite")
-@PrimaryKeyJoinColumn(name = "id_descendants_suite")
-public class DescendantsSuite extends Suite {
+public class DescendantsSuite {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_descendants_suite")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_descendants_suite", referencedColumnName = "id_suite", nullable = false, insertable = false, updatable = false)
-    private Suite suite;
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
+    @Column(name = "bed_type_suite", length = 30)
+    private String bedType;
     @Column(name = "bool_tv_in_descendants_suite")
     private Boolean hasTv;
     @Column(name = "bool_child_study_in_descendants_suite")
@@ -32,7 +39,8 @@ public class DescendantsSuite extends Suite {
     public DescendantsSuite(Form form, String bedType, Boolean hasTv, Boolean hasChildStudy,
                             Boolean hasChildReceivesFriendsToSleep, String theme, Timestamp createdAt,
                             Timestamp updatedAt, Timestamp deletedAt) {
-        super(form, bedType);
+        this.form = form;
+        this.bedType = bedType;
         this.hasTv = hasTv;
         this.hasChildStudy = hasChildStudy;
         this.hasChildReceivesFriendsToSleep = hasChildReceivesFriendsToSleep;
@@ -42,8 +50,36 @@ public class DescendantsSuite extends Suite {
         this.deletedAt = deletedAt;
     }
 
-    public Suite getSuite() {
-        return suite;
+    public int getId() {
+        return id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+    }
+
+    public String getBedType() {
+        return bedType;
+    }
+
+    public void setBedType(String bedType) {
+        this.bedType = bedType;
+    }
+
+    public Boolean getHasTv() {
+        return hasTv;
+    }
+
+    public Boolean getHasChildStudy() {
+        return hasChildStudy;
+    }
+
+    public Boolean getHasChildReceivesFriendsToSleep() {
+        return hasChildReceivesFriendsToSleep;
     }
 
     public Boolean isHasTv() {

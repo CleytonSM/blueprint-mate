@@ -32,10 +32,11 @@ public class NecessaryAppliancesInLaundry extends Appliances {
         this.deletedAt = deletedAt;
     }
 
-    public NecessaryAppliancesInLaundry(Laundry laundry, String name, Timestamp createdAt) {
+    public NecessaryAppliancesInLaundry(Laundry laundry, String name, Timestamp createdAt, Timestamp updatedAt) {
         super(laundry);
         this.name = name;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public String getName() {

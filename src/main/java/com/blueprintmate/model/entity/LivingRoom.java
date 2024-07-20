@@ -1,52 +1,43 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_living_room")
-@PrimaryKeyJoinColumn(name = "id_living_room")
-public class LivingRoom extends Project {
-
+public class LivingRoom {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_living_room")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_living_room", referencedColumnName = "id_project",
-            nullable = false, insertable = false, updatable = false)
-    private Project project;
-
+    @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
+    private Form form;
     @Column(name = "people_in_living_room", nullable = false)
     private Integer people;
-
     @Column(name = "bool_tv_is_important_living_room", nullable = false)
     private Boolean hasPeople;
-
     @Column(name = "tv_inch_living_room", nullable = false)
     private Integer tvInch;
-
     @Column(name = "equipment_living_room", length = 160, nullable = false)
     private String equipmentLiving;
-
     @Column(name = "bool_sofa_with_chaise_living_room", nullable = false)
     private Boolean hasSofaWithChaise;
-
     @Column(name = "bool_sofa_with_retractable_chaise_living_room", nullable = false)
     private Boolean hasSofaWithRetractableChaise;
-
     @Column(name = "bool_books_or_collection_living_room", nullable = false)
     private Boolean hasBooksOrCollection;
-
     @Column(name = "bool_used_daily_living_room", nullable = false)
     private Boolean hasUsedDaily;
-
     @Column(name = "receives_many_people_living_room", length = 100, nullable = false)
     private String receivesManyPeople;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 
@@ -57,7 +48,7 @@ public class LivingRoom extends Project {
                       String equipmentLiving, Boolean hasSofaWithChaise, Boolean hasSofaWithRetractableChaise,
                       Boolean hasBooksOrCollection, Boolean hasUsedDaily, String receivesManyPeople,
                       Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        super(form);
+        this.form = form;
         this.people = people;
         this.hasPeople = hasPeople;
         this.tvInch = tvInch;
@@ -72,12 +63,16 @@ public class LivingRoom extends Project {
         this.deletedAt = deletedAt;
     }
 
-    public Project getProject() {
-        return project;
+    public int getId() {
+        return id;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 
     public Integer getPeople() {

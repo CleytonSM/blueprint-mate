@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -7,28 +8,22 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_style_and_moods")
 public class StyleAndMoods {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_style_and_moods")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_form", nullable = false)
+    @JsonIgnore
     private Form form;
-
     @Column(name = "ambient_style_style_and_moods", length = 20)
     private String ambientStyle;
-
     @Column(name = "ambient_style_description_style_and_moods", length = 180)
     private String ambientStyleDescription;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

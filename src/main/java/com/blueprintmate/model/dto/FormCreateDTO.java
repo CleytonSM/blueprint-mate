@@ -1,7 +1,6 @@
 package com.blueprintmate.model.dto;
 
 public class FormCreateDTO {
-
     private String title;
     private DescriptionCreateDTO description;
     private ExperienceCreateDTO experience;
@@ -15,11 +14,41 @@ public class FormCreateDTO {
     private BathroomCreateDTO bathroom;
     private MasterSuiteCreateDTO masterSuite;
     private DescendantsSuiteCreateDTO descendantsSuite;
-    private GuestsSuiteSuiteCreateDTO guestsSuite;
+    private GuestsSuiteCreateDTO guestsSuite;
     private HomeOfficeSuiteCreateDTO homeOfficeSuite;
     private GeneralInfoCreateDTO generalInfo;
     private StyleAndMoodsCreateDTO styleAndMoods;
     private ContextCreateDTO contextCreate;
+
+    public FormCreateDTO() {
+    }
+
+    public FormCreateDTO(String title, DescriptionCreateDTO description, ExperienceCreateDTO experience,
+                         BuildingCreateDTO building, ToiletCreateDTO toilet, EntranceHallCreateDTO entranceHall,
+                         LivingRoomCreateDTO livingRoom, DiningRoomCreateDTO diningRoom, KitchenCreateDTO kitchen,
+                         LaundryCreateDTO laundry, BathroomCreateDTO bathroom, MasterSuiteCreateDTO masterSuite,
+                         DescendantsSuiteCreateDTO descendantsSuite, GuestsSuiteCreateDTO guestsSuite,
+                         HomeOfficeSuiteCreateDTO homeOfficeSuite, GeneralInfoCreateDTO generalInfo,
+                         StyleAndMoodsCreateDTO styleAndMoods, ContextCreateDTO contextCreate) {
+        this.title = title;
+        this.description = description;
+        this.experience = experience;
+        this.building = building;
+        this.toilet = toilet;
+        this.entranceHall = entranceHall;
+        this.livingRoom = livingRoom;
+        this.diningRoom = diningRoom;
+        this.kitchen = kitchen;
+        this.laundry = laundry;
+        this.bathroom = bathroom;
+        this.masterSuite = masterSuite;
+        this.descendantsSuite = descendantsSuite;
+        this.guestsSuite = guestsSuite;
+        this.homeOfficeSuite = homeOfficeSuite;
+        this.generalInfo = generalInfo;
+        this.styleAndMoods = styleAndMoods;
+        this.contextCreate = contextCreate;
+    }
 
     public String getTitle() {
         return title;
@@ -125,11 +154,11 @@ public class FormCreateDTO {
         this.descendantsSuite = descendantsSuite;
     }
 
-    public GuestsSuiteSuiteCreateDTO getGuestsSuite() {
+    public GuestsSuiteCreateDTO getGuestsSuite() {
         return guestsSuite;
     }
 
-    public void setGuestsSuite(GuestsSuiteSuiteCreateDTO guestsSuite) {
+    public void setGuestsSuite(GuestsSuiteCreateDTO guestsSuite) {
         this.guestsSuite = guestsSuite;
     }
 

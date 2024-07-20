@@ -7,25 +7,19 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tb_social_media")
 public class SocialMedia {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_social_media")
     private int id;
-
     @ManyToOne
     @JoinColumn(name = "id_client", nullable = false)
     private Client client;
-
     @Column(name = "nm_social_media", length = 60)
     private String name;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

@@ -50,4 +50,8 @@ public class ClientService {
     public Client findClientByUserId(int id) {
         return getOptionalEntity(repository.findByUserId(id));
     }
+
+    public Client findClientByName(String name) {
+        return getOptionalEntity(repository.findByName(name));
+    }
 }

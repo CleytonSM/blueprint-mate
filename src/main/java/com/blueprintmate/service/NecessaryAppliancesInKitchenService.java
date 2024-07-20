@@ -24,6 +24,7 @@ public class NecessaryAppliancesInKitchenService {
                         appliances.getHasStoreSmallHidden(),
                         necessaryAppliancesInKitchenCreateDTO.getName(),
                         necessaryAppliancesInKitchenCreateDTO.getHasUsedDaily(),
+                        Timestamp.valueOf(LocalDateTime.now()),
                         Timestamp.valueOf(LocalDateTime.now())
                 )));
     }

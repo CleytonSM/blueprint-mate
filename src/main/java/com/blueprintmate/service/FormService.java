@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FormService {
     @Autowired
@@ -118,5 +120,11 @@ public class FormService {
     @Transactional
     private Form save(Form form) {
         return repository.save(form);
+    }
+
+    public List<Form> findFormsByFilter(FormFilterDTO formFilterDTO) {
+        Client retrivedClient = clientService.findClientByName(formFilterDTO.getClientName());
+
+        return repository.findByClientNameAndDate(retrivedClient.getName());
     }
 }
