@@ -30,10 +30,10 @@ public class ModelMapperHelper {
         Client client = new Client();
 
         client.setName(clientCreateDTO.getName());
-        client.setNickname(clientCreateDTO.getNickname()); //TODO ver o null disso
-        client.setBirthday(clientCreateDTO.getBirthday()); //TODO ver o null disso
+        client.setNickname(clientCreateDTO.getNickname() == null ? null : clientCreateDTO.getNickname());
+        client.setBirthday(clientCreateDTO.getBirthday() == null ? null : clientCreateDTO.getBirthday());
         client.setMaritalStatus(clientCreateDTO.getMaritalStatus());
-        client.setReligion(clientCreateDTO.getReligion()); //TODO ver o null disso
+        client.setReligion(clientCreateDTO.getReligion() == null ? null : clientCreateDTO.getReligion());
         client.setVeganOrVegetarian(clientCreateDTO.isVeganOrVegetarian());
         client.setIndividualNeeds(clientCreateDTO.getIndividualNeeds());
         client.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
