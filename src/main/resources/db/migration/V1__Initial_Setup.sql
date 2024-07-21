@@ -367,3 +367,7 @@ CREATE TABLE tb_necessary_appliances_in_laundry(
 
 INSERT INTO tb_authority (nm_auth, created_at)
 VALUES ('ROLE_USER', NOW());
+INSERT INTO tb_authority (nm_auth, created_at)
+VALUES ('ROLE_ADMIN', NOW());
+INSERT INTO tb_user (id_auth, email_user, pwd_user, active_user, created_at, updated_at)
+VALUES (2, "root", "$2a$12$8JONnLjzDAhgJq1M2QMf0.nnxH2olPC2fZnIOiNUeT/0jTsg/a.oa", true, NOW(), NOW());
