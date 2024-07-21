@@ -12,27 +12,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
     private int id;
-
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_auth")
     private Authority authority;
-
     @Column(name = "email_user", length = 80)
     private String email;
-
     @Column(name = "pwd_user", length = 60)
     private String password;
-
     @Column(name = "active_user")
     private boolean active;
-
     @Column(name = "created_at")
     private Timestamp createdAt;
-
     @Column(name = "updated_at")
     private Timestamp updatedAt;
-
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
 

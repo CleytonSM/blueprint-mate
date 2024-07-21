@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -11,8 +12,9 @@ public class SocialMedia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_social_media")
     private int id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_client", nullable = false)
+    @JsonIgnore
     private Client client;
     @Column(name = "nm_social_media", length = 60)
     private String name;
