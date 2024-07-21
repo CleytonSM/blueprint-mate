@@ -2,22 +2,17 @@ package com.blueprintmate.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public class GeneralInfoCreateDTO {
-    @NotBlank(message = "Reuse field can't be null")
+public class GeneralInfoUpdateDTO {
     private String reuse;
-    @NotBlank(message = "Additional field can't be null")
     private String additional;
-    @NotBlank(message = "UnlistedFurnitureOrEquipment field can't be null")
     private String unlistedFurnitureOrEquipment;
-    @NotBlank(message = "AvoidanceRequests field can't be null")
     private String avoidanceRequests;
-    @NotBlank(message = "PlantRelationship field can't be null")
     private String plantRelationship;
 
-    public GeneralInfoCreateDTO() {
+    public GeneralInfoUpdateDTO() {
     }
 
-    public GeneralInfoCreateDTO(String reuse, String additional, String unlistedFurnitureOrEquipment,
+    public GeneralInfoUpdateDTO(String reuse, String additional, String unlistedFurnitureOrEquipment,
                                 String avoidanceRequests, String plantRelationship) {
         this.reuse = reuse;
         this.additional = additional;
