@@ -127,41 +127,52 @@ public class FormService {
         Form retrievedForm = getOptionalEntity(repository.findById(id));
 
         Description retrievedDescription = descriptionService.findDescriptionByForm(retrievedForm);
-        retrievedDescription = descriptionService.setUpDescriptionForUpdate(formUpdateDTO.getDescription());
+        retrievedDescription = descriptionService
+                .setUpDescriptionForUpdate(retrievedDescription, formUpdateDTO.getDescription());
         Experience retrievedExperience = experienceService.findExperienceByForm(retrievedForm);
-        retrievedExperience = experienceService.setUpExperienceForUpdate(formUpdateDTO.getExperience());
+        retrievedExperience = experienceService
+                .setUpExperienceForUpdate(retrievedExperience, formUpdateDTO.getExperience());
         Building retrievedBuilding = buildingService.findBuildingByForm(retrievedForm);
-        retrievedBuilding = buildingService.setUpBuildingForUpdate(formUpdateDTO.getBuilding());
+        retrievedBuilding = buildingService.setUpBuildingForUpdate(retrievedBuilding, formUpdateDTO.getBuilding());
         Toilet retrievedToilet = toiletService.findToiletByForm(retrievedForm);
-        retrievedToilet = toiletService.setUpToiletForUpdate(formUpdateDTO.getToilet());
+        retrievedToilet = toiletService.setUpToiletForUpdate(retrievedToilet, formUpdateDTO.getToilet());
         EntranceHall retrievedEntranceHall = entranceHallService.findEntranceHallByForm(retrievedForm);
-        retrievedEntranceHall = entranceHallService.setUpEntranceHallForUpdate(formUpdateDTO.getEntranceHall());
+        retrievedEntranceHall = entranceHallService
+                .setUpEntranceHallForUpdate(retrievedEntranceHall, formUpdateDTO.getEntranceHall());
         LivingRoom retrievedLivingRoom = livingRoomService.findLivingRoomByForm(retrievedForm);
-        retrievedLivingRoom = livingRoomService.setUpLivingRoomForUpdate(formUpdateDTO.getLivingRoom());
+        retrievedLivingRoom = livingRoomService
+                .setUpLivingRoomForUpdate(retrievedLivingRoom, formUpdateDTO.getLivingRoom());
         DiningRoom retrievedDiningRoom = diningRoomService.findDiningRoomByForm(retrievedForm);
-        retrievedDiningRoom = diningRoomService.setUpDiningRoomForUpdate(formUpdateDTO.getDiningRoom());
+        retrievedDiningRoom = diningRoomService
+                .setUpDiningRoomForUpdate(retrievedDiningRoom, formUpdateDTO.getDiningRoom());
         Kitchen retrievedKitchen = kitchenService.findKitchenByForm(retrievedForm);
-        retrievedKitchen = kitchenService.setUpKitchenForUpdate(formUpdateDTO.getKitchen());
+        retrievedKitchen = kitchenService.setUpKitchenForUpdate(retrievedKitchen, formUpdateDTO.getKitchen());
         Laundry retrievedLaundry = laundryService.findLaundryByForm(retrievedForm);
-        retrievedLaundry = laundryService.setUpLaundryForUpdate(formUpdateDTO.getLaundry());
+        retrievedLaundry = laundryService.setUpLaundryForUpdate(retrievedLaundry, formUpdateDTO.getLaundry());
         Bathroom retrievedBathroom = bathroomService.findBathroomByForm(retrievedForm);
-        retrievedBathroom = bathroomService.setUpBathroomForUpdate(formUpdateDTO.getBathroom());
+        retrievedBathroom = bathroomService.setUpBathroomForUpdate(retrievedBathroom, formUpdateDTO.getBathroom());
         MasterSuite retrievedMasterSuite = masterSuiteService.findMasterSuiteByForm(retrievedForm);
-        retrievedMasterSuite = masterSuiteService.setUpMasterSuiteForUpdate(formUpdateDTO.getMasterSuite());
+        retrievedMasterSuite = masterSuiteService
+                .setUpMasterSuiteForUpdate(retrievedMasterSuite, formUpdateDTO.getMasterSuite());
         DescendantsSuite retrievedDescendantsSuite = descendantsSuiteService.findDescendantsSuiteByForm(retrievedForm);
-        retrievedDescendantsSuite = descendantsSuiteService.setUpDescendantsSuiteForUpdate(formUpdateDTO.getDescendantsSuite());
+        retrievedDescendantsSuite = descendantsSuiteService
+                .setUpDescendantsSuiteForUpdate(retrievedDescendantsSuite, formUpdateDTO.getDescendantsSuite());
         GuestsSuite retrievedGuestsSuite = guestsSuiteService.findGuestsSuiteByForm(retrievedForm);
-        retrievedGuestsSuite = guestsSuiteService.setUpGuestsSuiteForUpdate(formUpdateDTO.getGuestsSuite());
+        retrievedGuestsSuite = guestsSuiteService
+                .setUpGuestsSuiteForUpdate(retrievedGuestsSuite, formUpdateDTO.getGuestsSuite());
         HomeOfficeSuite retrievedHomeOfficeSuite = homeOfficeSuiteService.findHomeOfficeSuiteByForm(retrievedForm);
-        retrievedHomeOfficeSuite = homeOfficeSuiteService.setUpHomeOfficeSuiteForUpdate(formUpdateDTO.getHomeOfficeSuite());
+        retrievedHomeOfficeSuite = homeOfficeSuiteService
+                .setUpHomeOfficeSuiteForUpdate(retrievedHomeOfficeSuite, formUpdateDTO.getHomeOfficeSuite());
         GeneralInfo retrievedGeneralInfo = generalInfoService.findGeneralInfoByForm(retrievedForm);
-        retrievedGeneralInfo = generalInfoService.setUpGeneralInfoForUpdate(formUpdateDTO.getGeneralInfo());
+        retrievedGeneralInfo = generalInfoService
+                .setUpGeneralInfoForUpdate(retrievedGeneralInfo, formUpdateDTO.getGeneralInfo());
         StyleAndMoods retrievedStyleAndMoods = styleAndMoodsService.findStyleAndMoodsByForm(retrievedForm);
-        retrievedStyleAndMoods = styleAndMoodsService.setUpStyleAndMoodsForUpdate(formUpdateDTO.getStyleAndMoods());
+        retrievedStyleAndMoods = styleAndMoodsService.
+                setUpStyleAndMoodsForUpdate(retrievedStyleAndMoods, formUpdateDTO.getStyleAndMoods());
         Context retrievedContext = contextService.findContextByForm(retrievedForm);
-        retrievedContext = contextService.setUpContextForUpdate(formUpdateDTO.getContext());
+        retrievedContext = contextService.setUpContextForUpdate(retrievedContext, formUpdateDTO.getContext());
 
-        retrievedForm = modelMapperHelper.convertFormUpdateDTOToForm(formUpdateDTO);
+        retrievedForm = modelMapperHelper.convertFormUpdateDTOToForm(retrievedForm, formUpdateDTO);
         retrievedForm.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
         save(retrievedForm);
 

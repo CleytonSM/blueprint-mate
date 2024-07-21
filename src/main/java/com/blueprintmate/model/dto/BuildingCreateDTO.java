@@ -3,7 +3,6 @@ package com.blueprintmate.model.dto;
 import jakarta.validation.constraints.NotBlank;
 
 public class BuildingCreateDTO {
-
     private String neighborhoodRelationship;
     @NotBlank(message = "DeterminingFactor can't be null")
     private String determiningFactor;

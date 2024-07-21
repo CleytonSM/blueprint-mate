@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
+
 @Service
 public class HomeOfficeSuiteService {
     @Autowired
@@ -29,5 +31,9 @@ public class HomeOfficeSuiteService {
     @Transactional
     private HomeOfficeSuite save(HomeOfficeSuite homeOfficeSuite) {
         return repository.save(homeOfficeSuite);
+    }
+
+    public HomeOfficeSuite findHomeOfficeSuiteByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
     }
 }

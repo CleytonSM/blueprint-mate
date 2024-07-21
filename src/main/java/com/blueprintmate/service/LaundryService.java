@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
+
 @Service
 public class LaundryService {
     @Autowired
@@ -29,5 +31,9 @@ public class LaundryService {
     @Transactional
     private Laundry save(Laundry newLaundry) {
         return repository.save(newLaundry);
+    }
+
+    public Laundry findLaundryByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
     }
 }
