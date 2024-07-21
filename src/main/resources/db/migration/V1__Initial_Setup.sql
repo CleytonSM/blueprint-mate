@@ -8,7 +8,7 @@ CREATE TABLE tb_authority(
 CREATE TABLE tb_user(
   id_user int PRIMARY KEY AUTO_INCREMENT,
   id_auth int NOT NULL REFERENCES tb_authority(id_auth),
-  email_user varchar(80),
+  email_user varchar(80) UNIQUE,
   pwd_user varchar(80),
   active_user boolean,
   created_at timestamp,
