@@ -12,7 +12,7 @@ public class Toilet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_toilet")
     private int id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_form", nullable = false)
     @JsonIgnore
     private Form form;

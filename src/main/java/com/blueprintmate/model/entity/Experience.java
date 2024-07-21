@@ -12,7 +12,7 @@ public class Experience {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_experience")
     private int id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_form", nullable = false)
     @JsonIgnore
     private Form form;

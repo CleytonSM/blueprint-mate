@@ -15,7 +15,6 @@ public class Form {
     private int id;
     @ManyToOne
     @JoinColumn(name = "id_client", nullable = false)
-    @JsonIgnore
     private Client client;
     @Column(name = "title_form", nullable = false, length = 40)
     private String title;
@@ -25,61 +24,59 @@ public class Form {
     private Timestamp updatedAt;
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
-    @OneToMany(mappedBy = "form")
-    private List<Description> descriptionList;
-    @OneToMany(mappedBy = "form")
-    private List<StyleAndMoods> styleAndMoodsList;
-    @OneToMany(mappedBy = "form")
-    private List<Building> buildingList;
-    @OneToMany(mappedBy = "form")
-    private List<Context> contextList;
-    @OneToMany(mappedBy = "form")
-    private List<Experience> experienceList;
-    @OneToMany(mappedBy = "form")
-    private List<GeneralInfo> generalInfoList;
-    @OneToMany(mappedBy = "form")
-    private List<Bathroom> bathroomList;
-    @OneToMany(mappedBy = "form")
-    private List<Laundry> laundryList;
-    @OneToMany(mappedBy = "form")
-    private List<Toilet> toiletList;
-    @OneToMany(mappedBy = "form")
-    private List<EntranceHall> entranceHallList;
-    @OneToMany(mappedBy = "form")
-    private List<LivingRoom> livingRoomList;
-    @OneToMany(mappedBy = "form")
-    private List<DiningRoom> diningRoomList;
-    @OneToMany(mappedBy = "form")
-    private List<Kitchen> kitchenList;
+    @OneToOne(mappedBy = "form")
+    private Description description;
+    @OneToOne(mappedBy = "form")
+    private StyleAndMoods styleAndMoods;
+    @OneToOne(mappedBy = "form")
+    private Building building;
+    @OneToOne(mappedBy = "form")
+    private Context context;
+    @OneToOne(mappedBy = "form")
+    private Experience experience;
+    @OneToOne(mappedBy = "form")
+    private GeneralInfo generalInfo;
+    @OneToOne(mappedBy = "form")
+    private Bathroom bathroom;
+    @OneToOne(mappedBy = "form")
+    private Laundry laundry;
+    @OneToOne(mappedBy = "form")
+    private Toilet toilet;
+    @OneToOne(mappedBy = "form")
+    private EntranceHall entranceHall;
+    @OneToOne(mappedBy = "form")
+    private LivingRoom livingRoom;
+    @OneToOne(mappedBy = "form")
+    private DiningRoom diningRoom;
+    @OneToOne(mappedBy = "form")
+    private Kitchen kitchen;
 
 
     public Form() {
     }
 
     public Form(Client client, String title, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt,
-                List<Description> descriptionList, List<StyleAndMoods> styleAndMoodsList, List<Building> buildingList,
-                List<Context> contextList, List<Experience> experienceList, List<GeneralInfo> generalInfoList,
-                List<Bathroom> bathroomList, List<Laundry> laundryList, List<Toilet> toiletList,
-                List<EntranceHall> entranceHallList, List<LivingRoom> livingRoomList, List<DiningRoom> diningRoomList,
-                List<Kitchen> kitchenList) {
+                Description description, StyleAndMoods styleAndMoods, Building building, Context context,
+                Experience experience, GeneralInfo generalInfo, Bathroom bathroom, Laundry laundry, Toilet toilet,
+                EntranceHall entranceHall, LivingRoom livingRoom, DiningRoom diningRoom, Kitchen kitchen) {
         this.client = client;
         this.title = title;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
-        this.descriptionList = descriptionList;
-        this.styleAndMoodsList = styleAndMoodsList;
-        this.buildingList = buildingList;
-        this.contextList = contextList;
-        this.experienceList = experienceList;
-        this.generalInfoList = generalInfoList;
-        this.bathroomList = bathroomList;
-        this.laundryList = laundryList;
-        this.toiletList = toiletList;
-        this.entranceHallList = entranceHallList;
-        this.livingRoomList = livingRoomList;
-        this.diningRoomList = diningRoomList;
-        this.kitchenList = kitchenList;
+        this.description = description;
+        this.styleAndMoods = styleAndMoods;
+        this.building = building;
+        this.context = context;
+        this.experience = experience;
+        this.generalInfo = generalInfo;
+        this.bathroom = bathroom;
+        this.laundry = laundry;
+        this.toilet = toilet;
+        this.entranceHall = entranceHall;
+        this.livingRoom = livingRoom;
+        this.diningRoom = diningRoom;
+        this.kitchen = kitchen;
     }
 
     public int getId() {
@@ -126,107 +123,107 @@ public class Form {
         this.deletedAt = deletedAt;
     }
 
-    public List<Description> getDescriptionList() {
-        return descriptionList;
+    public Description getDescription() {
+        return description;
     }
 
-    public void setDescriptionList(List<Description> descriptionList) {
-        this.descriptionList = descriptionList;
+    public void setDescription(Description description) {
+        this.description = description;
     }
 
-    public List<StyleAndMoods> getStyleAndMoodsList() {
-        return styleAndMoodsList;
+    public StyleAndMoods getStyleAndMoods() {
+        return styleAndMoods;
     }
 
-    public void setStyleAndMoodsList(List<StyleAndMoods> styleAndMoodsList) {
-        this.styleAndMoodsList = styleAndMoodsList;
+    public void setStyleAndMoods(StyleAndMoods styleAndMoods) {
+        this.styleAndMoods = styleAndMoods;
     }
 
-    public List<Building> getBuildingList() {
-        return buildingList;
+    public Building getBuilding() {
+        return building;
     }
 
-    public void setBuildingList(List<Building> buildingList) {
-        this.buildingList = buildingList;
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 
-    public List<Context> getContextList() {
-        return contextList;
+    public Context getContext() {
+        return context;
     }
 
-    public void setContextList(List<Context> contextList) {
-        this.contextList = contextList;
+    public void setContext(Context context) {
+        this.context = context;
     }
 
-    public List<Experience> getExperienceList() {
-        return experienceList;
+    public Experience getExperience() {
+        return experience;
     }
 
-    public void setExperienceList(List<Experience> experienceList) {
-        this.experienceList = experienceList;
+    public void setExperience(Experience experience) {
+        this.experience = experience;
     }
 
-    public List<GeneralInfo> getGeneralInfoList() {
-        return generalInfoList;
+    public GeneralInfo getGeneralInfo() {
+        return generalInfo;
     }
 
-    public void setGeneralInfoList(List<GeneralInfo> generalInfoList) {
-        this.generalInfoList = generalInfoList;
+    public void setGeneralInfo(GeneralInfo generalInfo) {
+        this.generalInfo = generalInfo;
     }
 
-    public List<Bathroom> getBathroomList() {
-        return bathroomList;
+    public Bathroom getBathroom() {
+        return bathroom;
     }
 
-    public void setBathroomList(List<Bathroom> bathroomList) {
-        this.bathroomList = bathroomList;
+    public void setBathroom(Bathroom bathroom) {
+        this.bathroom = bathroom;
     }
 
-    public List<Laundry> getLaundryList() {
-        return laundryList;
+    public Laundry getLaundry() {
+        return laundry;
     }
 
-    public void setLaundryList(List<Laundry> laundryList) {
-        this.laundryList = laundryList;
+    public void setLaundry(Laundry laundry) {
+        this.laundry = laundry;
     }
 
-    public List<Toilet> getToiletList() {
-        return toiletList;
+    public Toilet getToilet() {
+        return toilet;
     }
 
-    public void setToiletList(List<Toilet> toiletList) {
-        this.toiletList = toiletList;
+    public void setToilet(Toilet toilet) {
+        this.toilet = toilet;
     }
 
-    public List<EntranceHall> getEntranceHallList() {
-        return entranceHallList;
+    public EntranceHall getEntranceHall() {
+        return entranceHall;
     }
 
-    public void setEntranceHallList(List<EntranceHall> entranceHallList) {
-        this.entranceHallList = entranceHallList;
+    public void setEntranceHall(EntranceHall entranceHall) {
+        this.entranceHall = entranceHall;
     }
 
-    public List<LivingRoom> getLivingRoomList() {
-        return livingRoomList;
+    public LivingRoom getLivingRoom() {
+        return livingRoom;
     }
 
-    public void setLivingRoomList(List<LivingRoom> livingRoomList) {
-        this.livingRoomList = livingRoomList;
+    public void setLivingRoom(LivingRoom livingRoom) {
+        this.livingRoom = livingRoom;
     }
 
-    public List<DiningRoom> getDiningRoomList() {
-        return diningRoomList;
+    public DiningRoom getDiningRoom() {
+        return diningRoom;
     }
 
-    public void setDiningRoomList(List<DiningRoom> diningRoomList) {
-        this.diningRoomList = diningRoomList;
+    public void setDiningRoom(DiningRoom diningRoom) {
+        this.diningRoom = diningRoom;
     }
 
-    public List<Kitchen> getKitchenList() {
-        return kitchenList;
+    public Kitchen getKitchen() {
+        return kitchen;
     }
 
-    public void setKitchenList(List<Kitchen> kitchenList) {
-        this.kitchenList = kitchenList;
+    public void setKitchen(Kitchen kitchen) {
+        this.kitchen = kitchen;
     }
 }

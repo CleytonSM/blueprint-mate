@@ -1,13 +1,10 @@
 package com.blueprintmate.config;
 
 import com.blueprintmate.exception.WrongCredentialsException;
-import com.blueprintmate.helper.OptionalHelper;
 import com.blueprintmate.model.entity.Authority;
 import com.blueprintmate.model.entity.User;
 import com.blueprintmate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;

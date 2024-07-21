@@ -1,6 +1,5 @@
 package com.blueprintmate.service;
 
-import com.blueprintmate.config.SecurityConfig;
 import com.blueprintmate.config.UserAuthenticationProvider;
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.LoginDTO;
@@ -15,8 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 import static com.blueprintmate.helper.OptionalHelper.verifyIfEntityAlreadyExists;
 

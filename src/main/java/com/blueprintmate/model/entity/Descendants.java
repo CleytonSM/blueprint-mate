@@ -1,5 +1,6 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -11,8 +12,9 @@ public class Descendants {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_descendant")
     private int id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_client", nullable = false)
+    @JsonIgnore
     private Client client;
     @Column(name = "nm_descendant", length = 60)
     private String name;

@@ -12,7 +12,7 @@ public class EntranceHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_entrance_hall")
     private int id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_form", nullable = false)
     @JsonIgnore
     private Form form;

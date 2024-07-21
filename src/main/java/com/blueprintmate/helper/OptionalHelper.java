@@ -2,7 +2,6 @@ package com.blueprintmate.helper;
 
 import com.blueprintmate.exception.EntityAlreadyExistsException;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.http.HttpStatus;
 
 import java.util.Optional;
 

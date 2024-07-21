@@ -4,7 +4,6 @@ import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.MasterSuiteCreateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.MasterSuite;
-import com.blueprintmate.model.enumerable.BedType;
 import com.blueprintmate.repository.MasterSuiteRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

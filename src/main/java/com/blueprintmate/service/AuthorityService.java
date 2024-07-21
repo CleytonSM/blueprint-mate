@@ -1,6 +1,5 @@
 package com.blueprintmate.service;
 
-import com.blueprintmate.helper.OptionalHelper;
 import com.blueprintmate.model.entity.Authority;
 import com.blueprintmate.repository.AuthorityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
