@@ -8,6 +8,8 @@ import com.blueprintmate.repository.GeneralInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
+
 @Service
 public class GeneralInfoService {
     @Autowired
@@ -27,5 +29,9 @@ public class GeneralInfoService {
 
     private GeneralInfo save(GeneralInfo newGeneralInfo) {
         return repository.save(newGeneralInfo);
+    }
+
+    public GeneralInfo findGeneralInfoByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
     }
 }

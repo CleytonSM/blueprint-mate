@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
+
 @Service
 public class StyleAndMoodsService {
     @Autowired
@@ -30,5 +32,9 @@ public class StyleAndMoodsService {
     @Transactional
     private StyleAndMoods save(StyleAndMoods newStyleAndMoods) {
         return repository.save(newStyleAndMoods);
+    }
+
+    public StyleAndMoods findStyleAndMoodsByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
     }
 }

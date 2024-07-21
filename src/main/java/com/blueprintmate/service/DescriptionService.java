@@ -38,8 +38,4 @@ public class DescriptionService {
     public Description findDescriptionByForm(Form retrievedForm) {
         return getOptionalEntity(repository.findByFormId(retrievedForm.getId()));
     }
-
-    public Description setUpDescriptionForUpdate(DescriptionUpdateDTO descriptionUpdateDTO) {
-        return modelMapperHelper.convertDescriptionUpdateDTOToDescription(descriptionUpdateDTO);
-    }
 }
