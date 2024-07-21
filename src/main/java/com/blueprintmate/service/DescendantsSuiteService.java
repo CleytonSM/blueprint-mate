@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
+
 @Service
 public class DescendantsSuiteService {
     @Autowired
@@ -29,5 +31,9 @@ public class DescendantsSuiteService {
     @Transactional
     private DescendantsSuite save(DescendantsSuite newDescendantsSuite) {
         return repository.save(newDescendantsSuite);
+    }
+
+    public DescendantsSuite findDescendantsSuiteByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
     }
 }

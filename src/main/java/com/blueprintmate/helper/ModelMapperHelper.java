@@ -351,11 +351,4 @@ public class ModelMapperHelper {
 
         return context;
     }
-
-    public Description convertDescriptionUpdateDTOToDescription(DescriptionUpdateDTO descriptionUpdateDTO) {
-        Description description = new Description();
-
-
-        return null;
-    }
 }
