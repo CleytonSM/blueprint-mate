@@ -30,6 +30,12 @@ public class KitchenService {
         save(newKitchen);
     }
 
+    public void updateKitchen(Kitchen retrievedKitchen, Form form) {
+        retrievedKitchen.setForm(form);
+
+        save(retrievedKitchen);
+    }
+
     @Transactional
     private Kitchen save(Kitchen newKitchen) {
         return repository.save(newKitchen);
@@ -38,4 +44,9 @@ public class KitchenService {
     public Kitchen findKitchenByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public Kitchen setUpKitchenForUpdate(Kitchen retrievedKitchen, KitchenUpdateDTO kitchenUpdateDTO) {
+        return modelMapperHelper.convertKitchenUpdateDTOToKitchen(retrievedKitchen, kitchenUpdateDTO);
+    }
+
 }

@@ -32,6 +32,12 @@ public class LivingRoomService {
         save(newLivingRoom);
     }
 
+    public void updateLivingRoom(LivingRoom retrievedLivingRoom, Form form) {
+        retrievedLivingRoom.setForm(form);
+
+        save(retrievedLivingRoom);
+    }
+
     @Transactional
     private LivingRoom save(LivingRoom newLivingRoom) {
         return repository.save(newLivingRoom);
@@ -40,4 +46,9 @@ public class LivingRoomService {
     public LivingRoom findLivingRoomByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public LivingRoom setUpLivingRoomForUpdate(LivingRoom retrievedLivingRoom, LivingRoomUpdateDTO livingRoomUpdateDTO) {
+        return modelMapperHelper.convertLivingRoomUpdateDTOToLivingRoom(retrievedLivingRoom, livingRoomUpdateDTO);
+    }
+
 }

@@ -30,6 +30,12 @@ public class ExperienceService {
         save(newExperience);
     }
 
+    public void updateExperience(Experience retrievedExperience, Form form) {
+        retrievedExperience.setForm(form);
+
+        save(retrievedExperience);
+    }
+
     @Transactional
     private Experience save(Experience experience) {
         return repository.save(experience);
@@ -38,4 +44,9 @@ public class ExperienceService {
     public Experience findExperienceByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public Experience setUpExperienceForUpdate(Experience retrievedExperience, ExperienceUpdateDTO experienceUpdateDTO) {
+        return modelMapperHelper.convertExperienceUpdateDTOToExperience(retrievedExperience, experienceUpdateDTO);
+    }
+
 }

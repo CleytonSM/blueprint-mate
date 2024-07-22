@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.DescendantsSuiteCreateDTO;
+import com.blueprintmate.model.dto.DescendantsSuiteUpdateDTO;
 import com.blueprintmate.model.entity.DescendantsSuite;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.DescendantsSuiteRepository;
@@ -35,5 +36,11 @@ public class DescendantsSuiteService {
 
     public DescendantsSuite findDescendantsSuiteByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public DescendantsSuite setUpDescendantsSuiteForUpdate(DescendantsSuite retrievedDescendantsSuite,
+                                                           DescendantsSuiteUpdateDTO descendantsSuiteUpdateDTO) {
+        return modelMapperHelper.convertDescendantsSuiteUpdateDTOToDescendantsSuite(retrievedDescendantsSuite,
+                descendantsSuiteUpdateDTO);
     }
 }
