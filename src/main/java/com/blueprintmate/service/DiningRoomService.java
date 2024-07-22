@@ -32,6 +32,12 @@ public class DiningRoomService {
         save(newDiningRoom);
     }
 
+    public void updateDiningRoom(DiningRoom retrievedDiningRoom, Form form) {
+        retrievedDiningRoom.setForm(form);
+
+        save(retrievedDiningRoom);
+    }
+
     @Transactional
     private DiningRoom save(DiningRoom newDiningRoom) {
         return repository.save(newDiningRoom);
@@ -40,4 +46,9 @@ public class DiningRoomService {
     public DiningRoom findDiningRoomByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public DiningRoom setUpDiningRoomForUpdate(DiningRoom retrievedDiningRoom, DiningRoomUpdateDTO diningRoomUpdateDTO) {
+        return modelMapperHelper.convertDiningRoomUpdateDTOToDiningRoom(retrievedDiningRoom, diningRoomUpdateDTO);
+    }
+
 }

@@ -127,76 +127,78 @@ public class FormService {
         Form retrievedForm = getOptionalEntity(repository.findById(id));
 
         Description retrievedDescription = descriptionService.findDescriptionByForm(retrievedForm);
+        Experience retrievedExperience = experienceService.findExperienceByForm(retrievedForm);
+        Building retrievedBuilding = buildingService.findBuildingByForm(retrievedForm);
+        Toilet retrievedToilet = toiletService.findToiletByForm(retrievedForm);
+        EntranceHall retrievedEntranceHall = entranceHallService.findEntranceHallByForm(retrievedForm);
+        LivingRoom retrievedLivingRoom = livingRoomService.findLivingRoomByForm(retrievedForm);
+        DiningRoom retrievedDiningRoom = diningRoomService.findDiningRoomByForm(retrievedForm);
+        Kitchen retrievedKitchen = kitchenService.findKitchenByForm(retrievedForm);
+        Laundry retrievedLaundry = laundryService.findLaundryByForm(retrievedForm);
+        Bathroom retrievedBathroom = bathroomService.findBathroomByForm(retrievedForm);
+        MasterSuite retrievedMasterSuite = masterSuiteService.findMasterSuiteByForm(retrievedForm);
+        DescendantsSuite retrievedDescendantsSuite = descendantsSuiteService.findDescendantsSuiteByForm(retrievedForm);
+        GuestsSuite retrievedGuestsSuite = guestsSuiteService.findGuestsSuiteByForm(retrievedForm);
+        HomeOfficeSuite retrievedHomeOfficeSuite = homeOfficeSuiteService.findHomeOfficeSuiteByForm(retrievedForm);
+        GeneralInfo retrievedGeneralInfo = generalInfoService.findGeneralInfoByForm(retrievedForm);
+        StyleAndMoods retrievedStyleAndMoods = styleAndMoodsService.findStyleAndMoodsByForm(retrievedForm);
+        Context retrievedContext = contextService.findContextByForm(retrievedForm);
+
         retrievedDescription = descriptionService
                 .setUpDescriptionForUpdate(retrievedDescription, formUpdateDTO.getDescription());
-        Experience retrievedExperience = experienceService.findExperienceByForm(retrievedForm);
         retrievedExperience = experienceService
                 .setUpExperienceForUpdate(retrievedExperience, formUpdateDTO.getExperience());
-        Building retrievedBuilding = buildingService.findBuildingByForm(retrievedForm);
         retrievedBuilding = buildingService.setUpBuildingForUpdate(retrievedBuilding, formUpdateDTO.getBuilding());
-        Toilet retrievedToilet = toiletService.findToiletByForm(retrievedForm);
         retrievedToilet = toiletService.setUpToiletForUpdate(retrievedToilet, formUpdateDTO.getToilet());
-        EntranceHall retrievedEntranceHall = entranceHallService.findEntranceHallByForm(retrievedForm);
-        retrievedEntranceHall = entranceHallService
-                .setUpEntranceHallForUpdate(retrievedEntranceHall, formUpdateDTO.getEntranceHall());
-        LivingRoom retrievedLivingRoom = livingRoomService.findLivingRoomByForm(retrievedForm);
+        retrievedEntranceHall = entranceHallService.setUpEntranceHallForUpdate(retrievedEntranceHall,
+                formUpdateDTO.getEntranceHall());
         retrievedLivingRoom = livingRoomService
                 .setUpLivingRoomForUpdate(retrievedLivingRoom, formUpdateDTO.getLivingRoom());
-        DiningRoom retrievedDiningRoom = diningRoomService.findDiningRoomByForm(retrievedForm);
         retrievedDiningRoom = diningRoomService
                 .setUpDiningRoomForUpdate(retrievedDiningRoom, formUpdateDTO.getDiningRoom());
-        Kitchen retrievedKitchen = kitchenService.findKitchenByForm(retrievedForm);
         retrievedKitchen = kitchenService.setUpKitchenForUpdate(retrievedKitchen, formUpdateDTO.getKitchen());
-        Laundry retrievedLaundry = laundryService.findLaundryByForm(retrievedForm);
         retrievedLaundry = laundryService.setUpLaundryForUpdate(retrievedLaundry, formUpdateDTO.getLaundry());
-        Bathroom retrievedBathroom = bathroomService.findBathroomByForm(retrievedForm);
         retrievedBathroom = bathroomService.setUpBathroomForUpdate(retrievedBathroom, formUpdateDTO.getBathroom());
-        MasterSuite retrievedMasterSuite = masterSuiteService.findMasterSuiteByForm(retrievedForm);
         retrievedMasterSuite = masterSuiteService
                 .setUpMasterSuiteForUpdate(retrievedMasterSuite, formUpdateDTO.getMasterSuite());
-        DescendantsSuite retrievedDescendantsSuite = descendantsSuiteService.findDescendantsSuiteByForm(retrievedForm);
         retrievedDescendantsSuite = descendantsSuiteService
                 .setUpDescendantsSuiteForUpdate(retrievedDescendantsSuite, formUpdateDTO.getDescendantsSuite());
-        GuestsSuite retrievedGuestsSuite = guestsSuiteService.findGuestsSuiteByForm(retrievedForm);
         retrievedGuestsSuite = guestsSuiteService
                 .setUpGuestsSuiteForUpdate(retrievedGuestsSuite, formUpdateDTO.getGuestsSuite());
-        HomeOfficeSuite retrievedHomeOfficeSuite = homeOfficeSuiteService.findHomeOfficeSuiteByForm(retrievedForm);
         retrievedHomeOfficeSuite = homeOfficeSuiteService
                 .setUpHomeOfficeSuiteForUpdate(retrievedHomeOfficeSuite, formUpdateDTO.getHomeOfficeSuite());
-        GeneralInfo retrievedGeneralInfo = generalInfoService.findGeneralInfoByForm(retrievedForm);
         retrievedGeneralInfo = generalInfoService
                 .setUpGeneralInfoForUpdate(retrievedGeneralInfo, formUpdateDTO.getGeneralInfo());
-        StyleAndMoods retrievedStyleAndMoods = styleAndMoodsService.findStyleAndMoodsByForm(retrievedForm);
-        retrievedStyleAndMoods = styleAndMoodsService.
-                setUpStyleAndMoodsForUpdate(retrievedStyleAndMoods, formUpdateDTO.getStyleAndMoods());
-        Context retrievedContext = contextService.findContextByForm(retrievedForm);
+        retrievedStyleAndMoods = styleAndMoodsService
+                .setUpStyleAndMoodsForUpdate(retrievedStyleAndMoods, formUpdateDTO.getStyleAndMoods());
         retrievedContext = contextService.setUpContextForUpdate(retrievedContext, formUpdateDTO.getContext());
-
         retrievedForm = modelMapperHelper.convertFormUpdateDTOToForm(retrievedForm, formUpdateDTO);
-        retrievedForm.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
         save(retrievedForm);
 
-        descriptionService.updateDescription();
-        experienceService.updateExperience();
-        buildingService.updateBuilding();
-        toiletService.updateToilet();
-        entranceHallService.updateEntranceHall();
-        livingRoomService.updateLivingRoom();
-        diningRoomService.updateDiningRoom();
-        kitchenService.updateKitchen();
+        descriptionService.updateDescription(retrievedDescription, retrievedForm);
+        experienceService.updateExperience(retrievedExperience, retrievedForm);
+        buildingService.updateBuilding(retrievedBuilding, retrievedForm);
+        toiletService.updateToilet(retrievedToilet, retrievedForm);
+        entranceHallService.updateEntranceHall(retrievedEntranceHall, retrievedForm);
+        livingRoomService.updateLivingRoom(retrievedLivingRoom, retrievedForm);
+        diningRoomService.updateDiningRoom(retrievedDiningRoom, retrievedForm);
+        kitchenService.updateKitchen(retrievedKitchen, retrievedForm);
+        laundryService.updateLaundry(retrievedLaundry, retrievedForm);
+        bathroomService.updateBathroom(retrievedBathroom, retrievedForm);
+        masterSuiteService.updateMasterSuite(retrievedMasterSuite, retrievedForm);
+        descendantsSuiteService.updateDescendantsSuite(retrievedDescendantsSuite, retrievedForm);
+        guestsSuiteService.updateGuestsSuite(retrievedGuestsSuite, retrievedForm);
+        homeOfficeSuiteService.updateHomeOfficeSuite(retrievedHomeOfficeSuite, retrievedForm);
+        generalInfoService.updateGeneralInfo(retrievedGeneralInfo, retrievedForm);
+        styleAndMoodsService.updateStyleAndMoods(retrievedStyleAndMoods, retrievedForm);
+        contextService.updateContext(retrievedContext, retrievedForm);
+
+        // vão precisar da kitchen e da laundry salvas
         newAppliancesInKitchenService.updateNewAppliancesOnKitchen();
         reuseAppliancesInKitchenService.updateReuseAppliances();
         necessaryAppliancesInKitchenService.updateNecessaryAppliances();
-        laundryService.updateLaundry();
         necessaryAppliancesInLaundryService.updateNecessaryAppliances();
-        bathroomService.updateBathroom();
-        masterSuiteService.updateMasterSuite();
-        descendantsSuiteService.updateDescendantsSuite();
-        guestsSuiteService.updateGuestsSuite();
-        homeOfficeSuiteService.updateHomeOfficeSuite();
-        generalInfoService.updateGeneralInfo();
-        styleAndMoodsService.updateStyleAndMoods();
-        contextService.updateContext();
     }
 
     @Transactional

@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.MasterSuiteCreateDTO;
+import com.blueprintmate.model.dto.MasterSuiteUpdateDTO;
 import com.blueprintmate.model.entity.Bathroom;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.MasterSuite;
@@ -37,5 +38,9 @@ public class MasterSuiteService {
 
     public MasterSuite findMasterSuiteByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public MasterSuite setUpMasterSuiteForUpdate(MasterSuite retrievedMasterSuite, MasterSuiteUpdateDTO masterSuiteUpdateDTO) {
+        return modelMapperHelper.convertMasterSuiteUpdateDTOToMasterSuite(retrievedMasterSuite, masterSuiteUpdateDTO);
     }
 }

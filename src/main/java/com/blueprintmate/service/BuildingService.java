@@ -30,6 +30,12 @@ public class BuildingService {
         save(newBuilding);
     }
 
+    public void updateBuilding(Building retrievedBuilding, Form form) {
+        retrievedBuilding.setForm(form);
+
+        save(retrievedBuilding);
+    }
+
     @Transactional
     private Building save(Building newBuilding) {
         return repository.save(newBuilding);
@@ -38,4 +44,9 @@ public class BuildingService {
     public Building findBuildingByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public Building setUpBuildingForUpdate(Building retrievedBuilding, BuildingUpdateDTO buildingUpdateDTO) {
+        return modelMapperHelper.convertBuildingUpdateDTOToBuilding(retrievedBuilding, buildingUpdateDTO);
+    }
+
 }

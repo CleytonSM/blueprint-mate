@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.GeneralInfoCreateDTO;
+import com.blueprintmate.model.dto.GeneralInfoUpdateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.GeneralInfo;
 import com.blueprintmate.repository.GeneralInfoRepository;
@@ -33,5 +34,10 @@ public class GeneralInfoService {
 
     public GeneralInfo findGeneralInfoByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public GeneralInfo setUpGeneralInfoForUpdate(GeneralInfo retrievedGeneralInfo,
+                                                 GeneralInfoUpdateDTO generalInfoUpdateDTO) {
+        return modelMapperHelper.convertGeneralInfoUpdateDTOToGeneralInfo(retrievedGeneralInfo, generalInfoUpdateDTO);
     }
 }

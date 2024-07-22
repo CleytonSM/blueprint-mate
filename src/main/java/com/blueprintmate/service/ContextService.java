@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.ContextCreateDTO;
+import com.blueprintmate.model.dto.ContextUpdateDTO;
 import com.blueprintmate.model.entity.Context;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.repository.ContextRepository;
@@ -36,5 +37,9 @@ public class ContextService {
 
     public Context findContextByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public Context setUpContextForUpdate(Context retrievedContext, ContextUpdateDTO contextUpdateDTO) {
+        return modelMapperHelper.convertContextUpdateDTOToContext(retrievedContext, contextUpdateDTO);
     }
 }
