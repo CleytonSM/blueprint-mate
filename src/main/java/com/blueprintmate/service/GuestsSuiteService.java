@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.GuestsSuiteCreateDTO;
+import com.blueprintmate.model.dto.GuestsSuiteUpdateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.GuestsSuite;
 import com.blueprintmate.repository.GuestsSuiteRepository;
@@ -35,5 +36,10 @@ public class GuestsSuiteService {
 
     public GuestsSuite findGuestsSuiteByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public GuestsSuite setUpGuestsSuiteForUpdate(GuestsSuite retrievedGuestsSuite,
+                                                 GuestsSuiteUpdateDTO guestsSuiteUpdateDTO) {
+        return modelMapperHelper.convertGuestsSuiteUpdateDTOToGuestsSuite(retrievedGuestsSuite, guestsSuiteUpdateDTO);
     }
 }

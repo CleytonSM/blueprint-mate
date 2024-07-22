@@ -2,6 +2,7 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.HomeOfficeSuiteCreateDTO;
+import com.blueprintmate.model.dto.HomeOfficeSuiteUpdateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.HomeOfficeSuite;
 import com.blueprintmate.repository.HomeOfficeSuiteRepository;
@@ -35,5 +36,11 @@ public class HomeOfficeSuiteService {
 
     public HomeOfficeSuite findHomeOfficeSuiteByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public HomeOfficeSuite setUpHomeOfficeSuiteForUpdate(HomeOfficeSuite retrievedHomeOfficeSuite,
+                                                         HomeOfficeSuiteUpdateDTO homeOfficeSuiteUpdateDTO) {
+        return modelMapperHelper.convertHomeOfficeSuiteUpdateDTOToHomeOfficeSuite(retrievedHomeOfficeSuite,
+                homeOfficeSuiteUpdateDTO);
     }
 }

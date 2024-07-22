@@ -30,6 +30,12 @@ public class DescriptionService {
         save(newDescription);
     }
 
+    public void updateDescription(Description retrievedDescription, Form form) {
+        retrievedDescription.setForm(form);
+
+        save(retrievedDescription);
+    }
+
     @Transactional
     private Description save(Description description) {
         return repository.save(description);
@@ -37,5 +43,9 @@ public class DescriptionService {
 
     public Description findDescriptionByForm(Form retrievedForm) {
         return getOptionalEntity(repository.findByFormId(retrievedForm.getId()));
+    }
+
+    public Description setUpDescriptionForUpdate(Description retrievedDescription, DescriptionUpdateDTO descriptionUpdateDTO) {
+        return modelMapperHelper.convertDescriptionUpdateDTOToDescription(retrievedDescription, descriptionUpdateDTO);
     }
 }

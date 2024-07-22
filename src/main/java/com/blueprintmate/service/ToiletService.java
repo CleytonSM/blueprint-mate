@@ -31,6 +31,12 @@ public class ToiletService {
         save(newToilet);
     }
 
+    public void updateToilet(Toilet retrievedToilet, Form form) {
+        retrievedToilet.setForm(form);
+
+        save(retrievedToilet);
+    }
+
     @Transactional
     private Toilet save(Toilet newToilet) {
         return repository.save(newToilet);
@@ -39,4 +45,9 @@ public class ToiletService {
     public Toilet findToiletByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public Toilet setUpToiletForUpdate(Toilet retrievedToilet, ToiletUpdateDTO toiletUpdateDTO) {
+        return modelMapperHelper.convertToiletUpdateDTOToToilet(retrievedToilet, toiletUpdateDTO);
+    }
+
 }

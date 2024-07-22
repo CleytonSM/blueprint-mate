@@ -32,6 +32,12 @@ public class EntranceHallService {
         save(newEntranceHall);
     }
 
+    public void updateEntranceHall(EntranceHall retrievedEntranceHall, Form form) {
+        retrievedEntranceHall.setForm(form);
+
+        save(retrievedEntranceHall);
+    }
+
     @Transactional
     private EntranceHall save(EntranceHall newEntranceHall) {
         return repository.save(newEntranceHall);
@@ -40,4 +46,9 @@ public class EntranceHallService {
     public EntranceHall findEntranceHallByForm(Form form) {
         return getOptionalEntity(repository.findByFormId(form.getId()));
     }
+
+    public EntranceHall setUpEntranceHallForUpdate(EntranceHall retrievedEntranceHall, EntranceHallUpdateDTO entranceHallUpdateDTO) {
+        return modelMapperHelper.convertEntranceHallUpdateDTOToEntranceHall(retrievedEntranceHall, entranceHallUpdateDTO);
+    }
+
 }

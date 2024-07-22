@@ -34,7 +34,7 @@ public class FormController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updateFormById(@RequestParam int id, @Valid @RequestBody FormUpdateDTO formUpdateDTO) {
-        service.updateFormById(id, formCreateDTO);
+        service.updateFormById(id, formUpdateDTO);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
