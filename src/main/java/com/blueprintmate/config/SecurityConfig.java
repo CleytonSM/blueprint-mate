@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .requestMatchers("/client/create").hasRole("USER")
                         .requestMatchers("/form/create").hasRole("USER")
                         .requestMatchers("/form/update/**").hasRole("USER")
+                        .requestMatchers("/form/find/all").hasRole("USER")
                         .requestMatchers("/form/filter").hasRole("ADMIN"))
                 .addFilterBefore(applicationContext.getBean(JwtValidatorFilter.class), UsernamePasswordAuthenticationFilter.class)
                 .httpBasic(Customizer.withDefaults())

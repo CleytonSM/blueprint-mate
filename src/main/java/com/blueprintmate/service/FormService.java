@@ -210,4 +210,12 @@ public class FormService {
 
         return repository.findByClientName(retrivedClient.getName());
     }
+
+    public List<Form> findFormsByClient() {
+        User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Client retrievedClient = clientService.findClientByUserId(authenticatedUser.getId());
+
+
+        return repository.findByClientName(retrievedClient.getName());
+    }
 }
