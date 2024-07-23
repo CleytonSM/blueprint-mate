@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_laundry")
@@ -36,8 +35,6 @@ public class Laundry {
     private Timestamp updatedAt;
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
-    @OneToMany(mappedBy = "laundry")
-    private List<NecessaryAppliancesInLaundry> necessaryAppliancesInLaundryList;
 
     public Laundry() {
     }
@@ -139,13 +136,5 @@ public class Laundry {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
-    }
-
-    public List<NecessaryAppliancesInLaundry> getNecessaryAppliancesInLaundryList() {
-        return necessaryAppliancesInLaundryList;
-    }
-
-    public void setNecessaryAppliancesInLaundryList(List<NecessaryAppliancesInLaundry> necessaryAppliancesInLaundryList) {
-        this.necessaryAppliancesInLaundryList = necessaryAppliancesInLaundryList;
     }
 }

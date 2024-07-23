@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_kitchen")
@@ -55,12 +54,6 @@ public class Kitchen {
     private Timestamp updatedAt;
     @Column(name = "deleted_at")
     private Timestamp deletedAt;
-    @OneToMany(mappedBy = "kitchen", fetch = FetchType.EAGER)
-    private List<NecessaryAppliancesInKitchen> necessaryAppliancesInKitchenList;
-    @OneToMany(mappedBy = "kitchen", fetch = FetchType.EAGER)
-    private List<NewAppliancesInKitchen> newAppliancesInKitchenList;
-    @OneToMany(mappedBy = "kitchen", fetch = FetchType.EAGER)
-    private List<ReuseAppliancesInKitchen> reuseAppliancesInKitchenList;
 
     public Kitchen() {
     }
@@ -256,29 +249,5 @@ public class Kitchen {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
-    }
-
-    public List<NecessaryAppliancesInKitchen> getNecessaryAppliancesInKitchenList() {
-        return necessaryAppliancesInKitchenList;
-    }
-
-    public void setNecessaryAppliancesInKitchenList(List<NecessaryAppliancesInKitchen> necessaryAppliancesInKitchenList) {
-        this.necessaryAppliancesInKitchenList = necessaryAppliancesInKitchenList;
-    }
-
-    public List<NewAppliancesInKitchen> getNewAppliancesInKitchenList() {
-        return newAppliancesInKitchenList;
-    }
-
-    public void setNewAppliancesInKitchenList(List<NewAppliancesInKitchen> newAppliancesInKitchenList) {
-        this.newAppliancesInKitchenList = newAppliancesInKitchenList;
-    }
-
-    public List<ReuseAppliancesInKitchen> getReuseAppliancesInKitchenList() {
-        return reuseAppliancesInKitchenList;
-    }
-
-    public void setReuseAppliancesInKitchenList(List<ReuseAppliancesInKitchen> reuseAppliancesInKitchenList) {
-        this.reuseAppliancesInKitchenList = reuseAppliancesInKitchenList;
     }
 }

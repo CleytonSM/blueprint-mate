@@ -1,21 +1,17 @@
 package com.blueprintmate.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_necessary_appliances_in_laundry")
-public class NecessaryAppliancesInLaundry {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_necessary_appliances_in_laundry")
-    private int id;
+@PrimaryKeyJoinColumn(name = "id_necessary_appliances_in_laundry")
+public class NecessaryAppliancesInLaundry extends Appliances {
     @ManyToOne
-    @JoinColumn(name = "id_laundry")
-    @JsonIgnore
-    private Laundry laundry;
+    @JoinColumn(name = "id_necessary_appliances_in_laundry", referencedColumnName = "id_appliances",
+            nullable = false, insertable = false, updatable = false)
+    private Appliances appliances;
     @Column(name = "nm_necessary_appliances_in_laundry", length = 45)
     private String name;
     @Column(name = "created_at")
@@ -29,7 +25,7 @@ public class NecessaryAppliancesInLaundry {
     }
 
     public NecessaryAppliancesInLaundry(Laundry laundry, String name, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        this.laundry = laundry;
+        super(laundry);
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -37,14 +33,10 @@ public class NecessaryAppliancesInLaundry {
     }
 
     public NecessaryAppliancesInLaundry(Laundry laundry, String name, Timestamp createdAt, Timestamp updatedAt) {
-        this.laundry = laundry;
+        super(laundry);
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-    }
-
-    public Laundry getLaundry() {
-        return laundry;
     }
 
     public String getName() {
@@ -77,9 +69,5 @@ public class NecessaryAppliancesInLaundry {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
-    }
-
-    public void setLaundry(Laundry laundry) {
-        this.laundry = laundry;
     }
 }

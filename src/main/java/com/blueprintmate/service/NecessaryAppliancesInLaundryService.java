@@ -2,7 +2,6 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.NecessaryAppliancesCreateOnLaundryDTO;
-import com.blueprintmate.model.dto.NecessaryAppliancesUpdateOnLaundryDTO;
 import com.blueprintmate.model.entity.Laundry;
 import com.blueprintmate.model.entity.NecessaryAppliancesInLaundry;
 import com.blueprintmate.repository.NecessaryAppliancesInLaundryRepository;
@@ -30,21 +29,6 @@ public class NecessaryAppliancesInLaundryService {
                         Timestamp.valueOf(LocalDateTime.now()),
                         Timestamp.valueOf(LocalDateTime.now())
                 )));
-    }
-
-    public void updateNecessaryAppliances(
-            Laundry laundry, List<NecessaryAppliancesUpdateOnLaundryDTO> necessaryAppliancesOnLaundryList) {
-        List<NecessaryAppliancesInLaundry> necessaryAppliancesInLaundryList = repository.findAllByLaundryId(laundry.getId());
-
-        necessaryAppliancesInLaundryList.forEach(necessaryAppliancesInLaundry -> {
-            necessaryAppliancesOnLaundryList.forEach(necessaryAppliancesUpdateOnLaundryDTO -> {
-                necessaryAppliancesInLaundry.setLaundry(laundry);
-                necessaryAppliancesInLaundry.setName(necessaryAppliancesUpdateOnLaundryDTO.getName());
-                necessaryAppliancesInLaundry.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
-
-                save(necessaryAppliancesInLaundry);
-            });
-        });
     }
 
     @Transactional
