@@ -2,12 +2,15 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.GuestsSuiteCreateDTO;
+import com.blueprintmate.model.dto.GuestsSuiteUpdateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.GuestsSuite;
 import com.blueprintmate.repository.GuestsSuiteRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
 
 @Service
 public class GuestsSuiteService {
@@ -26,8 +29,24 @@ public class GuestsSuiteService {
         save(newGuestsSuite);
     }
 
+    public void updateGuestsSuite(GuestsSuite retrievedGuestsSuite, Form form) {
+        retrievedGuestsSuite.setForm(form);
+
+        save(retrievedGuestsSuite);
+    }
+
     @Transactional
     private GuestsSuite save(GuestsSuite guestsSuite) {
         return repository.save(guestsSuite);
     }
+
+    public GuestsSuite findGuestsSuiteByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public GuestsSuite setUpGuestsSuiteForUpdate(GuestsSuite retrievedGuestsSuite,
+                                                 GuestsSuiteUpdateDTO guestsSuiteUpdateDTO) {
+        return modelMapperHelper.convertGuestsSuiteUpdateDTOToGuestsSuite(retrievedGuestsSuite, guestsSuiteUpdateDTO);
+    }
+
 }

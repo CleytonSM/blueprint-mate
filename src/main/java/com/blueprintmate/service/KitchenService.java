@@ -2,12 +2,15 @@ package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.KitchenCreateDTO;
+import com.blueprintmate.model.dto.KitchenUpdateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.model.entity.Kitchen;
 import com.blueprintmate.repository.KitchenRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
 
 @Service
 public class KitchenService {
@@ -27,8 +30,23 @@ public class KitchenService {
         save(newKitchen);
     }
 
+    public Kitchen updateKitchen(Kitchen retrievedKitchen, Form form) {
+        retrievedKitchen.setForm(form);
+
+        return save(retrievedKitchen);
+    }
+
     @Transactional
     private Kitchen save(Kitchen newKitchen) {
         return repository.save(newKitchen);
     }
+
+    public Kitchen findKitchenByForm(Form form) {
+        return getOptionalEntity(repository.findByFormId(form.getId()));
+    }
+
+    public Kitchen setUpKitchenForUpdate(Kitchen retrievedKitchen, KitchenUpdateDTO kitchenUpdateDTO) {
+        return modelMapperHelper.convertKitchenUpdateDTOToKitchen(retrievedKitchen, kitchenUpdateDTO);
+    }
+
 }

@@ -3,7 +3,6 @@ package com.blueprintmate.model.dto;
 import jakarta.validation.constraints.NotBlank;
 
 public class GeneralInfoCreateDTO {
-
     @NotBlank(message = "Reuse field can't be null")
     private String reuse;
     @NotBlank(message = "Additional field can't be null")

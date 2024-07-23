@@ -134,7 +134,7 @@ public class ModelMapperHelper {
         EntranceHall entranceHall = new EntranceHall();
 
         entranceHall.setHasShoesHouseWalking(entranceHallCreateDTO.getHasShoesHouseWalking() == null
-                ? null : entranceHall.getHasShoesHouseWalking());
+                ? null : entranceHallCreateDTO.getHasShoesHouseWalking());
         entranceHall.setHasEntranceConsoleTable((entranceHallCreateDTO.getHasEntranceConsoleTable()));
         entranceHall.setHasWantEntranceConsoleTable((entranceHallCreateDTO.getHasWantEntranceConsoleTable()));
         entranceHall.setHasFullLengthMirror((entranceHallCreateDTO.getHasFullLengthMirror()));
@@ -350,5 +350,272 @@ public class ModelMapperHelper {
         context.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return context;
+    }
+
+    public Description convertDescriptionUpdateDTOToDescription(Description retrievedDescription, DescriptionUpdateDTO descriptionUpdateDTO) {
+        retrievedDescription.setBestPlace(descriptionUpdateDTO.getBestPlace());
+        retrievedDescription.setWeekendBestPlace(descriptionUpdateDTO.getWeekendBestPlace());
+        retrievedDescription.setMissActualHouse(descriptionUpdateDTO.getMissActualHouse());
+        retrievedDescription.setHasActualHouseSatisfaction(descriptionUpdateDTO.getHasActualHouseSatisfaction());
+        retrievedDescription.setActualHouseSatisfaction(descriptionUpdateDTO.getActualHouseSatisfaction());
+        retrievedDescription.setJob(descriptionUpdateDTO.getJob());
+        retrievedDescription.setWorkRoutine(descriptionUpdateDTO.getWorkRoutine() == null
+                ? null : descriptionUpdateDTO.getWorkRoutine());
+        retrievedDescription.setHasWorkAtHome(descriptionUpdateDTO.getHasWorkAtHome());
+        retrievedDescription.setDaysWorkingAtHome(descriptionUpdateDTO.getDaysWorkingAtHome());
+        retrievedDescription.setHasTravelForWork(descriptionUpdateDTO.getHasTravelForWork());
+        retrievedDescription.setTravelsForWork(descriptionUpdateDTO.getTravelsForWork() == null
+                ? null : descriptionUpdateDTO.getTravelsForWork());
+        retrievedDescription.setHasPracticeSports(descriptionUpdateDTO.getHasPracticeSports());
+        retrievedDescription.setPracticeSports(descriptionUpdateDTO.getPracticeSports());
+        retrievedDescription.setHasTravel(descriptionUpdateDTO.getHasTravel());
+        retrievedDescription.setTravel(descriptionUpdateDTO.getTravel() == null
+                ? null : descriptionUpdateDTO.getTravel());
+        retrievedDescription.setHasWatchTv(descriptionUpdateDTO.getHasWatchTv());
+        retrievedDescription.setWatchTv(descriptionUpdateDTO.getWatchTv());
+        retrievedDescription.setHasRead(descriptionUpdateDTO.getHasRead() == null
+                ? null : descriptionUpdateDTO.getHasRead());
+        retrievedDescription.setHasBookRead(descriptionUpdateDTO.getHasBookRead() == null
+                ? null : descriptionUpdateDTO.getHasBookRead());
+        retrievedDescription.setHasTabletRead(descriptionUpdateDTO.getHasTabletRead() == null
+                ? null : descriptionUpdateDTO.getHasTabletRead());
+        retrievedDescription.setHasPets(descriptionUpdateDTO.getHasPets());
+        retrievedDescription.setPets(descriptionUpdateDTO.getPets());
+        retrievedDescription.setHasCook(descriptionUpdateDTO.getHasCook());
+        retrievedDescription.setCook(descriptionUpdateDTO.getCook());
+        retrievedDescription.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedDescription;
+    }
+
+    public Experience convertExperienceUpdateDTOToExperience(Experience retrievedExperience,
+                                                             ExperienceUpdateDTO experienceUpdateDTO) {
+        retrievedExperience.setNeutralColor(experienceUpdateDTO.getNeutralColor().toString());
+        retrievedExperience.setLivelyColor(experienceUpdateDTO.getLivelyColor().toString());
+        retrievedExperience.setLikeToFeel(experienceUpdateDTO.getLikeToFeel());
+        retrievedExperience.setHouseMeaning(experienceUpdateDTO.getHouseMeaning());
+        retrievedExperience.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedExperience;
+    }
+
+    public Building convertBuildingUpdateDTOToBuilding(Building retrievedBuilding, BuildingUpdateDTO buildingUpdateDTO) {
+        retrievedBuilding.setNeighborhoodRelationship(buildingUpdateDTO.getNeighborhoodRelationship() == null
+                ? null : buildingUpdateDTO.getNeighborhoodRelationship());
+        retrievedBuilding.setDeterminingFactor(buildingUpdateDTO.getDeterminingFactor());
+        retrievedBuilding.setArchitecturalLanguage(buildingUpdateDTO.getArchitecturalLanguage());
+        retrievedBuilding.setBalconyIntegration(buildingUpdateDTO.getBalconyIntegration());
+        retrievedBuilding.setBuildingManagerContact(buildingUpdateDTO.getBuildingManagerContact() == null
+                ? null : buildingUpdateDTO.getBuildingManagerContact());
+        retrievedBuilding.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedBuilding;
+    }
+
+    public Toilet convertToiletUpdateDTOToToilet(Toilet retrievedToilet, ToiletUpdateDTO toiletUpdateDTO) {
+        retrievedToilet.setApartmentPattern(toiletUpdateDTO.getApartmentPattern());
+        retrievedToilet.setDesignToilet(toiletUpdateDTO.getDesignToilet());
+        retrievedToilet.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedToilet;
+    }
+
+    public EntranceHall convertEntranceHallUpdateDTOToEntranceHall(EntranceHall retrievedEntranceHall,
+                                                                   EntranceHallUpdateDTO entranceHallUpdateDTO) {
+        retrievedEntranceHall.setHasShoesHouseWalking(entranceHallUpdateDTO.getHasShoesHouseWalking() == null
+                ? null : entranceHallUpdateDTO.getHasShoesHouseWalking());
+        retrievedEntranceHall.setHasEntranceConsoleTable((entranceHallUpdateDTO.getHasEntranceConsoleTable()));
+        retrievedEntranceHall.setHasWantEntranceConsoleTable((entranceHallUpdateDTO.getHasWantEntranceConsoleTable()));
+        retrievedEntranceHall.setHasFullLengthMirror((entranceHallUpdateDTO.getHasFullLengthMirror()));
+        retrievedEntranceHall.setHasFamiliarWithElectronicLocks((entranceHallUpdateDTO.getHasFamiliarWithElectronicLocks()));
+        retrievedEntranceHall.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedEntranceHall;
+    }
+
+    public LivingRoom convertLivingRoomUpdateDTOToLivingRoom(LivingRoom retrievedLivingRoom,
+                                                             LivingRoomUpdateDTO livingRoomUpdateDTO) {
+        retrievedLivingRoom.setPeople(livingRoomUpdateDTO.getPeople());
+        retrievedLivingRoom.setHasPeople(livingRoomUpdateDTO.getHasPeople());
+        retrievedLivingRoom.setTvInch(livingRoomUpdateDTO.getTvInch());
+        retrievedLivingRoom.setEquipmentLiving(livingRoomUpdateDTO.getEquipmentLiving());
+        retrievedLivingRoom.setHasSofaWithChaise(livingRoomUpdateDTO.getHasSofaWithChaise());
+        retrievedLivingRoom.setHasSofaWithRetractableChaise(livingRoomUpdateDTO.getHasSofaWithRetractableChaise());
+        retrievedLivingRoom.setHasBooksOrCollection(livingRoomUpdateDTO.getHasBooksOrCollection());
+        retrievedLivingRoom.setHasUsedDaily(livingRoomUpdateDTO.getHasUsedDaily());
+        retrievedLivingRoom.setReceivesManyPeople(livingRoomUpdateDTO.getReceivesManyPeople());
+        retrievedLivingRoom.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedLivingRoom;
+    }
+
+    public DiningRoom convertDiningRoomUpdateDTOToDiningRoom(DiningRoom retrievedDiningRoom,
+                                                             DiningRoomUpdateDTO diningRoomUpdateDTO) {
+        retrievedDiningRoom.setDiningTableCapacity(diningRoomUpdateDTO.getDiningTableCapacity());
+        retrievedDiningRoom.setDailyMealsLocation(diningRoomUpdateDTO.getDailyMealsLocation());
+        retrievedDiningRoom.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedDiningRoom;
+    }
+
+    public Kitchen convertKitchenUpdateDTOToKitchen(Kitchen retrievedKitchen, KitchenUpdateDTO kitchenUpdateDTO) {
+        retrievedKitchen.setColorType(kitchenUpdateDTO.getColorType().toString());
+        retrievedKitchen.setShapeType(kitchenUpdateDTO.getShapeType().toString());
+        retrievedKitchen.setCounterTopMaterial(kitchenUpdateDTO.getCounterTopMaterial());
+        retrievedKitchen.setMaterialPreference(kitchenUpdateDTO.getMaterialPreference().toString());
+        retrievedKitchen.setHasWetGutterOrBuiltInTrashCan(kitchenUpdateDTO.getHasWetGutterOrBuiltInTrashCan());
+        retrievedKitchen.setHasStove(kitchenUpdateDTO.getHasStove());
+        retrievedKitchen.setHasCooktop(kitchenUpdateDTO.getHasCooktop());
+        retrievedKitchen.setHasInduction(kitchenUpdateDTO.getHasInduction());
+        retrievedKitchen.setHasBurners(kitchenUpdateDTO.getHasBurners());
+        retrievedKitchen.setHasStoveOnCounterTop(kitchenUpdateDTO.getHasStoveOnCounterTop());
+        retrievedKitchen.setHasStoveOnTower(kitchenUpdateDTO.getHasStoveOnTower());
+        retrievedKitchen.setFridgeType(kitchenUpdateDTO.getFridgeType() == null
+                ? null : kitchenUpdateDTO.getFridgeType());
+        retrievedKitchen.setHasSeparateFreezer(kitchenUpdateDTO.getHasSeparateFreezer() == null
+                ? null : kitchenUpdateDTO.getHasSeparateFreezer());
+        retrievedKitchen.setFridgeCapacityLiters(kitchenUpdateDTO.getFridgeCapacityLiters() == null
+                ? null : kitchenUpdateDTO.getFridgeCapacityLiters());
+        retrievedKitchen.setCurrentStorageSatisfaction(kitchenUpdateDTO.getCurrentStorageSatisfaction());
+        retrievedKitchen.setDinnerCapacity(kitchenUpdateDTO.getDinnerCapacity());
+        retrievedKitchen.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedKitchen;
+    }
+
+    public Laundry convertLaundryUpdateDTOToLaundry(Laundry retrievedLaundry, LaundryUpdateDTO laundryUpdateDTO) {
+        retrievedLaundry.setHasBuiltInSink(laundryUpdateDTO.getHasBuiltInSink());
+        retrievedLaundry.setHasPorcelainSink(laundryUpdateDTO.getHasPorcelainSink());
+        retrievedLaundry.setHasPetFoodAndBowlsStoredHere(laundryUpdateDTO.getHasPetFoodAndBowlsStoredHere() == null
+                ? null : laundryUpdateDTO.getHasPetFoodAndBowlsStoredHere());
+        retrievedLaundry.setHasRecyclesTrash(laundryUpdateDTO.getHasRecyclesTrash() == null
+                ? null : laundryUpdateDTO.getHasPetFoodAndBowlsStoredHere());//
+        retrievedLaundry.setCurrentDryingRackCount(laundryUpdateDTO.getCurrentDryingRackCount());
+        retrievedLaundry.setDryingRackSizes(laundryUpdateDTO.getDryingRackSizes());
+        retrievedLaundry.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedLaundry;
+    }
+
+    public Bathroom convertBathroomUpdateDTOToBathroom(Bathroom retrievedBathroom, BathroomUpdateDTO bathroomUpdateDTO) {
+        retrievedBathroom.setHasAllRenovated(bathroomUpdateDTO.getHasBathtub());
+        retrievedBathroom.setPreferredSinkShape(bathroomUpdateDTO.getPreferredSinkShape().toString());
+        retrievedBathroom.setPreferredFlushType(bathroomUpdateDTO.getPreferredFlushType().toString());
+        retrievedBathroom.setHasHygienicShower(bathroomUpdateDTO.getHasHygienicShower());
+        retrievedBathroom.setHasBidet(bathroomUpdateDTO.getHasBidet());
+        retrievedBathroom.setHasPrefersMixerTap(bathroomUpdateDTO.getHasPrefersMixerTap());
+        retrievedBathroom.setHasPrefersSingleHandle(bathroomUpdateDTO.getHasPrefersSingleHandle());
+        retrievedBathroom.setHasElectricTowelRack(bathroomUpdateDTO.getHasElectricTowelRack());
+        retrievedBathroom.setHasLaundryHamperInCabinet(bathroomUpdateDTO.getHasLaundryHamperInCabinet());
+        retrievedBathroom.setHasMakeupInBathroomMirror(bathroomUpdateDTO.getHasMakeupInBathroomMirror());
+        retrievedBathroom.setHasManyProductsOnCounter(bathroomUpdateDTO.getHasManyProductsOnCounter());
+        retrievedBathroom.setHasDailyUseOfHairdryer(bathroomUpdateDTO.getHasDailyUseOfHairdryer());
+        retrievedBathroom.setHasShowerNicheForProducts(bathroomUpdateDTO.getHasShowerNicheForProducts());
+        retrievedBathroom.setHasCurrentStorageMeetsNeeds(bathroomUpdateDTO.getHasCurrentStorageMeetsNeeds());
+        retrievedBathroom.setHasDesireMoreStorageSpace(bathroomUpdateDTO.getHasDesireMoreStorageSpace());
+        retrievedBathroom.setHasSaunaInShower(bathroomUpdateDTO.getHasSaunaInShower());
+        retrievedBathroom.setHasBathtub(bathroomUpdateDTO.getHasBathtub());
+        retrievedBathroom.setHasImmersion(bathroomUpdateDTO.getHasImmersion());
+        retrievedBathroom.setHasHydro(bathroomUpdateDTO.getHasHydro());
+        retrievedBathroom.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedBathroom;
+    }
+
+    public MasterSuite convertMasterSuiteUpdateDTOToMasterSuite(MasterSuite retrievedMasterSuite, MasterSuiteUpdateDTO masterSuiteUpdateDTO) {
+        retrievedMasterSuite.setBedType(masterSuiteUpdateDTO.getBedType().toString());
+        retrievedMasterSuite.setHasTv(masterSuiteUpdateDTO.getHasTv());
+        retrievedMasterSuite.setHasArmchair(masterSuiteUpdateDTO.getHasArmchair());
+        retrievedMasterSuite.setHasBench(masterSuiteUpdateDTO.getHasBench());
+        retrievedMasterSuite.setReadsInBed(masterSuiteUpdateDTO.getReadsInBed());
+        retrievedMasterSuite.setHasNightStandDrawer(masterSuiteUpdateDTO.getHasNightStandDrawer());
+        retrievedMasterSuite.setHasWoodHeadboardPreference(masterSuiteUpdateDTO.getHasWoodHeadboardPreference());
+        retrievedMasterSuite.setHasFabricHeadboardPreference(masterSuiteUpdateDTO.getHasFabricHeadboardPreference());
+        retrievedMasterSuite.setHasFullLengthMirror(masterSuiteUpdateDTO.getHasFullLengthMirror());
+        retrievedMasterSuite.setCurrentClosetLength(masterSuiteUpdateDTO.getCurrentClosetLength());
+        retrievedMasterSuite.setCurrentClothesRailLength(masterSuiteUpdateDTO.getCurrentClothesRailLength());
+        retrievedMasterSuite.setCurrentShoePairsCount(masterSuiteUpdateDTO.getCurrentShoePairsCount());
+        retrievedMasterSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedMasterSuite;
+    }
+
+    public DescendantsSuite convertDescendantsSuiteUpdateDTOToDescendantsSuite(
+            DescendantsSuite retrievedDescendantsSuite,
+            DescendantsSuiteUpdateDTO descendantsSuiteUpdateDTO) {
+        retrievedDescendantsSuite.setBedType(descendantsSuiteUpdateDTO.getBedType().toString());
+        retrievedDescendantsSuite.setHasTv(descendantsSuiteUpdateDTO.getHasTv());
+        retrievedDescendantsSuite.setHasChildStudy(descendantsSuiteUpdateDTO.getHasChildStudy());
+        retrievedDescendantsSuite.setHasChildReceivesFriendsToSleep(
+                descendantsSuiteUpdateDTO.getHasChildReceivesFriendsToSleep() == null
+                        ? null : descendantsSuiteUpdateDTO.getHasChildReceivesFriendsToSleep());
+        retrievedDescendantsSuite.setTheme(descendantsSuiteUpdateDTO.getTheme());
+        retrievedDescendantsSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedDescendantsSuite;
+    }
+
+    public GuestsSuite convertGuestsSuiteUpdateDTOToGuestsSuite(GuestsSuite retrievedGuestsSuite,
+                                                                GuestsSuiteUpdateDTO guestsSuiteUpdateDTO) {
+        retrievedGuestsSuite.setBedType(guestsSuiteUpdateDTO.getBedType().toString());
+        retrievedGuestsSuite.setClosetUse(guestsSuiteUpdateDTO.getClosetUse() == null
+                ? null : guestsSuiteUpdateDTO.getClosetUse());
+        retrievedGuestsSuite.setFrequencyOfGuests(guestsSuiteUpdateDTO.getFrequencyOfGuests() == null
+                ? null : guestsSuiteUpdateDTO.getFrequencyOfGuests());
+        retrievedGuestsSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedGuestsSuite;
+    }
+
+    public HomeOfficeSuite convertHomeOfficeSuiteUpdateDTOToHomeOfficeSuite(
+            HomeOfficeSuite retrievedHomeOfficeSuite,
+            HomeOfficeSuiteUpdateDTO homeOfficeSuiteUpdateDTO) {
+        retrievedHomeOfficeSuite.setBedType(homeOfficeSuiteUpdateDTO.getBedType().toString());
+        retrievedHomeOfficeSuite.setNeedsPrivacy(homeOfficeSuiteUpdateDTO.getNeedsPrivacy() == null
+                ? null : homeOfficeSuiteUpdateDTO.getNeedsPrivacy());
+        retrievedHomeOfficeSuite.setNeedsSpaceForBooksDocumentsOrPapers(
+                homeOfficeSuiteUpdateDTO.getNeedsSpaceForBooksDocumentsOrPapers() == null
+                        ? null : homeOfficeSuiteUpdateDTO.getNeedsSpaceForBooksDocumentsOrPapers());
+        retrievedHomeOfficeSuite.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedHomeOfficeSuite;
+    }
+
+    public GeneralInfo convertGeneralInfoUpdateDTOToGeneralInfo(GeneralInfo retrievedGeneralInfo,
+                                                                GeneralInfoUpdateDTO generalInfoUpdateDTO) {
+        retrievedGeneralInfo.setReuse(generalInfoUpdateDTO.getReuse());
+        retrievedGeneralInfo.setAdditional(generalInfoUpdateDTO.getAdditional());
+        retrievedGeneralInfo.setUnlistedFurnitureOrEquipment(generalInfoUpdateDTO.getUnlistedFurnitureOrEquipment());
+        retrievedGeneralInfo.setAvoidanceRequests(generalInfoUpdateDTO.getAvoidanceRequests());
+        retrievedGeneralInfo.setPlantRelationship(generalInfoUpdateDTO.getPlantRelationship());
+        retrievedGeneralInfo.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedGeneralInfo;
+    }
+
+    public StyleAndMoods convertStyleAndMoodsUpdateDTOToStyleAndMoods(StyleAndMoods retrievedStyleAndMoods,
+                                                                      StyleAndMoodsUpdateDTO styleAndMoodsUpdateDTO) {
+        retrievedStyleAndMoods.setAmbientStyle(styleAndMoodsUpdateDTO.getAmbientStyle().toString());
+        retrievedStyleAndMoods.setAmbientStyleDescription(styleAndMoodsUpdateDTO.getAmbientStyleDescription());
+        retrievedStyleAndMoods.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedStyleAndMoods;
+    }
+
+    public Context convertContextUpdateDTOToContext(Context retrievedContext, ContextUpdateDTO contextUpdateDTO) {
+        retrievedContext.setProjectLifeStageSignificance(contextUpdateDTO.getProjectLifeStageSignificance());
+        retrievedContext.setInvestmentExpectation(contextUpdateDTO.getInvestmentExpectation());
+        retrievedContext.setProjectDurationExpectation(contextUpdateDTO.getProjectDurationExpectation());
+        retrievedContext.setLocationDuringRenovation(contextUpdateDTO.getLocationDuringRenovation());
+        retrievedContext.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedContext;
+    }
+
+    public Form convertFormUpdateDTOToForm(Form retrievedForm, FormUpdateDTO formUpdateDTO) {
+        retrievedForm.setTitle(formUpdateDTO.getTitle());
+        retrievedForm.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+
+        return retrievedForm;
     }
 }
