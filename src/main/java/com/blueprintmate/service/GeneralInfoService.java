@@ -28,6 +28,13 @@ public class GeneralInfoService {
         save(newGeneralInfo);
     }
 
+
+    public void updateGeneralInfo(GeneralInfo retrievedGeneralInfo, Form form) {
+        retrievedGeneralInfo.setForm(form);
+
+        save(retrievedGeneralInfo);
+    }
+
     private GeneralInfo save(GeneralInfo newGeneralInfo) {
         return repository.save(newGeneralInfo);
     }
