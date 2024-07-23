@@ -30,6 +30,12 @@ public class StyleAndMoodsService {
         save(newStyleAndMoods);
     }
 
+    public void updateStyleAndMoods(StyleAndMoods retrievedStyleAndMoods, Form form) {
+        retrievedStyleAndMoods.setForm(form);
+
+        save(retrievedStyleAndMoods);
+    }
+
     @Transactional
     private StyleAndMoods save(StyleAndMoods newStyleAndMoods) {
         return repository.save(newStyleAndMoods);

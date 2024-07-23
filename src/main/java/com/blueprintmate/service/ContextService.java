@@ -30,6 +30,12 @@ public class ContextService {
         save(newContext);
     }
 
+    public void updateContext(Context retrievedContext, Form form) {
+        retrievedContext.setForm(form);
+
+        save(retrievedContext);
+    }
+
     @Transactional
     private Context save(Context newContext) {
         return repository.save(newContext);

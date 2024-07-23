@@ -29,10 +29,10 @@ public class LaundryService {
         save(newLaundry);
     }
 
-    public void updateLaundry(Laundry retrievedLaundry, Form form) {
+    public Laundry updateLaundry(Laundry retrievedLaundry, Form form) {
         retrievedLaundry.setForm(form);
 
-        save(retrievedLaundry);
+        return save(retrievedLaundry);
     }
 
     @Transactional

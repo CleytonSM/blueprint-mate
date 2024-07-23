@@ -30,10 +30,10 @@ public class KitchenService {
         save(newKitchen);
     }
 
-    public void updateKitchen(Kitchen retrievedKitchen, Form form) {
+    public Kitchen updateKitchen(Kitchen retrievedKitchen, Form form) {
         retrievedKitchen.setForm(form);
 
-        save(retrievedKitchen);
+        return save(retrievedKitchen);
     }
 
     @Transactional

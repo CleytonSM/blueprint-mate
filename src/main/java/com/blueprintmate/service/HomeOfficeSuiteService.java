@@ -29,6 +29,12 @@ public class HomeOfficeSuiteService {
         save(newHomeOfficeSuite);
     }
 
+    public void updateHomeOfficeSuite(HomeOfficeSuite retrievedHomeOfficeSuite, Form form) {
+        retrievedHomeOfficeSuite.setForm(form);
+
+        save(retrievedHomeOfficeSuite);
+    }
+
     @Transactional
     private HomeOfficeSuite save(HomeOfficeSuite homeOfficeSuite) {
         return repository.save(homeOfficeSuite);

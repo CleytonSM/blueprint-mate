@@ -18,7 +18,7 @@ public class FormCreateDTO {
     private HomeOfficeSuiteCreateDTO homeOfficeSuite;
     private GeneralInfoCreateDTO generalInfo;
     private StyleAndMoodsCreateDTO styleAndMoods;
-    private ContextCreateDTO contextCreate;
+    private ContextCreateDTO context;
 
     public FormCreateDTO() {
     }
@@ -29,7 +29,7 @@ public class FormCreateDTO {
                          LaundryCreateDTO laundry, BathroomCreateDTO bathroom, MasterSuiteCreateDTO masterSuite,
                          DescendantsSuiteCreateDTO descendantsSuite, GuestsSuiteCreateDTO guestsSuite,
                          HomeOfficeSuiteCreateDTO homeOfficeSuite, GeneralInfoCreateDTO generalInfo,
-                         StyleAndMoodsCreateDTO styleAndMoods, ContextCreateDTO contextCreate) {
+                         StyleAndMoodsCreateDTO styleAndMoods, ContextCreateDTO context) {
         this.title = title;
         this.description = description;
         this.experience = experience;
@@ -47,7 +47,7 @@ public class FormCreateDTO {
         this.homeOfficeSuite = homeOfficeSuite;
         this.generalInfo = generalInfo;
         this.styleAndMoods = styleAndMoods;
-        this.contextCreate = contextCreate;
+        this.context = context;
     }
 
     public String getTitle() {
@@ -186,11 +186,11 @@ public class FormCreateDTO {
         this.styleAndMoods = styleAndMoods;
     }
 
-    public ContextCreateDTO getContextCreate() {
-        return contextCreate;
+    public ContextCreateDTO getContext() {
+        return context;
     }
 
-    public void setContextCreate(ContextCreateDTO contextCreate) {
-        this.contextCreate = contextCreate;
+    public void setContext(ContextCreateDTO context) {
+        this.context = context;
     }
 }

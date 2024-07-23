@@ -1,17 +1,21 @@
 package com.blueprintmate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_necessary_appliances_in_laundry")
-@PrimaryKeyJoinColumn(name = "id_necessary_appliances_in_laundry")
-public class NecessaryAppliancesInLaundry extends Appliances {
+public class NecessaryAppliancesInLaundry {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_necessary_appliances_in_laundry")
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_necessary_appliances_in_laundry", referencedColumnName = "id_appliances",
-            nullable = false, insertable = false, updatable = false)
-    private Appliances appliances;
+    @JoinColumn(name = "id_laundry")
+    @JsonIgnore
+    private Laundry laundry;
     @Column(name = "nm_necessary_appliances_in_laundry", length = 45)
     private String name;
     @Column(name = "created_at")
@@ -25,7 +29,7 @@ public class NecessaryAppliancesInLaundry extends Appliances {
     }
 
     public NecessaryAppliancesInLaundry(Laundry laundry, String name, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
-        super(laundry);
+        this.laundry = laundry;
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -33,10 +37,14 @@ public class NecessaryAppliancesInLaundry extends Appliances {
     }
 
     public NecessaryAppliancesInLaundry(Laundry laundry, String name, Timestamp createdAt, Timestamp updatedAt) {
-        super(laundry);
+        this.laundry = laundry;
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Laundry getLaundry() {
+        return laundry;
     }
 
     public String getName() {
@@ -69,5 +77,9 @@ public class NecessaryAppliancesInLaundry extends Appliances {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public void setLaundry(Laundry laundry) {
+        this.laundry = laundry;
     }
 }
