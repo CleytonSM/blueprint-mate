@@ -1,7 +1,5 @@
 package com.blueprintmate.model.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
 public class ContextUpdateDTO {
     private String projectLifeStageSignificance;
     private String investmentExpectation;

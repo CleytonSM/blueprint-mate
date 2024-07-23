@@ -4,7 +4,6 @@ import com.blueprintmate.model.dto.AppliancesInKitchenCreateDTO;
 import com.blueprintmate.model.dto.AppliancesInKitchenUpdateDTO;
 import com.blueprintmate.model.dto.ReuseAppliancesInKitchenUpdateDTO;
 import com.blueprintmate.model.entity.Kitchen;
-import com.blueprintmate.model.entity.NewAppliancesInKitchen;
 import com.blueprintmate.model.entity.ReuseAppliancesInKitchen;
 import com.blueprintmate.repository.ReuseAppliancesInKitchenRepository;
 import jakarta.transaction.Transactional;
