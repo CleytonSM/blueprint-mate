@@ -1,21 +1,17 @@
 package com.blueprintmate.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_reuse_appliances_in_kitchen")
-public class ReuseAppliancesInKitchen {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_reuse_appliances_in_kitchen")
-    private int id;
+@PrimaryKeyJoinColumn(name = "id_reuse_appliances_in_kitchen")
+public class ReuseAppliancesInKitchen extends Appliances {
     @ManyToOne
-    @JoinColumn(name = "id_kitchen")
-    @JsonIgnore
-    private Kitchen kitchen;
+    @JoinColumn(name = "id_reuse_appliances_in_kitchen", referencedColumnName = "id_appliances",
+            nullable = false, insertable = false, updatable = false)
+    private Appliances appliances;
     @Column(name = "nm_reuse_appliances_in_kitchen", length = 30)
     private String name;
     @Column(name = "created_at")
@@ -28,24 +24,25 @@ public class ReuseAppliancesInKitchen {
     public ReuseAppliancesInKitchen() {
     }
 
-    public ReuseAppliancesInKitchen(Kitchen kitchen, String name, Timestamp createdAt,
-                                    Timestamp updatedAt, Timestamp deletedAt) {
-        this.kitchen = kitchen;
+    public ReuseAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                    String name, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
     }
 
-    public ReuseAppliancesInKitchen(Kitchen kitchen, String name, Timestamp createdAt, Timestamp updatedAt) {
-        this.kitchen = kitchen;
+    public ReuseAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                    String name, Timestamp createdAt, Timestamp updatedAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Kitchen getKitchen() {
-        return kitchen;
+    public Appliances getAppliances() {
+        return appliances;
     }
 
     public String getName() {
@@ -78,9 +75,5 @@ public class ReuseAppliancesInKitchen {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
-    }
-
-    public void setKitchen(Kitchen kitchen) {
-        this.kitchen = kitchen;
     }
 }

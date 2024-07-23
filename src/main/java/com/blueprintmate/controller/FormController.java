@@ -2,14 +2,16 @@ package com.blueprintmate.controller;
 
 import com.blueprintmate.model.dto.FormCreateDTO;
 import com.blueprintmate.model.dto.FormFilterDTO;
-import com.blueprintmate.model.dto.FormUpdateDTO;
 import com.blueprintmate.model.entity.Form;
 import com.blueprintmate.service.FormService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -30,12 +32,5 @@ public class FormController {
     @PostMapping("/filter")
     public ResponseEntity<List<Form>> findFormsByFilter(@RequestBody FormFilterDTO formFilterDTO) {
         return new ResponseEntity<>(service.findFormsByFilter(formFilterDTO), HttpStatus.OK);
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<Void> updateFormById(@PathVariable int id, @Valid @RequestBody FormUpdateDTO formUpdateDTO) {
-        service.updateFormById(id, formUpdateDTO);
-
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

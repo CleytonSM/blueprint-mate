@@ -1,21 +1,17 @@
 package com.blueprintmate.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tb_new_appliances_in_kitchen")
-public class NewAppliancesInKitchen {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_new_appliances_in_kitchen")
-    private int id;
+@PrimaryKeyJoinColumn(name = "id_new_appliances_in_kitchen")
+public class NewAppliancesInKitchen extends Appliances {
     @ManyToOne
-    @JoinColumn(name = "id_kitchen")
-    @JsonIgnore
-    private Kitchen kitchen;
+    @JoinColumn(name = "id_new_appliances_in_kitchen", referencedColumnName = "id_appliances",
+            nullable = false, insertable = false, updatable = false)
+    private Appliances appliances;
     @Column(name = "link_new_appliances_in_kitchen", length = Integer.MAX_VALUE)
     private String link;
     @Column(name = "created_at")
@@ -28,24 +24,25 @@ public class NewAppliancesInKitchen {
     public NewAppliancesInKitchen() {
     }
 
-    public NewAppliancesInKitchen(Kitchen kitchen, String link, Timestamp createdAt,
-                                  Timestamp updatedAt, Timestamp deletedAt) {
-        this.kitchen = kitchen;
+    public NewAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                  String link, Timestamp createdAt, Timestamp updatedAt, Timestamp deletedAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.link = link;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
     }
 
-    public NewAppliancesInKitchen(Kitchen kitchen, String link, Timestamp createdAt, Timestamp updatedAt) {
-        this.kitchen = kitchen;
+    public NewAppliancesInKitchen(Kitchen kitchen, Boolean hasStoreSmallVisible, Boolean hasStoreSmallHidden,
+                                  String link, Timestamp createdAt, Timestamp updatedAt) {
+        super(kitchen, hasStoreSmallVisible, hasStoreSmallHidden);
         this.link = link;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Kitchen getKitchen() {
-        return kitchen;
+    public Appliances getAppliances() {
+        return appliances;
     }
 
     public String getLink() {
@@ -78,9 +75,5 @@ public class NewAppliancesInKitchen {
 
     public void setDeletedAt(Timestamp deletedAt) {
         this.deletedAt = deletedAt;
-    }
-
-    public void setKitchen(Kitchen kitchen) {
-        this.kitchen = kitchen;
     }
 }
