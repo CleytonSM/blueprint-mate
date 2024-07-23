@@ -1,10 +1,8 @@
 package com.blueprintmate.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_form")

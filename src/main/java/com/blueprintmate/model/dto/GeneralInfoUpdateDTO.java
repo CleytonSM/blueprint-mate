@@ -1,7 +1,5 @@
 package com.blueprintmate.model.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
 public class GeneralInfoUpdateDTO {
     private String reuse;
     private String additional;
