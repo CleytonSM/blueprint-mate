@@ -4,7 +4,6 @@ import com.blueprintmate.helper.ModelMapperHelper;
 import com.blueprintmate.model.dto.NecessaryAppliancesCreateOnLaundryDTO;
 import com.blueprintmate.model.dto.NecessaryAppliancesUpdateOnLaundryDTO;
 import com.blueprintmate.model.entity.Laundry;
-import com.blueprintmate.model.entity.NecessaryAppliancesInKitchen;
 import com.blueprintmate.model.entity.NecessaryAppliancesInLaundry;
 import com.blueprintmate.repository.NecessaryAppliancesInLaundryRepository;
 import jakarta.transaction.Transactional;

@@ -5,7 +5,6 @@ import com.blueprintmate.model.dto.BathroomCreateDTO;
 import com.blueprintmate.model.dto.BathroomUpdateDTO;
 import com.blueprintmate.model.entity.Bathroom;
 import com.blueprintmate.model.entity.Form;
-import com.blueprintmate.model.entity.Laundry;
 import com.blueprintmate.repository.BathroomRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
