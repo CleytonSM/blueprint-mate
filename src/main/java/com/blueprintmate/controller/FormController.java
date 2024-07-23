@@ -38,4 +38,9 @@ public class FormController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/find/all")
+    public ResponseEntity<List<Form>> findFormsByClient() {
+        return new ResponseEntity<>(service.findFormsByClient(), HttpStatus.OK);
+    }
 }
