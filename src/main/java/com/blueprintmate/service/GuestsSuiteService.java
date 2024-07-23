@@ -29,6 +29,12 @@ public class GuestsSuiteService {
         save(newGuestsSuite);
     }
 
+    public void updateGuestsSuite(GuestsSuite retrievedGuestsSuite, Form form) {
+        retrievedGuestsSuite.setForm(form);
+
+        save(retrievedGuestsSuite);
+    }
+
     @Transactional
     private GuestsSuite save(GuestsSuite guestsSuite) {
         return repository.save(guestsSuite);
@@ -42,4 +48,5 @@ public class GuestsSuiteService {
                                                  GuestsSuiteUpdateDTO guestsSuiteUpdateDTO) {
         return modelMapperHelper.convertGuestsSuiteUpdateDTOToGuestsSuite(retrievedGuestsSuite, guestsSuiteUpdateDTO);
     }
+
 }

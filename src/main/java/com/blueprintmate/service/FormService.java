@@ -1,9 +1,7 @@
 package com.blueprintmate.service;
 
 import com.blueprintmate.helper.ModelMapperHelper;
-import com.blueprintmate.model.dto.FormCreateDTO;
-import com.blueprintmate.model.dto.FormFilterDTO;
-import com.blueprintmate.model.dto.FormUpdateDTO;
+import com.blueprintmate.model.dto.*;
 import com.blueprintmate.model.entity.*;
 import com.blueprintmate.repository.FormRepository;
 import jakarta.transaction.Transactional;
@@ -11,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.blueprintmate.helper.OptionalHelper.getOptionalEntity;
@@ -90,7 +86,7 @@ public class FormService {
                 .getHomeOfficeSuite());
         GeneralInfo newGeneralInfo = generalInfoService.setUpGeneralInfo(formCreateDTO.getGeneralInfo());
         StyleAndMoods newStyleAndMoods = styleAndMoodsService.setUpStyleAndMoods(formCreateDTO.getStyleAndMoods());
-        Context newContext = contextService.setUpContext(formCreateDTO.getContextCreate());
+        Context newContext = contextService.setUpContext(formCreateDTO.getContext());
 
         Form newForm = modelMapperHelper.convertFormCreateDTOToForm(formCreateDTO);
         newForm.setClient(retrievedClient);
@@ -104,7 +100,7 @@ public class FormService {
         livingRoomService.createLivingRoom(newLivingRoom, newForm);
         diningRoomService.createDiningRoom(newDiningRoom, newForm);
         kitchenService.createKitchen(newKitchen, newForm);
-        newAppliancesInKitchenService.createNewAppliancesOnKitchen(
+        newAppliancesInKitchenService.createNewAppliancesInKitchen(
                 formCreateDTO.getKitchen().getAppliances(), newKitchen);
         reuseAppliancesInKitchenService.createReuseAppliances(
                 formCreateDTO.getKitchen().getAppliances(), newKitchen);
@@ -183,8 +179,8 @@ public class FormService {
         entranceHallService.updateEntranceHall(retrievedEntranceHall, retrievedForm);
         livingRoomService.updateLivingRoom(retrievedLivingRoom, retrievedForm);
         diningRoomService.updateDiningRoom(retrievedDiningRoom, retrievedForm);
-        kitchenService.updateKitchen(retrievedKitchen, retrievedForm);
-        laundryService.updateLaundry(retrievedLaundry, retrievedForm);
+        Kitchen savedKitchen = kitchenService.updateKitchen(retrievedKitchen, retrievedForm);
+        Laundry savedLaundry = laundryService.updateLaundry(retrievedLaundry, retrievedForm);
         bathroomService.updateBathroom(retrievedBathroom, retrievedForm);
         masterSuiteService.updateMasterSuite(retrievedMasterSuite, retrievedForm);
         descendantsSuiteService.updateDescendantsSuite(retrievedDescendantsSuite, retrievedForm);
@@ -194,11 +190,14 @@ public class FormService {
         styleAndMoodsService.updateStyleAndMoods(retrievedStyleAndMoods, retrievedForm);
         contextService.updateContext(retrievedContext, retrievedForm);
 
-        // vão precisar da kitchen e da laundry salvas
-        newAppliancesInKitchenService.updateNewAppliancesOnKitchen();
-        reuseAppliancesInKitchenService.updateReuseAppliances();
-        necessaryAppliancesInKitchenService.updateNecessaryAppliances();
-        necessaryAppliancesInLaundryService.updateNecessaryAppliances();
+        KitchenUpdateDTO kitchenForUpdate = formUpdateDTO.getKitchen();
+        LaundryUpdateDTO laundryForUpdate = formUpdateDTO.getLaundry();
+
+        newAppliancesInKitchenService.updateNewAppliances(savedKitchen, kitchenForUpdate.getAppliances());
+        reuseAppliancesInKitchenService.updateReuseAppliances(savedKitchen, kitchenForUpdate.getAppliances());
+        necessaryAppliancesInKitchenService.updateNecessaryAppliances(savedKitchen, kitchenForUpdate.getAppliances());
+        necessaryAppliancesInLaundryService.updateNecessaryAppliances(savedLaundry,
+                laundryForUpdate.getNecessaryAppliancesOnLaundryList());
     }
 
     @Transactional
@@ -209,6 +208,6 @@ public class FormService {
     public List<Form> findFormsByFilter(FormFilterDTO formFilterDTO) {
         Client retrivedClient = clientService.findClientByName(formFilterDTO.getClientName());
 
-        return repository.findByClientNameAndDate(retrivedClient.getName());
+        return repository.findByClientName(retrivedClient.getName());
     }
 }

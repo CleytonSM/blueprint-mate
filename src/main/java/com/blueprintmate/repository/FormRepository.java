@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface FormRepository extends JpaRepository<Form, Integer> {
     @Query("SELECT f FROM Form f WHERE f.client.name = ?1")
-    List<Form> findByClientNameAndDate(String clientName);
+    List<Form> findByClientName(String clientName);
 }

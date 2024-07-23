@@ -31,6 +31,12 @@ public class MasterSuiteService {
         save(newMasterSuite);
     }
 
+    public void updateMasterSuite(MasterSuite retrievedMasterSuite, Form form) {
+        retrievedMasterSuite.setForm(form);
+
+        save(retrievedMasterSuite);
+    }
+
     @Transactional
     private MasterSuite save(MasterSuite newMasterSuite) {
         return repository.save(newMasterSuite);

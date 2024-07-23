@@ -29,6 +29,12 @@ public class DescendantsSuiteService {
         save(newDescendantsSuite);
     }
 
+    public void updateDescendantsSuite(DescendantsSuite retrievedDescendantsSuite, Form form) {
+        retrievedDescendantsSuite.setForm(form);
+
+        save(retrievedDescendantsSuite);
+    }
+
     @Transactional
     private DescendantsSuite save(DescendantsSuite newDescendantsSuite) {
         return repository.save(newDescendantsSuite);
@@ -43,4 +49,5 @@ public class DescendantsSuiteService {
         return modelMapperHelper.convertDescendantsSuiteUpdateDTOToDescendantsSuite(retrievedDescendantsSuite,
                 descendantsSuiteUpdateDTO);
     }
+
 }

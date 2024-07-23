@@ -590,7 +590,7 @@ public class ModelMapperHelper {
         retrievedGeneralInfo.setPlantRelationship(generalInfoUpdateDTO.getPlantRelationship());
         retrievedGeneralInfo.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
-        return null;
+        return retrievedGeneralInfo;
     }
 
     public StyleAndMoods convertStyleAndMoodsUpdateDTOToStyleAndMoods(StyleAndMoods retrievedStyleAndMoods,
