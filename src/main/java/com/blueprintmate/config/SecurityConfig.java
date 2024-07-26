@@ -31,6 +31,8 @@ public class SecurityConfig {
                         .requestMatchers("/register").permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/client/create").hasRole("USER")
+                        .requestMatchers("/client/find").hasRole("ADMIN")
+                        .requestMatchers("/client/find/all").hasRole("ADMIN")
                         .requestMatchers("/form/create").hasRole("USER")
                         .requestMatchers("/form/update/**").hasRole("USER")
                         .requestMatchers("/form/find/all").hasRole("USER")
