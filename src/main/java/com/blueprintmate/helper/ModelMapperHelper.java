@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ModelMapperHelper {
@@ -617,5 +620,18 @@ public class ModelMapperHelper {
         retrievedForm.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         return retrievedForm;
+    }
+
+    public ClientResponseDTO convertClientToClientResponseDTO(Client client) {
+        return new ClientResponseDTO(client.getId(), client.getName(), client.getNickname(),
+                client.getCreatedAt(), client.getUpdatedAt(), client.getDeletedAt());
+    }
+
+    public List<ClientResponseDTO> convertClientListToClientResponseDTOList(List<Client> clientList) {
+        List<ClientResponseDTO> clientResponseDTOList = new ArrayList<>();
+
+        clientList.forEach(client -> clientResponseDTOList.add(convertClientToClientResponseDTO(client)));
+
+        return clientResponseDTOList;
     }
 }
