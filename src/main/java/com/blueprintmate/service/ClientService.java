@@ -75,4 +75,8 @@ public class ClientService {
 
         return PageHelper.setUpPageResponse(page.getNumber(), page.getSize(), clientResponseDTOList);
     }
+
+    public void deleteById(int id) {
+        repository.deleteById(id);
+    }
 }

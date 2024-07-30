@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .requestMatchers("/client/create").hasRole("USER")
                         .requestMatchers("/client/find").hasRole("ADMIN")
                         .requestMatchers("/client/find/all").hasRole("ADMIN")
+                        .requestMatchers("/client/delete/**").hasRole("ADMIN")
                         .requestMatchers("/form/create").hasRole("USER")
                         .requestMatchers("/form/update/**").hasRole("USER")
                         .requestMatchers("/form/find/all").hasRole("USER")
