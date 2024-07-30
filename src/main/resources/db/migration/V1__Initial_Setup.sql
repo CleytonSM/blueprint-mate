@@ -1,4 +1,4 @@
-    CREATE TABLE tb_authority(
+CREATE TABLE tb_authority(
   id_auth int PRIMARY KEY AUTO_INCREMENT,
   nm_auth varchar(10),
   created_at timestamp,
@@ -7,18 +7,19 @@
 
 CREATE TABLE tb_user(
   id_user int PRIMARY KEY AUTO_INCREMENT,
-  id_auth int NOT NULL REFERENCES tb_authority(id_auth),
+  id_auth int NOT NULL,
   email_user varchar(80) UNIQUE,
   pwd_user varchar(80),
   active_user boolean,
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_auth) REFERENCES tb_authority(id_auth)
 );
 
 CREATE TABLE tb_client(
   id_client int PRIMARY KEY AUTO_INCREMENT,
-  id_user int UNIQUE NOT NULL REFERENCES tb_user(id_user),
+  id_user int UNIQUE NOT NULL,
   nm_client varchar(60) NOT NULL,
   nicknm_client varchar(40),
   birthday_client date NOT NULL,
@@ -28,40 +29,44 @@ CREATE TABLE tb_client(
   individual_needs_client varchar(150),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_user) REFERENCES tb_user(id_user)
 );
 
 CREATE TABLE tb_social_media(
   id_social_media int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_client int NOT NULL,
   nm_social_media varchar(60),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_client) REFERENCES tb_client(id_client) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_descendants(
   id_descendant int PRIMARY KEY AUTO_INCREMENT,
-  id_client int NOT NULL REFERENCES tb_client(id_client),
+  id_client int NOT NULL,
   nm_descendant varchar(60),
   age_descendant int,
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_client) REFERENCES tb_client(id_client) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_form(
     id_form int PRIMARY KEY AUTO_INCREMENT,
-    id_client int NOT NULL REFERENCES tb_client(id_client),
+    id_client int NOT NULL,
     title_form varchar(40),
     created_at timestamp,
     updated_at timestamp,
-    deleted_at timestamp
+    deleted_at timestamp,
+    FOREIGN KEY (id_client) REFERENCES tb_client(id_client) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_description(
   id_desc int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   best_place_desc varchar(180),
   wknd_best_place_desc varchar(180),
   miss_actual_house_desc varchar(180),
@@ -88,46 +93,50 @@ CREATE TABLE tb_description(
   cook_desc varchar(180),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_experience(
   id_experience int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   neutral_color_exp varchar(20),
   lively_color_exp varchar(20),
   like_to_feel_exp varchar(180),
   house_meaning_exp varchar(180),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_context(
   id_context int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   project_life_stage_significance_context varchar(200),
   investment_expectation_context varchar(200),
   project_duration_expectation_context varchar(200),
   location_during_renovation_context varchar(200),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_style_and_moods(
   id_style_and_moods int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   ambient_style_style_and_moods varchar(20),
   ambient_style_description_style_and_moods varchar(180),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_general_info(
   id_general_info int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   reuse_general_info varchar(200),
   additional_general_info varchar(200),
   unlisted_furniture_or_equipment_general_info varchar(200),
@@ -135,12 +144,13 @@ CREATE TABLE tb_general_info(
   plant_relationship_general_info varchar(50),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_master_suite(
   id_master_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   bed_type_suite varchar(30),
   bool_tv_in_master_suite boolean,
   bool_armchair_master_suite boolean,
@@ -155,12 +165,13 @@ CREATE TABLE tb_master_suite(
   current_shoe_pairs_count_master_suite int,
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_descendants_suite(
   id_descendants_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   bed_type_suite varchar(30),
   bool_tv_in_descendants_suite boolean,
   bool_child_study_in_descendants_suite boolean,
@@ -168,34 +179,37 @@ CREATE TABLE tb_descendants_suite(
   theme_descendants_suite varchar(30),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_home_office_suite(
   id_home_office_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   bed_type_suite varchar(30),
   bool_needs_privacy boolean,
   bool_needs_space_for_books_documents_papers boolean,
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_guests_suite(
   id_guests_suite INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   bed_type_suite varchar(30),
   closet_use_guests_suite varchar(45),
   frequency_of_guests_guests_suite varchar(45),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_building(
   id_building int PRIMARY KEY AUTO_INCREMENT,
-  id_form int NOT NULL REFERENCES tb_form(id_form),
+  id_form int NOT NULL,
   neighborhood_relationship_building varchar(180),
   determining_factor_building varchar(180),
   architectural_language_building varchar(180),
@@ -203,12 +217,13 @@ CREATE TABLE tb_building(
   building_manager_contact_building varchar(180),
   created_at timestamp,
   updated_at timestamp,
-  deleted_at timestamp
+  deleted_at timestamp,
+  FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_kitchen(
     id_kitchen INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     color_type_kitchen VARCHAR(30) NOT NULL,
     shape_type_kitchen VARCHAR(30) NOT NULL,
     counter_top_material_kitchen VARCHAR(30) NOT NULL,
@@ -227,22 +242,24 @@ CREATE TABLE tb_kitchen(
     dinner_capacity_kitchen INTEGER,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_dining_room(
     id_dining_room INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     dining_table_capacity_dining_room INTEGER,
     daily_meals_location_dining_room VARCHAR(60),
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_living_room(
     id_living_room INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     people_in_living_room INTEGER,
     bool_tv_is_important_living_room BOOLEAN,
     tv_inch_living_room INTEGER,
@@ -254,12 +271,13 @@ CREATE TABLE tb_living_room(
     receives_many_people_living_room varchar(100),
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_entrance_hall(
     id_entrance_hall INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     bool_shoes_house_walking_entrance_hall BOOLEAN,
     bool_has_entrance_console_table_entrance_hall BOOLEAN,
     bool_want_entrance_console_table_entrance_hall BOOLEAN,
@@ -267,22 +285,24 @@ CREATE TABLE tb_entrance_hall(
     bool_familiar_with_electronic_locks_entrance_hall BOOLEAN,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_toilet(
     id_toilet INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     apartment_pattern_toilet VARCHAR(180),
     design_toilet VARCHAR(50),
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_laundry(
     id_laundry INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     bool_built_in_sink_laundry BOOLEAN,
     bool_porcelain_sink_laundry BOOLEAN,
     bool_pet_food_and_bowls_stored_here_laundry BOOLEAN,
@@ -291,12 +311,13 @@ CREATE TABLE tb_laundry(
     drying_rack_sizes_laundry DECIMAL(5,2),
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_bathroom(
     id_bathroom INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_form int NOT NULL REFERENCES tb_form(id_form),
+    id_form int NOT NULL,
     bool_all_renovated_bathroom BOOLEAN,
     preferred_sink_shape_bathroom VARCHAR(50),
     preferred_flush_type_bathroom VARCHAR(20),
@@ -318,46 +339,51 @@ CREATE TABLE tb_bathroom(
     bool_hydro_bathroom BOOLEAN,
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
-    deleted_at TIMESTAMP
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (id_form) REFERENCES tb_form(id_form) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_reuse_appliances_in_kitchen(
   id_reuse_appliances_in_kitchen INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_kitchen int REFERENCES tb_kitchen(id_kitchen),
+  id_kitchen int,
   nm_reuse_appliances_in_kitchen varchar(30),
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
-  deleted_at TIMESTAMP
+  deleted_at TIMESTAMP,
+  FOREIGN KEY (id_kitchen) REFERENCES tb_kitchen(id_kitchen) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_new_appliances_in_kitchen(
   id_new_appliances_in_kitchen INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_kitchen int REFERENCES tb_kitchen(id_kitchen),
+  id_kitchen int,
   link_new_appliances_in_kitchen TEXT,
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
-  deleted_at TIMESTAMP
+  deleted_at TIMESTAMP,
+  FOREIGN KEY (id_kitchen) REFERENCES tb_kitchen(id_kitchen) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_necessary_appliances_in_kitchen(
   id_necessary_appliances_in_kitchen INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_kitchen int REFERENCES tb_kitchen(id_kitchen),
+  id_kitchen int,
   bool_store_small_visible_appliances boolean,
   bool_store_small_hidden_appliances boolean,
   nm_necessary_appliances_in_kitchen varchar(45),
   bool_used_daily_necessary_appliances_in_kitchen boolean,
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
-  deleted_at TIMESTAMP
+  deleted_at TIMESTAMP,
+  FOREIGN KEY (id_kitchen) REFERENCES tb_kitchen(id_kitchen) ON DELETE CASCADE
 );
 
 CREATE TABLE tb_necessary_appliances_in_laundry(
   id_necessary_appliances_in_laundry INTEGER PRIMARY KEY AUTO_INCREMENT,
-  id_laundry int REFERENCES tb_laundry(id_laundry),
+  id_laundry int,
   nm_necessary_appliances_in_laundry varchar(45),
   created_at TIMESTAMP,
   updated_at TIMESTAMP,
-  deleted_at TIMESTAMP
+  deleted_at TIMESTAMP,
+  FOREIGN KEY (id_laundry) REFERENCES tb_laundry(id_laundry) ON DELETE CASCADE
 );
 
 INSERT INTO tb_authority (nm_auth, created_at)
