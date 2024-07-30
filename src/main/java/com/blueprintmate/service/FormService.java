@@ -218,4 +218,15 @@ public class FormService {
 
         return repository.findByClientName(retrievedClient.getName());
     }
+
+    public void deleteFormByFormId(int formId) {
+        User authenticatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Client retrievedClient = clientService.findClientByUserId(authenticatedUser.getId());
+
+        repository.deleteByClientAndFormId(retrievedClient.getId(), formId);
+    }
+
+    public void deleteFormByClientIdAndFormId(int clientId, int formId) {
+        repository.deleteByClientAndFormId(clientId, formId);
+    }
 }
