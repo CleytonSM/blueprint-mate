@@ -37,7 +37,9 @@ public class SecurityConfig {
                         .requestMatchers("/form/create").hasRole("USER")
                         .requestMatchers("/form/update/**").hasRole("USER")
                         .requestMatchers("/form/find/all").hasRole("USER")
-                        .requestMatchers("/form/filter").hasRole("ADMIN"))
+                        .requestMatchers("/form/delete").hasRole("USER")
+                        .requestMatchers("/form/filter").hasRole("ADMIN")
+                        .requestMatchers("/form/admin/delete").hasRole("ADMIN"))
                 .addFilterBefore(applicationContext.getBean(JwtValidatorFilter.class), UsernamePasswordAuthenticationFilter.class)
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable);

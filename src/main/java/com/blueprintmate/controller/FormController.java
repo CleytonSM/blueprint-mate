@@ -43,4 +43,18 @@ public class FormController {
     public ResponseEntity<List<Form>> findFormsByClient() {
         return new ResponseEntity<>(service.findFormsByClient(), HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteFormByFormId(@RequestParam int formId) {
+        service.deleteFormByFormId(formId);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/admin/delete")
+    public ResponseEntity<Void> deleteFormByFormId(@RequestParam int clientId, @RequestParam int formId) {
+        service.deleteFormByClientIdAndFormId(clientId, formId);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
